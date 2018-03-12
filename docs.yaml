@@ -1,0 +1,59 @@
+---
+packages:
+    - name: Hyn
+      description: >
+        Run multiple websites using the same Laravel installation while
+        keeping tenant specific data separated for fully independant
+        multi-domain setups.
+      repository: https://github.com/hyn/multi-tenant
+      versions:
+        - name: 5.x
+          status: Stable
+          suggest_using: true
+          status_color: success
+          branch: 5.x
+          tree:
+            getting started:
+                - requirements
+                - installation
+                - configuration
+            tenant principles:
+                - concepts
+                - structure
+                - identification
+                - fallback
+                - middleware
+            implementation:
+                - models
+                - repositories
+                - filesystem
+                - migrations
+                - connections
+                - queues
+                - events
+            webserver:
+                - apache
+                - nginx
+            tutorials:
+                - spatie-laravel-permission
+    - name: Tenancy
+      repository: https://github.com/tenancy/tenancy
+      description: >
+        The next-gen SaaS toolkit extending Laravel to service multiple
+        tenant applications from the same code base. Scalable, increased
+        flexibility and modularity with other packages like Spark.
+      versions:
+        - name: 1.x
+          status: Concepting
+          suggest_using: false
+          status_color: dark
+          branch: master
+          tree:
+            getting started:
+                - requirements
+                - installation
+                - what-is-a-tenant
+            drivers:
+                - identification-drivers
+                - database-drivers
+---
