@@ -3,11 +3,11 @@ title: Cache
 icon: fal fa-window-restore
 ---
 
-Currently the Laravel cache will use the same cache key for all tenants. This can and will cause issues in the long run. The config key for tenants should be automatically changed and the ability to disable overriding the cache key should be configurable inside tenancy.php
+Currently the Laravel cache will use the same cache key for all tenants. 
+This can and will cause issues in the long run. The config key for tenants 
+should be automatically changed and the ability to disable overriding the cache key should be configurable inside tenancy.php
 
-[@jeitnier](https://github.com/jeitnier) over at Github has an interesting solution and agreed to have it posted here in the documentation.
-
-Added a `CacheServiceProvider` with these contents in boot method:
+Add a `CacheServiceProvider` with these contents in boot method:
 
 ```php
 public function boot()
@@ -36,7 +36,9 @@ public function boot()
 }
 ```
 
-Doesn't require a new Cache driver, as it's just manually implementing the existing Redis driver. All this does is override the default prefix, which lets you do by setting a custom cache driver in `config/cache.php`.
+This does not require a new Cache driver, as it's just manually implementing 
+the existing Redis driver. All this does is override the default prefix, 
+which lets you do by setting a custom cache driver in `config/cache.php`.
 
 ```php
 'redis' => [
