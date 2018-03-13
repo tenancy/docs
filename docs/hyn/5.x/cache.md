@@ -1,5 +1,5 @@
 ---
-title: Tenant aware Cache Driver
+title: Cache
 icon: fal fa-window-restore
 ---
 
