@@ -36,6 +36,7 @@ packages:
                 - apache
                 - nginx
             tutorials:
+                - full-featured-tutorial
                 - spatie-laravel-permission
     - name: Tenancy
       repository: https://github.com/tenancy/tenancy
