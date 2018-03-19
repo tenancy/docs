@@ -7,9 +7,20 @@ icon: fal fa-barcode-scan
 There are several ways to organize a fallback domain. These are commonly used to offer
 a landing page or admin area for your clients to configure their tenant website.
 
+# Routing with domain
+
+One of the easiest solutions is using the `::domain()` option in routing called
+[sub domain routing in Laravel](https://laravel.com/docs/5.5/routing#route-group-sub-domain-routing).
+
+```php
+Route::domain('master.your.app')->group(function () {
+    // .. your landing page routes
+});
+```
+
 # Create a tenant as fallback
 
-One of the easiest methods is to simply seed a default tenant that has a specific
+Another quick method is to simply seed a default tenant that has a specific
 hostname. Set the environment `TENANCY_DEFAULT_HOSTNAME` to the exact FQDN used
 for that tenant.
 
