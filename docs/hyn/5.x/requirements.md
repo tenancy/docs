@@ -42,11 +42,18 @@ Under connections:
 
 ```php
 'system' => [
-    'driver' => 'mysql', // or pgsql in case you use PostgreSQL
-    'username' => 'tenancy',
-    'database' => 'tenancy',
-    'password' => 'someRandomPassword',
-    // Remaining settings required for this specific driver.
+    'driver' => 'mysql',
+    'host' => env('TENANCY_HOST', '127.0.0.1'),
+    'port' => env('TENANCY_PORT', '3306'),
+    'database' => env('TENANCY_DATABASE', 'tenancy'),
+    'username' => env('TENANCY_USERNAME', 'tenancy'),
+    'password' => env('TENANCY_PASSWORD', ''),
+    'unix_socket' => env('DB_SOCKET', ''),
+    'charset' => 'utf8mb4',
+    'collation' => 'utf8mb4_unicode_ci',
+    'prefix' => '',
+    'strict' => true,
+    'engine' => null,
 ]
 ```
 
