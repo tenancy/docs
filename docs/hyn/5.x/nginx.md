@@ -32,7 +32,7 @@ sock and update your `webserver.php` configuration file in your app to reflect t
 Tenancy natively integrates with the Nginx webserver. For that to work you need
 to do a minor configuration.
 
-Edit the `/etc/nginx/nginx.conf` and just below the last `include` statement
+Edit the `/etc/nginx/nginx.conf` and below the last `include` statement
 add:
 
 ```apacheconfig

@@ -6,7 +6,7 @@ tags:
     - permission
     - tutorial
 ---
-1. Create a fresh install of Laravel 5.5.  If you have installed the Laravel Terminal Installer you can just do: `$ laravel new app`
+1. Create a fresh install of Laravel 5.5.  If you have installed the Laravel Terminal Installer run: `$ laravel new app`
 2. `$ cd app`
 3. Install `hyn/multi-tenant` package by running:
 ```bash
@@ -16,14 +16,22 @@ composer require hyn/multi-tenant
 5. If you are using MySQL DB, you need to add the entry `LIMIT_UUID_LENGTH_32=true` in your `.env` file.
 
 ## Install Spatie Permissions
-Nothing special way to install the package just follow the entire installation section in [GitHub - spatie/laravel-permission: Associate users with roles and permissions](https://github.com/spatie/laravel-permission#installation)
 
-## Integration - How to make the two package work nicely
-This section of the tutorial assumes that you have successfully created at least 2 hostnames and successfully have accessed them via your local environment setup.
+To install the package follow the entire installation section 
+at [GitHub - spatie/laravel-permission: Associate users with roles and permissions](https://github.com/spatie/laravel-permission#installation).
 
-We need to extend the 2 (`Permission`, `Role`) eloquent models of the Permissions package so that we can add the necessary changes we need in order for these two models to be tenant aware.
+## Integration
 
-1. Create a Permission.php and Role.php file and place them inside your `app` directory, next to your `User.php`. Make sure that these files extend `Spatie\Permission\Models\Permission::class` and `Spatie\Permission\Models\Role::class` respectively.
+This section of the tutorial assumes that you have successfully created at least 2 hostnames 
+and successfully have accessed them via your local environment setup.
+
+We need to extend the two eloquent models (`Permission`, `Role`) of the Permissions 
+package so that we can add the necessary changes we need in order for these two models 
+to be tenant aware.
+
+1. Create a Permission.php and Role.php file and place them inside your `app` directory, 
+next to your `User.php`. Make sure that these files extend `Spatie\Permission\Models\Permission::class` 
+and `Spatie\Permission\Models\Role::class` respectively.
 
 `App\Permission.php` - extends from `SpatieRole` and uses the `UsesTenantConnection` trait.
 ```php
@@ -90,7 +98,8 @@ class User extends Authenticatable
 }
 ```
 
-3. Modify your `config/permission.php` file and modify the permission and role models that is being used here to point to your newly created models. e.g. `App\Permission::class`
+3. Modify your `config/permission.php` file and modify the permission and role models 
+that is being used here to point to your newly created models. e.g. `App\Permission::class`
 
 `config\permisssion.php`
 ```php

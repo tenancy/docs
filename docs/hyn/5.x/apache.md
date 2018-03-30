@@ -8,7 +8,7 @@ icon: fal fa-server
 Tenancy natively integrates with the Apache webserver. For that to work you need
 to do a minor configuration.
 
-Edit the `/etc/apache2/apache2.conf` and just below the last `IncludeOptional` statement
+Edit the `/etc/apache2/apache2.conf` and below the last `IncludeOptional` statement
 add:
 
 ```apacheconfig
