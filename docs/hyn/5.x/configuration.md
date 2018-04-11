@@ -8,20 +8,10 @@ Tenancy needs a database connection with elevated permission to create databases
 to be used by its tenants.
 
 Make sure you set up this connection by following the instructions
-in the [requirements][requirements].
+in the [requirements][requirements], it also explains how to publish
+the configuration files.
 
 # Configuration Files
-
-The files are automatically added by the installation command:
-```bash
-php artisan tenancy:install
-```
-
-If you are upgrading and need to add new migrations, you can use this command:
-
-```bash
-php artisan vendor:publish --tag=tenancy
-```
 
 The inline documentation in both files should be self explanatory. Nevertheless,
 I've listed some of the basic settings below.
