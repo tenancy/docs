@@ -62,6 +62,19 @@ available as a public directory inside an equally named directory `media/`.
 Eg, storing a file `media/bg.jpg` will allow you to use `/media/bg.jpg` inside
 your html. This applies to any file you store.
 
-> An alias is set up binding the private tenant media directory to the public
+## /media webserver
+
+An alias is set up binding the private tenant media directory to the public
 media directory. This is implemented using the auto generated web server
-configuration files.
+configuration files for apache and nginx.
+
+## /media fallback controller
+
+In case you're not using the webserver vhost configuration files provided
+by this package you can choose to map the `MediaController` to the path, eg:
+
+```php
+Route::get('/media/{path}', Hyn\Tenancy\Controllers\MediaController::class)
+    ->where('path', '.+')
+    ->name('tenant.media');
+```
