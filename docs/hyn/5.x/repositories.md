@@ -44,6 +44,22 @@ app(WebsiteRepository::class)->create($website);
 dd($website->uuid); // Random string of length 10
 ```
 
+## Managing connection
+
+Whenever you are using multiple databases, to separate tenants over different
+regions for instance, you can easily specify the connection with which tenancy
+should create, update and delete tenant databases and users.
+
+```php
+$website = new Website;
+$website->managed_by_database_connection = 'system.asia';
+app(WebsiteRepository::class)->create($website);
+// Information of website is stored in the default system connection,
+// the tenant database is created using the system.asia connection.
+```
+
+> Make sure the provided connection name is configured in your `config/database.php`.
+
 # Create and connect hostname
 
 ```php
