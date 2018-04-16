@@ -52,3 +52,9 @@ and options.
 > Running tenancy:migrate without any path or realpath option and 
 without having configured tenant-migration-path will migrate your 
 tenants with the files inside the database/migrations directory. 
+
+# Reconstructing tenant databases
+
+As long as your system database is intact, there's a way to recreate all tenant databases. You can use the `tenancy:recreate` artisan command to recreate all tenant databases that do not exist. The command will run the migrations and seeds according to your configuration in `tenancy.php`.
+
+> Though the structure of all of your tenant databases will be recreated, the data in it won't.
