@@ -40,16 +40,28 @@ automatic migrations.
 
 Obviously tenancy is also able to run migrations running through artisan.
 
-Each of the native Laravel migrate and seed command has its tenancy
-counterpart, for instance.
+Tenancy has added the `--website_id[=WEBSITE_ID]` option to each of the following native Laravel migrate and seed
+command and namespaced it accordingly, for instance.
 
-- `tenancy:migrate`
-- `tenancy:db:seed`
+- `tenancy:migrate` - Run the database migrations
+- `tenancy:migrate:refresh` - Reset and re-run all migrations
+- `tenancy:migrate:reset` - Rollback all database migrations
+- `tenancy:migrate:rollback` - Rollback the last database migration
+- `tenancy:db:seed` - Seed the database with records
 
-Please check their separate signatures for more information of valid arguments
+The --website_id optional option accepts multiple values. Though optional, but if you leave the option out it will 
+run the command against all tenant. For example:
+
+- When you want to migrate website 1, you run `php artisan tenancy:migrate --website_id=1`
+- When you want to migrate website 1 & 2, you run `php artisan tenancy:migrate --website_id=1 --website_id=2`
+- When you want to migrate all website, you run `php artisan tenancy:migrate`
+
+> The website_id reflects the auto incremented `id` column of the Website and **NOT** the UUID.
+
+Please check the separate signatures for more information of valid arguments
 and options.
 
-> Running tenancy:migrate without any path or realpath option and 
+> Running tenancy:migrate without any path or realpath option and
 without having configured tenant-migrations-path will migrate your 
 tenants with the files inside the database/migrations directory. 
 
