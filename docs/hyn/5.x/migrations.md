@@ -49,11 +49,16 @@ command and namespaced it accordingly, for instance.
 - `tenancy:migrate:rollback` - Rollback the last database migration
 - `tenancy:db:seed` - Seed the database with records
 
-> The --website_id optional option accepts multiple values. For example:
+> The --website_id optional option accepts multiple values. Though optional, but if you leave the option out it will 
+run the command against all tenant. For example:
 
 > When you want to migrate website 1, you run `php artisan tenancy:migrate --website_id=1`
 
 > When you want to migrate website 1 & 2, you run `php artisan tenancy:migrate --website_id=1 --website_id=2`
+
+> When you want to migrate all website, you run `php artisan tenancy:migrate`
+
+> The website_id reflects the auto incremented `id` column of the Website and **NOT** the UUID.
 
 Please check their separate signatures for more information of valid arguments
 and options.
