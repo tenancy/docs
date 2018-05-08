@@ -15,6 +15,10 @@ respectively.
 We can leverage these two rules with tenancy by adding the connection parameter. Both uses the same validation rule
 signature which is `rule:connection.table,column`.
 
-So for example, to use `Exists (Database)` use `'email' => 'exists:tenant.staff,email'`. You just need to change `exists` keyword to `unique` to use the `unique` rule instead.
+So for example, to use `Exists (Database)` use `'email' => 'exists:tenant.staff,email'`. Where `tenant` is the `'tenant-connection-name'`
+you specified in your `tenancy.php` config file.
+You can just change the `exists` keyword to `unique` to use the `unique` rule instead.
 
 > Whatever tenant database you are using you just need to change the connection to use the `tenant` connection. The package takes care of the rest.
+
+> Having said this, you can as well force the validation to check the `system` connection.
