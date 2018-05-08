@@ -29,6 +29,7 @@ packages:
                 - filesystem
                 - migrations
                 - connections
+                - validation
                 - queues
                 - events
                 - cache
