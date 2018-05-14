@@ -42,6 +42,18 @@ You are able to specify whether these language files should override
 the global, system-wide translation. In case you decide against that
 feel free to set up a translation namespace.
 
+## Views
+
+Additional or overriding views is possible by creating a `views/` folder
+inside the tenant directory. There are three possible scenarios to 
+configure how views are picked up by Laravel:
+
+1. By adding views inside the global namespace, overriding existing
+global views.
+2. By adding views inside the global namespace, but where existing
+global views take precedence.
+3. By adding views inside their own namespace.
+
 ## Vendor
 
 A very powerful addition is the ability to inject new packages and code.
