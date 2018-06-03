@@ -25,7 +25,7 @@ In order to assist with mutating these contents, you can use the
 Directory class available in this package.
 
 ```php
-$directory = app(Hyn\Tenancy\Website\Directory::class);
+$directory = app(\Hyn\Tenancy\Website\Directory::class);
 ```
 
 This class is set to use the tenant currently active, but also allows you to activate
