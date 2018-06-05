@@ -27,6 +27,4 @@ Now enable the tenancy environment by running the installation procedure;
 php artisan tenancy:install
 ```
 
-> The `tenancy:install` command migrates the system tables and writes a `tenancy.json` into
-your Laravel installation path. This will tell the package that it is enabled. Remove
-that file in case you need to do a fresh installation.
+> The `tenancy:install` command migrates the system tables.
