@@ -7,11 +7,39 @@ packages:
         multi-domain setups.
       repository: https://github.com/hyn/multi-tenant
       versions:
-        - name: 5.x
+        - name: 5.1
+          branch: 5.1
+          tree:
+            getting started:
+                - requirements
+                - installation
+                - configuration
+            tenant principles:
+                - concepts
+                - structure
+                - identification
+                - fallback
+                - middleware
+            implementation:
+                - models
+                - repositories
+                - filesystem
+                - migrations
+                - connections
+                - validation
+                - queues
+                - events
+                - cache
+            webserver:
+                - apache
+                - nginx
+            tutorials:
+                - full-featured-tutorial
+                - spatie-laravel-permission
+        - name: 5.2
           status: Stable
           suggest_using: true
-          status_color: success
-          branch: 5.x
+          branch: 5.2
           tree:
             getting started:
                 - requirements
@@ -49,7 +77,6 @@ packages:
         - name: 1.x
           status: Concepting
           suggest_using: false
-          status_color: dark
           branch: master
           tree:
             getting started:
