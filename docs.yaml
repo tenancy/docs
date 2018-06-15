@@ -10,6 +10,7 @@ packages:
         - name: 5.1
           branch: 5.1
           status: Stable
+          suggest_using: true
           tree:
             getting started:
                 - requirements
@@ -39,7 +40,6 @@ packages:
                 - spatie-laravel-permission
         - name: 5.2
           status: Dev
-          suggest_using: true
           branch: 5.2
           tree:
             getting started:

@@ -1,5 +1,6 @@
 ---
-title: Upgrading from hyn/multi-tenant 5.1
+title: Upgrading from 5.1
+icon: fal fa-level-up-alt
 ---
 The 5.2 release cleans up the codebase in an attempt to clarify
 the required models and the subject of tenancy.

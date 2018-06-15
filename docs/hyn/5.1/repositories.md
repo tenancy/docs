@@ -76,6 +76,7 @@ dd($website->hostnames); // Collection with $hostname
 
 ```php
 use Hyn\Tenancy\Environment;
+
 $tenancy = app(Environment::class);
 
 $tenancy->hostname($hostname);
