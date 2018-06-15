@@ -5,7 +5,7 @@ icon: fal fa-arrow-alt-to-bottom
 Run the composer command to add the tenancy package as dependency:
 
 ```bash
-composer require hyn/multi-tenant:5.*
+composer require hyn/multi-tenant:5.1.*
 ```
 
 Laravel offers [package auto discovery](https://medium.com/@taylorotwell/package-auto-discovery-in-laravel-5-5-ea9e3ab20518)

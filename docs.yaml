@@ -9,6 +9,7 @@ packages:
       versions:
         - name: 5.1
           branch: 5.1
+          status: Stable
           tree:
             getting started:
                 - requirements
@@ -37,12 +38,13 @@ packages:
                 - full-featured-tutorial
                 - spatie-laravel-permission
         - name: 5.2
-          status: Stable
+          status: Dev
           suggest_using: true
           branch: 5.2
           tree:
             getting started:
                 - requirements
+                - upgrade-from-5.1
                 - installation
                 - configuration
             tenant principles:
@@ -64,9 +66,6 @@ packages:
             webserver:
                 - apache
                 - nginx
-            tutorials:
-                - full-featured-tutorial
-                - spatie-laravel-permission
     - name: Tenancy
       repository: https://github.com/tenancy/tenancy
       description: >

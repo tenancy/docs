@@ -5,11 +5,11 @@ icon: fal fa-arrow-alt-to-bottom
 Run the composer command to add the tenancy package as dependency:
 
 ```bash
-composer require hyn/multi-tenant:5.*
+composer require hyn/multi-tenant:5.2.*
 ```
 
 Laravel offers [package auto discovery](https://medium.com/@taylorotwell/package-auto-discovery-in-laravel-5-5-ea9e3ab20518)
-in version 5.5. So that's all you need to do, no need to register any
+in version 5.6. So that's all you need to do, no need to register any
 service providers manually in your `config/app.php`.
 
 Optionally you can publish the configuration files for tenancy. This allows you to configure
