@@ -19,5 +19,5 @@ Hostname had become the subject of identification. In order to straighten this
 out, from now whenever an identified Hostname is connected to a website, that
 website is bound to the new `Tenant` contract. All logic related to connections,
 custom tenant configuration files etc are now all following the Tenant Website.
-- The `TenantAwareJob` trait now uses the website_id.
+- The `TenantAwareJob` trait now uses the `website_id` and the fluent setter `onTenant()`.
 - The `Hostname` and `Website` models now have the `SoftDeletes` trait applied.
