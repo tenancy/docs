@@ -21,3 +21,4 @@ website is bound to the new `Tenant` contract. All logic related to connections,
 custom tenant configuration files etc are now all following the Tenant Website.
 - The `TenantAwareJob` trait now uses the `website_id` and the fluent setter `onTenant()`.
 - The `Hostname` and `Website` models now have the `SoftDeletes` trait applied.
+- Setting the `tenancy.website.disk` configuration to `false` will fully disable all filesystem related functionality for tenants, including configs, vendor and translations.
