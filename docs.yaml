@@ -6,6 +6,7 @@ packages:
         keeping tenant specific data separated for fully independant
         multi-domain setups.
       repository: https://github.com/hyn/multi-tenant
+      packagist: hyn/multi-tenant
       versions:
         - name: 5.1
           branch: 5.1
@@ -69,6 +70,7 @@ packages:
                 - nginx
     - name: Tenancy
       repository: https://github.com/tenancy/tenancy
+      packagist: tenancy/tenancy
       description: >
         The next-gen SaaS toolkit extending Laravel to service multiple
         tenant applications from the same code base. Scalable, increased
