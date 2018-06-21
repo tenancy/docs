@@ -26,6 +26,15 @@ self explanatory.
 - Deleting
 - Deleted
 
+## Websites
+
+Namespace: 'Hyn\Tenancy\Events\Websites'.
+
+- Identified; a tenant website was identified.
+- NoneFound: no tenant website was identified.
+- Migrated: a website was auto migrated (not fired from console commands).
+- Switched: the current tenant website was changed.
+
 ## Hostnames
 
 Namespace: `Hyn\Tenancy\Events\Hostnames`.
@@ -38,7 +47,7 @@ The hostname models has a few additional events;
 - NoneFound; no hostname was found during identification.
 - Redirected; the hostname is configured to redirect to another url.
 - Secured; the hostname is configured to upgrade the request to https.
-- Switched; currently active tenant was changed.
+- Switched; currently active hostname was changed.
 - UnderMaintenance; the hostname is configured to be in maintenance.
 
 # Database
@@ -55,6 +64,7 @@ Namespace: `Hyn\Tenancy\Events\Database`.
 is loading.
 - ConfigurationLoaded; the configuration for a tenant database connection
 was loaded.
+- ConnectionSet: a connection was set and possibly an old one purged.
 
 # Webservers
 
