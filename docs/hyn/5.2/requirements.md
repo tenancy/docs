@@ -56,6 +56,10 @@ Under connections:
 ]
 ```
 
+Most often it makes sense to use either `system` or `tenant` as your `database.default` setting.
+In case you use the `tenant` make sure to enable [early identification](identification) and configure
+a decent [fallback](fallback).
+
 > There is no need to configure the `tenant` connection in the `database.php`
 configuration file. This connection is set up automatically during runtime. Pre-
 configuring this connection may cause unwanted behaviour.

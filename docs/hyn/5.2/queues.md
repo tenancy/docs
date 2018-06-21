@@ -29,3 +29,15 @@ class ProcessPodcast implements ShouldQueue
     // ..
 }
 ```
+
+Once you've applied this custom trait the currently active tenant website will be
+parsed into the Job with property `$website_id`. During processing of the job
+this property is read and the Environment is automatically setting that website
+as active tenant.
+
+In case you'd like to manually set a specific tenant for the job, use the `onTenant()`
+method:
+
+```php
+dispatch(new ProcessPodcast($podcast)->onTenant($website));
+```

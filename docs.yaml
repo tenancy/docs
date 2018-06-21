@@ -40,7 +40,7 @@ packages:
                 - full-featured-tutorial
                 - spatie-laravel-permission
         - name: 5.2
-          status: Dev
+          status: Beta
           branch: 5.2
           tree:
             getting started:

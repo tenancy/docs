@@ -3,12 +3,12 @@ title: Connections
 icon: fal fa-warehouse-alt
 ---
 
-#### Database Connections
+# Database Connections
 
 One of the core aspects of tenancy is the database connection. Tenancy 
 gives you access to two key database connections; `tenant` and `system`.
 
-#### System Connection
+## System Connection
 Out of the box, the package gives you a `system` database connection which acts as 
 the master database where `hostnames` and `websites` are stored.
 
@@ -21,7 +21,7 @@ to share between all tenants or which you need to influence the tenant identific
 process. For instance when you are creating an admin portal that would manage all of your 
 tenants in one place.
 
-#### Tenant Connection
+## Tenant Connection
 This is maybe the most used database connection. Data in use by single tenant instances, 
 not shared with others, is persisted into the database using the tenant connection. The 
 implementation of the tenant connection ensures that no tenant can access another tenants data.

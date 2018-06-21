@@ -29,10 +29,10 @@ public function boot()
 {
     $environment = $this->app->make(\Hyn\Tenancy\Environment::class);
 
-    // Retrieve your hostname
+    // Retrieve your website
 
     // Now switch the environment to a new tenant.
-    $environment->hostname($hostname);
+    $environment->tenant($website);
 }
 ```
 

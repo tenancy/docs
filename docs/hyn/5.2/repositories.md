@@ -81,7 +81,11 @@ $tenancy = app(Environment::class);
 $tenancy->hostname($hostname);
 
 $tenancy->hostname(); // resolves $hostname as currently active hostname
+
+$tenancy->tenant($website); // switches the tenant and reconfigures the app
+
 $tenancy->website(); // resolves $website
+$tenancy->tenant(); // resolves $website
 
 $tenancy->identifyHostname(); // resets resolving $hostname by using the Request
 ```
@@ -92,4 +96,4 @@ In case you would like to query the database for hostnames or websites. Use the
 `query()` method of the repositories, this will return a [`Illuminate\Database\Eloquent\Builder`][query-builder]
 instance.
 
-[query-builder]: https://laravel.com/docs/5.5/queries
+[query-builder]: https://laravel.com/docs/5.6/queries

@@ -7,17 +7,21 @@ icon: fal fa-vials
 
 The principle of multi tenancy is about a single instance of software running
 on a server and serving multiple tenants. The interpretation of such a tenancy
-application is quite divers, the possible implementations is even without
-boundary.
+application is quite divers.
 
 Hyn tenancy is focused to provide a drop-in solution for Laravel without
 sacrificing flexibility or hacks of the Laravel ecosystem.
 
-This packages holds onto one core belief though; **the tenant is the website**, so;
+Make sure you understand that the `Website` model is the subject of tenancy.
 
-- A tenant is a website.
-- A website can have zero or more hostnames.
-    - A website is identified when a specific hostname is requested.
+The default method for identifying such a tenant website is by using the requested
+domain aka hostname. Taking a URL `http://yourdomain.com/foo/bar` only `yourdomain.com`
+is taken into account although modifications to this logic is easy to implement. The
+`yourdomain.com` part of the URL is called a Fully Qualified Domain Name or `fqdn  for short.
+ 
+A website can have zero or more hostnames connected to it. This allows for easier
+attachment of additional hostnames or serving, for instance, an ad campaign page
+on different domains.
 
 # Website
 
@@ -32,7 +36,17 @@ Your application handles incoming requests to specific hostnames. Tenancy inspec
 these requests and [sets up the tenancy environment][identification] according to a 
 matching hostname or default fallback.
 
+# Runtime
+
+With default behavior, the package will identify the current requested hostname and bind it
+into the `Hyn\Tenancy\Contracts\CurrentHostname` contract. In case that hostname belongs to
+a website the website will be bound into the `Hyn\Tenancy\Contracts\Tenant` contract. Whenever
+a Tenant is identified or switched the package will automatically infuse additional functionality
+into Laravel, including [global tenant routes][routes], [tenant overrides][directory-structure] and [queues][queues].
 
 [directory-structure]: structure
-[fqdn]: https://www.godaddy.com/garage/industry/tech-svcs/it/whats-a-fully-qualified-domain-name-fqdn-and-whats-it-good-for/
 [identification]: identification
+[routes]: fallback#tenant-routes-override
+[queues]: queues
+[fqdn]: https://www.godaddy.com/garage/industry/tech-svcs/it/whats-a-fully-qualified-domain-name-fqdn-and-whats-it-good-for/
+
