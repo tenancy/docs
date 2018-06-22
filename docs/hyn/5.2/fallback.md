@@ -33,7 +33,7 @@ will be removed and replaced with the contents of the tenants.php routes file.
 # Routing with domain
 
 One of the easiest solutions is using the `::domain()` option in routing called
-[sub domain routing in Laravel](https://laravel.com/docs/5.5/routing#route-group-sub-domain-routing).
+[sub domain routing in Laravel][sub-domain-routing].
 
 ```php
 Route::domain('master.your.app')->group(function () {
@@ -49,3 +49,5 @@ for that tenant.
 
 Now every time no other tenant was identified, it will revert to this tenant. A
 drawback of this method is the need to set up a tenant hostname.
+
+[sub-domain-routing]: https://laravel.com/docs/5.6/routing#route-group-sub-domain-routing

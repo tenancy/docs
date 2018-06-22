@@ -12,7 +12,6 @@ in case you are unaware about its purposes.
 
 Namespaces: 
 
-- `Hyn\Tenancy\Events\Customers`
 - `Hyn\Tenancy\Events\Hostnames`
 - `Hyn\Tenancy\Events\Websites`
 
@@ -72,4 +71,4 @@ Namespace: `Hyn\Tenancy\Events\Webservers`.
 
 - ConfigurationSaved; the configuration for the webserver was saved to disk.
 
-[laravel-events]: https://laravel.com/docs/5.5/events
+[laravel-events]: https://laravel.com/docs/5.6/events
