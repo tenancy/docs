@@ -5,7 +5,7 @@ icon: fal fa-hand-holding-box
 
 For you to more easily connect with the correct database a few ways are possible.
 
-#### Traits
+## Traits
 
 Two traits exist to force a model onto either the tenant or system connection.
 
@@ -30,7 +30,7 @@ class User extends Authenticatable
 }
 ```
 
-#### Abstract models
+## Abstract models
 
 Instead of using the traits one can also simply have the models extend the abstract
 models provided in the package.
@@ -42,7 +42,7 @@ use the connection of the identified tenant per default.
 
 > Please note these models are using their respective traits.
 
-#### System model override
+## System model override
 
 This package allows you to specify different models to be used for the Customer, 
 Hostname and Website models. Tenancy will take care of the relationships on the 

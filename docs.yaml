@@ -68,6 +68,8 @@ packages:
             webserver:
                 - apache
                 - nginx
+            tutorials:
+                - tutorial-with-landing
     - name: Tenancy
       repository: https://github.com/tenancy/tenancy
       packagist: tenancy/tenancy
