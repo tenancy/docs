@@ -7,9 +7,9 @@ icon: fal fa-clipboard-check
 - PHP 7.0 or up, check the requirements for your Laravel version.
 - Preferably Ubuntu. But most linux-based operating systems should work.
 - Apache 2.4+ or Nginx 1.12+.
-- MySQL 5.7+, MariaDB 10+ or PostgreSQL 9+.
+- MySQL 5.7+, MariaDB 10.1.13+ or PostgreSQL 9+.
 
-> Please note that MySQL limits username and database length to 32, 
+> Please note that MySQL limits username and database length to 32,
 enable in the `tenancy.php` configuration file:  `website > uuid-limit-length-to-32`
 to fix this.
 
