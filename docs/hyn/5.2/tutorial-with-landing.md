@@ -76,7 +76,7 @@ This concludes initial set up. We have now forced all Eloquent models onto
 the tenant connection, except for the User model. We need this to authorize 
 visitors on our landing page and redirect them to their own portal.
 
-## The tenant
+## user - tenant
 
 So the tenant is a Website model, but we're authorizing using a User. As such we
 require a relation from the User to the Website:
@@ -137,9 +137,20 @@ require a relation from the User to the Website:
  }
  ```
 
+## landing page
 
+We're going to rely on the ability to fully replace the global routes
+with those of the tenant. The [tenant route override][5] requires us to
+create a `routes/tenants.php` file:
+
+```php
+use App\Tenant\HomeController;
+
+Route::get('/', HomeController::class)->name('tenant.home');
+```
 
 [1]: requirements
 [2]: installation
 [3]: concepts
 [4]: models#traits
+[5]: fallback#tenant-routes-override
