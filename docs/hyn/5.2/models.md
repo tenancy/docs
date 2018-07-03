@@ -44,23 +44,21 @@ use the connection of the identified tenant per default.
 
 #### System model override
 
-This package allows you to specify different models to be used for the Customer, 
+This package allows you to specify different models to be used for the 
 Hostname and Website models. Tenancy will take care of the relationships on the 
 package-end. You also need to implement `Hyn\Tenancy\Contracts\{Model}`
 
-Take this example to add billing from `laravel/cashier` to our application:
+Take this example:
 
 ```php
 <?php
 
 namespace App;
 
-use Hyn\Tenancy\Contracts\Customer as Contract;
-use Laravel\Cashier\Billable;
+use Hyn\Tenancy\Contracts\Website as Contract;
 
-class Customer extends Authenticatable implements Contract
+class Website implements Contract
 {
-  use Billable;
 }
 ```
 
@@ -74,7 +72,7 @@ return [
       // Must implement \Hyn\Tenancy\Contracts\Hostname
       'hostname' => \Hyn\Tenancy\Models\Hostname::class,
       // Must implement \Hyn\Tenancy\Contracts\Website
-      'website' => \Hyn\Tenancy\Models\Website::class
+      'website' => \App\Website::class
   ],
   // ...
 ];
