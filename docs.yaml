@@ -66,6 +66,7 @@ packages:
                 - queues
                 - events
                 - cache
+                - tinker
             webserver:
                 - apache
                 - nginx
