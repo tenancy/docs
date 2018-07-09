@@ -3,7 +3,7 @@ title: Tinker
 icon: fal fa-screwdriver
 ---
 
-> Originally posted in [https://medium.com/@bkintanar/ca1ad11b2186](https://medium.com/@bkintanar/ca1ad11b2186)
+# Tenant Aware Tinker Command
 
 This tinker documentation will allow you to extend the tinker command and make it tenant aware.
 
