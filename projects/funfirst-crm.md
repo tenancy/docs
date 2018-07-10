@@ -3,8 +3,8 @@ title: FunFirst CRM
 url: https://funfirst.io
 author: FunFirst s.r.o.
 author_link: https://funfirst.io/about-us
-logo: https://funfirst.io/svg/logo-primary.svg
-background: https://funfirst.io/img/site-preview-en.png
+logo: /img/projects/funfirst/logo.svg
+background: /img/projects/funfirst/bg.png
 uses:
     package: hyn
     version: 5.x
