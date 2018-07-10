@@ -1,8 +1,8 @@
 ---
 title: inSSIDer Technician
 url: https://www.metageek.com/products/inssider-tech/
-logo: https://www.metageek.com/inc/images/styleguide/metageek-logo.svg
-background: https://www.metageek.com/inc/images/products/inssider-tech/devices.png
+logo: /img/projects/metageek/logo.svg
+background: /img/projects/metageek/bg.png
 uses:
     package: hyn
     version: 5.x
