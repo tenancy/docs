@@ -44,5 +44,5 @@ Filesystem.
 $tenancy = app('tenancy.disk');
 ```
 
-[directory-structure]: /documentation/tenant/structure
+[directory-structure]: structure
 [laravel-filesystem]: https://laravel.com/docs/5.5/filesystem

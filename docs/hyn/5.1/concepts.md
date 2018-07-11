@@ -7,7 +7,7 @@ icon: fal fa-vials
 
 The principle of multi tenancy is about a single instance of software running
 on a server and serving multiple tenants. The interpretation of such a tenancy
-application is quite divers, the possible implementations is even without
+application is quite diverse, the possible implementations is even without
 boundary.
 
 Hyn tenancy is focused to provide a drop-in solution for Laravel without

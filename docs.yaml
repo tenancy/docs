@@ -10,7 +10,7 @@ packages:
       versions:
         - name: 5.1
           branch: 5.1
-          status: Stable
+          status: Deprecated
           suggest_using: true
           tree:
             getting started:
@@ -41,7 +41,8 @@ packages:
                 - full-featured-tutorial
                 - spatie-laravel-permission
         - name: 5.2
-          status: Beta
+          status: Stable
+          suggest_using: true
           branch: 5.2
           tree:
             getting started:
