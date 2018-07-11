@@ -1,6 +1,6 @@
 ---
 title: Multi tenant with landing page
-icon: dolly-flatbed-alt
+icon: fal fa-dolly-flatbed-alt
 ---
 This tutorial will give you a brief introduction how to set up
 a multi tenant app where your users will visit your landing page
@@ -14,7 +14,7 @@ the [concepts][3] to understand the terminology.
 Now let's specify what we need:
 
 - Without a tenant website identified, we will show the landing page.
-- Users need to be able to log in on the landing page so they can configure
+- Users need to be able to sign up on the landing page so they can configure
 the details of their instance, eg their subscription plan (not part of this
 tutorial).
 - New users choose a vanity name for their tenant portal which is created
@@ -32,7 +32,7 @@ default connection to the tenant.
 > Forcing the default connection to the tenant will make all Eloquent models
 use this connection. Including those of third parties. 
 
-We can force this using these methods:
+We can force this using any of these methods:
 
 - `DB_CONNECTION=tenant` in your `.env`.
 - `TENANCY_DEFAULT_CONNECTION=tenant` in your `.env`.
@@ -90,6 +90,7 @@ require a relation from the User to the Website:
  class User extends \Illuminate\Foundation\Auth\User
  {
      use UsesSystemConnection;
+     
      public function website() 
      {
         return $this->belongsTo(Website::class);
@@ -139,18 +140,206 @@ require a relation from the User to the Website:
 
 ## landing page
 
+We need to update the default `welcome.blade.php` so we can
+add the sign up form for new users to create their tenant environment.
+
+```blade
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Laravel</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="content">
+                <div class="title m-b-md">
+                    <form method="post">
+                        <input type="string" name="vanity">
+                        <input type="submit" name="create">
+                    </form>
+                </div>
+
+                <div class="links">
+                    <!-- some links here -->
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+```
+
+## tenant home
+
 We're going to rely on the ability to fully replace the global routes
 with those of the tenant. The [tenant route override][5] requires us to
 create a `routes/tenants.php` file:
 
 ```php
-use App\Tenant\HomeController;
+use App\Tenant\Controllers\HomeController;
 
 Route::get('/', HomeController::class)->name('tenant.home');
 ```
+
+> Now that we created this file, the package will automatically load these when
+a tenant was identified. In case the same routes exist in the global scope 
+(web.php or api.php), they will be overloaded.
+
+We're referencing a controller, let's also create that one at 
+`app/Tenant/Controllers/HomeController.php`:
+
+```php
+namespace App\Tenant\Controllers;
+
+use App\Http\Controllers\Controller;
+
+class HomeController extends Controller
+{
+    public function __invoke(Tenant $tenant)
+    {
+        return view('tenant.home', compact('tenant'));
+    }
+}
+```
+
+The `__invoke` is a magic method. If you assign a class name as route action
+(like we did above for the route `tenant.home`) the method `__invoke` will be
+attempted to run automatically. These are called [single action controllers][6].
+
+Next, is the view `tenant.home`. We want to have an identical view for all our
+tenants, so this view file will live inside `resources/views`.
+
+> In case you would have wanted to use views specific to a tenant, take a look
+the ability to [add or replace views per tenant][7].
+
+Create the file `resources/views/tenant/home.blade.php` with the following contents:
+
+```blade
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Laravel</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .content {
+                text-align: center;
+            }
+
+            .title {
+                font-size: 84px;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="content">
+                <div class="title m-b-md">
+                    This is: {{ $tenant->uuid }}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+```
+
+## create a tenant
+
+
+
 
 [1]: requirements
 [2]: installation
 [3]: concepts
 [4]: models#traits
 [5]: fallback#tenant-routes-override
+[6]: https://laravel.com/docs/5.6/controllers#single-action-controllers
+[7]: structure
