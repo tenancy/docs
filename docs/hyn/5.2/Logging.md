@@ -26,7 +26,7 @@ Add a new `tenant` channel to the channels array in your **config/logger.php** l
 ...
 ```
 
-Then just change the 'single' channel to 'tanent' channel your stack channel:
+Then just change the 'single' channel to 'tenant' channel your stack channel:
 
 ```php
 'stack' => [
