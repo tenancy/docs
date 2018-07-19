@@ -65,7 +65,7 @@ composer require hyn/multi-tenant:5.2.*
 ```
 
 Laravel offers [package auto discovery][3]
-in version 5.6. So that's all you need to do, no need to register any
+in version 5.6. So that's all you need to do; no need to register any
 service providers manually in your `config/app.php`.
 
 Publish the configuration files and migrations for tenancy. This allows you
