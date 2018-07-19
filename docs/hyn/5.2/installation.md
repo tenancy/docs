@@ -49,6 +49,7 @@ Under connections:
 ```
 
 Most often it makes sense to use either `system` or `tenant` as your default database connection setting; this is `DB_CONNECTION` in your `.env` file. This environment variable is assigned to the `default` key in the `config/database.php` configuration file.
+When setting the default database to system or tenant you do not need to use Laravel default `mysql` anymore. You can use for `mysql` and `system` the same settings, but it doesn't have to be. 
 
 In case you use the `tenant` make sure to enable [early identification](identification) and configure
 a decent [fallback](fallback) later on.
