@@ -7,7 +7,7 @@ icon: fal fa-arrow-alt-to-bottom
 # Elevated database user
 
 Tenancy requires a system connection that allows creating new databases for her
-tenants. In order to do so we need to have a database user with elevated
+tenants. In order to do so, we need to have a database user with elevated
 permissions.
 
 A user for both [MariaDB or MySQL][1] and [PostgreSQL][2] would require the "GRANT OPTION" to be
@@ -68,7 +68,7 @@ Laravel offers [package auto discovery][3]
 in version 5.6. So that's all you need to do; no need to register any
 service providers manually in your `config/app.php`.
 
-Publish the configuration files and migrations for tenancy. This allows you
+Publish the configuration files and migrations for tenancy, which allows you
 to configure the behavior of the package.
 
 ```bash
