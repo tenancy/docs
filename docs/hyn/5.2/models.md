@@ -77,3 +77,26 @@ return [
   // ...
 ];
 ```
+
+#### Get current environment / current tenant data
+
+In case you like to work with the current environment, you can do the following:
+
+```php
+ 
+ // Get current Website (Tenant)
+ $website   = \Hyn\Tenancy\Facades\TenancyFacade::website();
+ // alternative 
+ $website   = app(\Hyn\Tenancy\Environment::class)->website();
+ $websiteId = $website->id;
+ 
+ // Get current Hostname
+ $hostname  = app(\Hyn\Tenancy\Environment::class)->hostname();
+ 
+ // Get FQDN (Fully-Qualified Domain Name) by current hostname
+ $fqdn      = $hostname->fqdn;
+ 
+ // Get Website (Tenant) of hostname
+ $website   = app(\Hyn\Tenancy\Environment::class)->hostname()->website;
+ 
+```
