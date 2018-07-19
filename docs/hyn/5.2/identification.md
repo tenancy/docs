@@ -38,3 +38,29 @@ public function boot()
 
 > Be wary about switching tenants. I recommend switching only once during code
 execution. Use a background job to run mass changes on tenant databases.
+
+#### Retrieve current tenant
+
+In case you like to work with the current environment, you can do the following:
+
+```php
+ 
+ // Get current Website (Tenant)
+ $website   = \Hyn\Tenancy\Facades\TenancyFacade::website();
+ 
+ // prefered option
+ $website   = app(\Hyn\Tenancy\Environment::class)->tenant();
+ 
+ // alternative (outdated) 
+ $website   = app(\Hyn\Tenancy\Environment::class)->website();
+ 
+ $websiteId = $website->id;
+ 
+ // Get current Hostname
+ $hostname  = app(\Hyn\Tenancy\Environment::class)->hostname();
+ 
+ // Get FQDN (Fully-Qualified Domain Name) by current hostname
+ $fqdn      = $hostname->fqdn;
+
+ 
+```
