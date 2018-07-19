@@ -29,7 +29,7 @@ self explanatory.
 
 Namespace: 'Hyn\Tenancy\Events\Websites'.
 
-- Identified; a tenant website was identified.
+- Identified: a tenant website was identified.
 - NoneFound: no tenant website was identified.
 - Migrated: a website was auto migrated (not fired from console commands).
 - Switched: the current tenant website was changed.
@@ -40,14 +40,14 @@ Namespace: `Hyn\Tenancy\Events\Hostnames`.
 
 The hostname models has a few additional events;
 
-- Attached; the hostname was attached to a website.
-- Detached; the hostname was removed from a website.
-- Identified; the hostname is identified based on the request.
-- NoneFound; no hostname was found during identification.
-- Redirected; the hostname is configured to redirect to another url.
-- Secured; the hostname is configured to upgrade the request to https.
-- Switched; currently active hostname was changed.
-- UnderMaintenance; the hostname is configured to be in maintenance.
+- Attached: the hostname was attached to a website.
+- Detached: the hostname was removed from a website.
+- Identified: the hostname is identified based on the request.
+- NoneFound: no hostname was found during identification.
+- Redirected: the hostname is configured to redirect to another url.
+- Secured: the hostname is configured to upgrade the request to https.
+- Switched: currently active hostname was changed.
+- UnderMaintenance: the hostname is configured to be in maintenance.
 
 # Database
 
@@ -59,9 +59,9 @@ Namespace: `Hyn\Tenancy\Events\Database`.
 - Deleted
 - Renaming
 - Renamed
-- ConfigurationLoading; the configuration for a tenant database connection
+- ConfigurationLoading: the configuration for a tenant database connection
 is loading.
-- ConfigurationLoaded; the configuration for a tenant database connection
+- ConfigurationLoaded: the configuration for a tenant database connection
 was loaded.
 - ConnectionSet: a connection was set and possibly an old one purged.
 
@@ -69,6 +69,6 @@ was loaded.
 
 Namespace: `Hyn\Tenancy\Events\Webservers`.
 
-- ConfigurationSaved; the configuration for the webserver was saved to disk.
+- ConfigurationSaved: the configuration for the webserver was saved to disk.
 
 [laravel-events]: https://laravel.com/docs/5.6/events
