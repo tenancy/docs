@@ -5,9 +5,9 @@ icon: fal fa-screwdriver
 
 # Tenant Aware Tinker Command
 
-This tinker documentation will allow you to extend the tinker command and make it tenant aware.
+This article describes how to enable tenant awareness for the native Laravel tinker command.
 
-First create a trait named `MutatesTinkerCommand.php` with the following content:
+First, create a trait named `MutatesTinkerCommand` with the following content:
 
 ```php
 <?php
@@ -73,10 +73,9 @@ trait MutatesTinkerCommand
     }
 }
 ```
+You can only tinker on one database at a time, therefore, the `website_id` needs to be a required option. Utilizing the `AddWebsiteFilterOnCommand` trait available in the Tenancy package would not work in this instance; it is tailored to run processes on multiple websites and makes the `website_id` parameter optional.
 
-We didn’t opted on using the `AddWebsiteFilterOnCommand.php` trait available in the Tenancy package since you can only tinker on one database at a time and the `website_id` needs to be a required option. The `AddWebsiteFilterCommand` is tailored for multiple websites and that the `website_id` is optional.
-
-Second, create a new console command `TinkerCommand.php` that uses the trait above.
+Second, create a new console command `TinkerCommand` that uses the trait above.
 
 ```php
 <?php
@@ -117,7 +116,7 @@ class Kernel extends ConsoleKernel
 }
 ```
 
-Now we have created a new `tenancy:tinker` artisan command. The `tenancy:tinker` requires the `--website_id=` option as a parameter. So, in order to run tinker on, let’s say, `website_id` of 1 you’ll need to run:
+Now we have created a new `tenancy:tinker` artisan command. The `tenancy:tinker` requires the `--website_id=` option as a parameter. So, in order to run tinker on, let’s say with a `website_id` of 1, you’ll need to run:
 
 `php artisan tenancy:tinker --website_id=1`
 
