@@ -14,7 +14,7 @@ Tenancy ships with a custom tenant aware logger which you can register in the lo
 Add a new `tenant` channel to the channels array in your **config/logger.php** like below:
 
 ```php
-...
+// ...
 'channels' => [
         // ...
         'tenant' => [
@@ -22,7 +22,7 @@ Add a new `tenant` channel to the channels array in your **config/logger.php** l
             'via' => \Hyn\Tenancy\Logging\TenantAwareLogger::class,
             'level' => 'debug',
         ],
-...
+// ...
 ```
 
 Then just change the 'single' channel to 'tenant' channel your stack channel:
