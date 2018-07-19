@@ -48,7 +48,7 @@ Under connections:
 ]
 ```
 
-Most often it makes sense to use either `system` or `tenant` as your `database.default` setting.
+Most often it makes sense to use either `system` or `tenant` as your default database connection setting; this is `DB_CONNECTION` in your `.env` file.
 In case you use the `tenant` make sure to enable [early identification](identification) and configure
 a decent [fallback](fallback) later on.
 
