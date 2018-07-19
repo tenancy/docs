@@ -38,7 +38,7 @@ Namespace: 'Hyn\Tenancy\Events\Websites'.
 
 Namespace: `Hyn\Tenancy\Events\Hostnames`.
 
-The hostname models has a few additional events;
+The hostname models has a few additional events:
 
 - Attached: the hostname was attached to a website.
 - Detached: the hostname was removed from a website.
