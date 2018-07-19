@@ -5,7 +5,7 @@ icon: fal fa-screwdriver
 
 # Tenant Aware Tinker Command
 
-This documentation will allow you to extend the tinker command and make it tenant aware.
+This article describes how to enable tenant awareness for the native Laravel tinker command.
 
 First, create a trait named `MutatesTinkerCommand` with the following content:
 
