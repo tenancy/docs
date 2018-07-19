@@ -11,7 +11,7 @@ Tenancy ships with a custom tenant aware logger which you can register in the lo
 - If no tenant is detected it will store the log file to:
 `storage/logs/`.
 
-Add a new `tenant` channel to the channels array in your **config/logger.php** like below:
+Add a new `tenant` channel to the channels array in your `config/logger.php` like below:
 
 ```php
 // ...
