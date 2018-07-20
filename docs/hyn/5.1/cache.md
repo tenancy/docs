@@ -3,6 +3,8 @@ title: Cache
 icon: fal fa-window-restore
 ---
 
+> If you wan to use custom cache driver, you need to disable AutoDiscovery for this package and register the package providers to `config/app.app` after your own cache provider.
+
 Currently the Laravel cache will use the same cache key for all tenants. 
 This can and will cause issues in the long run. The config key for tenants 
 should be automatically changed and the ability to disable overriding the cache key should be configurable inside `tenancy.php`.
