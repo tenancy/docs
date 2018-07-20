@@ -7,9 +7,9 @@ icon: fal fa-vials
 
 The principle of multi tenancy is about a single instance of software running
 on a server and serving multiple tenants. The interpretation of such a tenancy
-application is quite divers.
+application is quite diverse.
 
-Hyn tenancy is focused to provide a drop-in solution for Laravel without
+Hyn tenancy is focused on providing a drop-in solution for Laravel without
 sacrificing flexibility or hacks of the Laravel ecosystem.
 
 Make sure you understand that the `Website` model is the subject of tenancy.
@@ -34,11 +34,11 @@ for instance routes, a vendor folder, media and language files.
 A hostname is a [Fully Qualified Domain Name][fqdn] (for instance `sub.example.com`).
 Your application handles incoming requests to specific hostnames. Tenancy inspects
 these requests and [sets up the tenancy environment][identification] according to a 
-matching hostname or default fallback.
+matching hostname or falls back to the default one.
 
 # Runtime
 
-With default behavior, the package will identify the current requested hostname and bind it
+By default, the package will identify the current requested hostname and bind it
 into the `Hyn\Tenancy\Contracts\CurrentHostname` contract. In case that hostname belongs to
 a website, the latter will be bound into the `Hyn\Tenancy\Contracts\Tenant` contract. Whenever
 a Tenant is identified or switched the package will automatically infuse additional functionality
