@@ -39,7 +39,7 @@ public function boot()
 > Be wary about switching tenants. I recommend switching only once during code
 execution. Use a background job to run mass changes on tenant databases.
 
-#### Retrieve current tenant
+# Retrieve current tenant
 
 In case you like to work with the current environment, you can do the following:
 
