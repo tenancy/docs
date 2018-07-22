@@ -14,7 +14,7 @@ A user for both [MariaDB or MySQL][1] and [PostgreSQL][2] would require the "GRA
 applied. You can either use the root user (for PostgreSQL that is user postgres) or create
 your own (recommended):
 
-For MariaDB:
+For MariaDB or MySQL:
 ```sql
 CREATE DATABASE IF NOT EXISTS tenancy;
 CREATE USER IF NOT EXISTS tenancy@localhost IDENTIFIED BY 'someRandomPassword';
