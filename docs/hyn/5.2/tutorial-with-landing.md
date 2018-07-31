@@ -140,7 +140,7 @@ require a relation from the User to the Website:
 
 ## landing page
 
-We need to update the default `welcome.blade.php` so we can
+We need to create the landing page `resources/views/landing.blade.php` so we can
 add the sign up form for new users to create their tenant environment.
 
 ```blade
@@ -223,6 +223,53 @@ add the sign up form for new users to create their tenant environment.
 </html>
 ```
 
+In order for the view to become part of our app, we need an additional
+controller and route defined.
+
+`app\Http\Controllers\LandingController.php`:
+
+```php
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+
+class LandingController extends Controller
+{
+    public function __invoke()
+    {
+        return view('landing');
+    }
+}
+```
+
+> The `__invoke` is a magic method. If you assign a class name as route action
+(like we did above) the method `__invoke` will be
+run automatically. These are called [single action controllers][6]. All arguments
+defined in the method will be automatically resolved from the [Service Container][8].
+
+Now let's add a route entry to our web routes. We'll name the route "landing"
+so we can use it within our application (other template files for instance).
+
+`routes/web.php`:
+```php
+// .. other routes
+Route::get('landing', 'LandingController')->name('landing');
+```
+
+When we now visit our app, eg `http://tenancy.test/landing`, we'll see 
+the landing blade with the form asking for a vanity name.
+
+But because we want to connect the tenant portal to the user, we need
+to demand a user logs in before showing the route, update the route to match:
+
+`routes/web.php`:
+```php
+// .. other routes
+Route::get('landing', 'LandingController')->name('landing')->middleware('auth');
+```
+
+You can read more about [protecting routes in the Laravel docs][9].
+
 ## tenant home
 
 We're going to rely on the ability to fully replace the global routes
@@ -255,10 +302,6 @@ class HomeController extends Controller
     }
 }
 ```
-
-The `__invoke` is a magic method. If you assign a class name as route action
-(like we did above for the route `tenant.home`) the method `__invoke` will be
-attempted to run automatically. These are called [single action controllers][6].
 
 Next, is the view `tenant.home`. We want to have an identical view for all our
 tenants, so this view file will live inside `resources/views`.
@@ -343,3 +386,5 @@ Create the file `resources/views/tenant/home.blade.php` with the following conte
 [5]: fallback#tenant-routes-override
 [6]: https://laravel.com/docs/5.6/controllers#single-action-controllers
 [7]: structure
+[8]: https://laravel.com/docs/5.6/container
+[9]: https://laravel.com/docs/5.6/authentication#protecting-routes
