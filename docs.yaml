@@ -43,7 +43,7 @@ packages:
         - name: 5.2
           status: Stable
           suggest_using: true
-          branch: 5.2
+          branch: 5.x
           tree:
             getting started:
                 - requirements
@@ -66,6 +66,8 @@ packages:
                 - queues
                 - events
                 - cache
+                - logging
+                - tinker
             webserver:
                 - apache
                 - nginx
@@ -88,6 +90,7 @@ packages:
                 - requirements
                 - installation
                 - what-is-a-tenant
+                - compared-to-hyn
             drivers:
                 - identification-drivers
                 - database-drivers

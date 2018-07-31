@@ -3,7 +3,7 @@ title: Identification
 icon: fal fa-street-view
 ---
 
-During runtime, the `Environment` class is bound into Laravels container. The
+During runtime, the `Environment` class is bound into Laravel's container. The
 tenancy environment holds one single responsibility, which is telling our code
 what hostname was currently identified and resolving the related website.
 

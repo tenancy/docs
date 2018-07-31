@@ -3,6 +3,7 @@ title: Cache
 icon: fal fa-window-restore
 ---
 
+
 Currently the Laravel cache will use the same cache key for all tenants. 
 This can and will cause issues in the long run. The config key for tenants 
 should be automatically changed and the ability to disable overriding the cache key should be configurable inside `tenancy.php`.
@@ -22,7 +23,7 @@ public function boot()
             // prefix to the UUID of the current website being called
             $fqdn = $_SERVER['SERVER_NAME'];
             
-            $uuid = DB::table('hostnames')
+            $uuid = \DB::table('hostnames')
                 ->select('websites.uuid')
                 ->join('websites', 'hostnames.website_id', '=', 'websites.id')
                 ->where('fqdn', $fqdn)
@@ -49,5 +50,4 @@ allows you to set a custom cache driver in `config/cache.php`:
 ],
 ```
 
-> Make sure the CacheServiceProvider is registered in `config/app.php`. Or your driver will not be
-available for use.
+> If you want to use the custom cache driver, you should disable package auto discovery for this package and register the package provider `\Hyn\Tenancy\Providers\TenancyProvider::class` by adding it under `providers` in your `config/app.app` just after this cache provider.
