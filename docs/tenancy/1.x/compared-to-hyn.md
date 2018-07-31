@@ -17,14 +17,14 @@ local filesystems. The successor to hyn `tenancy/tenancy` ("tenancy") aims
 solely on apps living in the cloud using scalable architecture like block
 storage, load balancing and cloud databases.
 
-Functionality offered in hyn which rely on local filesystems are therefor
+Functionality offered in hyn which rely on local filesystems are therefore
 no longer a default feature. This includes most (if not all) overrides
 from files living inside the tenant directory.
 
 # Tenant identification
 
 Although hyn was never intended to be opinionated about the choices of
-the developer - and, trust me, I've made a few changes to improve that position -
+the developer - a few changes to improve that position -
 it would still use a hostname and website model to relate to a tenant. 
 
 Initial confusion arose while binding the hostname, identified from the current request,
@@ -42,8 +42,8 @@ switching the current environment.
 # Modularity
 
 Back when hyn versions made huge leaps - while much of the interaction with Laravel was
-mostly a matter of research, trial and error - I decided to drop a package that
-added an admin dashboard in order to focus on creating a fundamentally better package.
+mostly a matter of research, trial and error - the package that
+added an admin dashboard was dropped in order to focus on creating a fundamentally better package.
 
 In addition as new Laravel versions were released in pretty fast succession, new versions
 (3.x, 4.x and 5.x) of hyn were started to offer to these new versions (5.3, 5.4 and 5.5).
