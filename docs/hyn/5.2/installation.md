@@ -25,7 +25,7 @@ For PostgreSQL:
 ```sql
 CREATE DATABASE tenancy;
 CREATE USER tenancy WITH CREATEDB CREATEROLE PASSWORD 'someRandomPassword';
-GRANT ALL PRIVILEGES ON tenancy to tenancy WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON DATABASE tenancy to tenancy WITH GRANT OPTION;
 ```
 
 Make sure you configure this user as your system connection in your `database.php`.
