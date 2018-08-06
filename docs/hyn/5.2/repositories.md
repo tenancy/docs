@@ -60,6 +60,7 @@ app(WebsiteRepository::class)->create($website);
 
 > Make sure the provided connection name is configured in your `config/database.php`.
 
+
 # Create and connect hostname
 
 ```php
