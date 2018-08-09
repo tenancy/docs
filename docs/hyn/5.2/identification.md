@@ -10,9 +10,9 @@ what hostname was currently identified and resolving the related website.
 # Early identification
 
 By default tenancy will identify the tenant after all Middleware has been processed.
-Previously when could simply resolve the Environment class through the container
-to force identification of the tenant early on. If you want the package to handle
-this on your behalf you can now simply enable the `early-identification` flag in
+One could simply resolve the Environment class through the service container
+inside a middleware to force identification of the tenant early on. If you want the 
+package to handle this on your behalf you can now simply enable the `early-identification` flag in
  your `tenancy.php` configuration file under `hostname`.
 
 # Manual identification
