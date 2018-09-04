@@ -38,6 +38,13 @@ use Illuminate\Cache\RedisStore;
 
 class TenancyCacheServiceProvider extends CacheServiceProvider
 {
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
+    
     public function boot()
     {
         Cache::extend('redis_tenancy', function ($app) {
