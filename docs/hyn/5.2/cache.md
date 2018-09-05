@@ -7,15 +7,14 @@ Currently the Laravel cache will use the same cache key for all tenants.
 This can and will cause issues in the long run. The config key for tenants 
 should be automatically changed and the ability to disable overriding the cache key should be configurable inside `tenancy.php`.
 
-The following example is an easy implementation to allow per-tenant prefixes with spatie permissions package in mind.
+The following example is an easy implementation to allow per-tenant prefixes.
 
-First turn off auto-discovery for hyn/multi-tenant (if you are using spatie permissions then turn off for that package also)
+First turn off auto-discovery for hyn/multi-tenant.
 
 ```json
 "extra": {
         "laravel": {
             "dont-discover": [
-              "spatie/laravel-permission",
               "hyn/multi-tenant"
             ]
         }
@@ -76,7 +75,7 @@ This does not require a new Cache driver, as it's re-using
 the existing Redis driver. All this does is override the default prefix and 
 allows you to set a custom cache driver in `config/cache.php`:
 
-> Make sure to run `composer update` and `php artisan package:discover` before this step or else you will get "redis_tenancy driver not found error
+> Make sure to run `composer update` and `php artisan package:discover` before this step or else you will get "redis_tenancy driver not found" error.
 
 ```php
 'redis' => [
@@ -85,7 +84,7 @@ allows you to set a custom cache driver in `config/cache.php`:
 ],
 ```
 
-Now manually add hyn/multi-tenant and/or spatie/laravel-permission providers to your app.php under 'providers'  
+Now manually add hyn/multi-tenant provider to your app.php under 'providers'  
 Make sure to disable Laravel's CacheServiceProvider as TenancyCacheServiceProvider extends that one.
 
 ```php
@@ -95,7 +94,6 @@ Make sure to disable Laravel's CacheServiceProvider as TenancyCacheServiceProvid
     // Hyn multi tenancy.
     Hyn\Tenancy\Providers\TenancyProvider::class,
     Hyn\Tenancy\Providers\WebserverProvider::class,
-    Spatie\Permission\PermissionServiceProvider::class, //add this if you have Spatie Permissions package
     ...
     #Illuminate\Cache\CacheServiceProvider::class, //this is now disabled
     ...
@@ -103,4 +101,6 @@ Make sure to disable Laravel's CacheServiceProvider as TenancyCacheServiceProvid
 ```
 
 Now you can use CACHE and SESSION redis drivers
+
+> Note: If you are using spatie/laravel-permission package remove that package from auto-discovery same as hyn/multi-tenant and add provider below Tenancy providers.
 
