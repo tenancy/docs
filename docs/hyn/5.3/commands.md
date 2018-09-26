@@ -1,7 +1,50 @@
 ---
-title: Tinker
+title: Commands
 icon: fal fa-screwdriver
 ---
+
+Aside from the tenant aware [migration](migrations) command, the following
+is a list of additional commands provided by this package.
+
+# Run proxy command
+
+If you'd like to run any command for a tenant, you can use the `tenancy:run` command. 
+
+You can execute and check the signature with
+
+```bash
+$ php artisan tenancy:run --help
+```
+
+How it works:
+
+- Using the `--tenant` option is optional, if you leave it out the command will be run on all tenants.
+- If your target command requires options or arguments, you can add them like this:
+
+```bash
+$ php artisan tenancy:run <command> --option="key=value" --option="live=1" --argument="key=value"
+```
+
+> Make sure you include the argument or option key!
+
+Please note this command does not do any checking and will forward any exceptions it hits.
+
+Also, **don't** run tenancy:run like this:
+
+```bash
+$ php artisan tenancy:run tenancy:run --argument="run=tenancy:run"
+```
+
+# Recreate command
+
+The recreate command allows you to create databases and filesystem directories for
+all tenants. It will check whether a database already exists, if not it will recreate
+it and dispatch a "Created" event that causes the folders and possible vhost configurations
+to be made.
+
+```bash
+$ php artisan tenancy:recreate
+```
 
 # Tenant Aware Tinker Command
 

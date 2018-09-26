@@ -97,7 +97,7 @@ packages:
               - queues
               - events
               - cache
-              - tinker
+              - commands
               customization:
               - custom-models
               - logging
