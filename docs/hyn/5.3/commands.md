@@ -99,6 +99,7 @@ trait MutatesTinkerCommand
             $this->info('Running Tinker on website_id: ' . $website_id);
 
             parent::handle();
+            
             $this->connection->purge();
         } catch (ModelNotFoundException $e) {
             throw new RuntimeException(sprintf('The tenancy website_id=%d does not exist.', $website_id));
@@ -155,16 +156,15 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         TinkerCommand::class,
     ];
-    ...
+    // ...
 }
 ```
 
 Now we have created a new `tenancy:tinker` artisan command. The `tenancy:tinker` requires the `--website_id=` option as a parameter. So, in order to run tinker on, let’s say with a `website_id` of 1, you’ll need to run:
 
-`php artisan tenancy:tinker --website_id=1`
+```bash
+$ php artisan tenancy:tinker --website_id=1
 
-```sh
-☁  app [development] ⚡  php artisan tenancy:tinker --website_id=1
 Running Tinker on website_id: 1
 Psy Shell v0.9.6 (PHP 7.2.7 — cli) by Justin Hileman
 >>>
@@ -172,12 +172,9 @@ Psy Shell v0.9.6 (PHP 7.2.7 — cli) by Justin Hileman
 
 It will throw an error if the `--website_id=` option is missing:
 
-```sh
-☁  app [development] ⚡  php artisan tenancy:tinker
+```bash
+$ php artisan tenancy:tinker
 
 
   The tenancy website_id=0 does not exist.
-
-
-☁  app [development] ⚡
 ```
