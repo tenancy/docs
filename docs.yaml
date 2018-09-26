@@ -3,7 +3,7 @@ packages:
     - name: Hyn
       description: >
         Run multiple websites using the same Laravel installation while
-        keeping tenant specific data separated for fully independant
+        keeping tenant specific data separated for fully independent
         multi-domain setups.
       repository: https://github.com/hyn/multi-tenant
       packagist: hyn/multi-tenant
@@ -41,8 +41,7 @@ packages:
                 - full-featured-tutorial
                 - spatie-laravel-permission
         - name: 5.2
-          status: Stable
-          suggest_using: true
+          status: Deprecated
           branch: 5.x
           tree:
             getting started:
@@ -71,6 +70,40 @@ packages:
             webserver:
                 - apache
                 - nginx
+        - name: 5.3
+          status: Stable
+          suggest_using: true
+          branch: 5.x
+          tree:
+              getting started:
+              - requirements
+              - upgrade-from-5.2
+              - installation
+              - configuration
+              tenant principles:
+              - concepts
+              - identification
+              - connections
+              - fallback
+              - middleware
+              implementation:
+              - creating-tenants
+              - models
+              - structure
+              tenant aware:
+              - filesystem
+              - migrations
+              - validation
+              - queues
+              - events
+              - cache
+              - tinker
+              customization:
+              - custom-models
+              - logging
+              webserver:
+              - apache
+              - nginx
     - name: Tenancy
       repository: https://github.com/tenancy/tenancy
       packagist: tenancy/tenancy
