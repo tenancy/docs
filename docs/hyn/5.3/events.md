@@ -5,7 +5,7 @@ icon: fal fa-hourglass-end
 
 To create a fluid ecosystem around Laravel, this package uses events heavily.
 
-> I highly recommend reading up on the native [events][laravel-events] by Laravel
+> It's highly recommended to read up on the native [events][laravel-events] by Laravel
 in case you are unaware about its purposes.
 
 # Model events
