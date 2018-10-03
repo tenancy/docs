@@ -63,6 +63,10 @@ app(WebsiteRepository::class)->create($website);
 
 # Create and connect hostname
 
+A hostname allows the package to map a requested hostname to a website. Websites
+that have no (active) hostnames connected to it will never be visible. So make
+sure to connect a hostname to any tenant website you'd like to work on.
+
 ```php
 use Hyn\Tenancy\Models\Hostname;
 use Hyn\Tenancy\Contracts\Repositories\HostnameRepository;
@@ -73,7 +77,16 @@ app(HostnameRepository::class)->attach($hostname, $website);
 dd($website->hostnames); // Collection with $hostname
 ```
 
+> The `fqdn` property of the hostname is crucial. It stands for
+Fully Qualified Domain Name and can be something like `yourapp.com` or
+`demo.yourapp.com` but can never include protocol (eg `http://`) or paths
+(eg `yourapp.com/tenant`).
+
 # Switch to new tenant
+
+For the package to set up Laravel for the specific tenant, the environment has to be
+"switched". This switching will set up amongst other the tenant database connection and
+filesystem logic like custom config files.
 
 ```php
 use Hyn\Tenancy\Environment;
