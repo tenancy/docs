@@ -73,6 +73,7 @@ use Hyn\Tenancy\Contracts\Repositories\HostnameRepository;
 
 $hostname = new Hostname;
 $hostname->fqdn = 'luceos.demo.app';
+$hostname = app(HostnameRepository::class)->create($hostname);
 app(HostnameRepository::class)->attach($hostname, $website);
 dd($website->hostnames); // Collection with $hostname
 ```
