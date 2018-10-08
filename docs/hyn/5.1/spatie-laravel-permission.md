@@ -33,7 +33,7 @@ to be tenant aware.
 next to your `User.php`. Make sure that these files extend `Spatie\Permission\Models\Permission::class` 
 and `Spatie\Permission\Models\Role::class` respectively.
 
-`App\Permission.php` - extends from `SpatieRole` and uses the `UsesTenantConnection` trait.
+`App\Permission.php` - extends from `SpatiePermission` and uses the `UsesTenantConnection` trait.
 ```php
 <?php
 
