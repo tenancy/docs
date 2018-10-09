@@ -29,6 +29,22 @@ from `routes/web.php` or `routes/api.php`. Make sure to apply the proper middlew
 In case you enable `tenancy.routes.replace-global` all previously declared routes
 will be removed and replaced with the contents of the tenants.php routes file.
 
+> Understand unlike the default `web.php` and `api.php` files no group is set around this file. You need
+to apply your own `namespace`, `middleware` and other group settings inside the `tenants.php`.
+
+An example `tenants.php` file:
+
+```php
+<?php
+
+Route::middleware('web')
+    ->namespace('App\\Http\\Controllers\\Tenant\\')
+    ->group(function () 
+{
+    Route::get('/', 'HomeController');
+});
+```
+
 
 # Routing with domain
 
