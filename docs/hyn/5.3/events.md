@@ -27,7 +27,7 @@ self explanatory.
 
 ## Websites
 
-Namespace: 'Hyn\Tenancy\Events\Websites'.
+Namespace: `Hyn\Tenancy\Events\Websites`.
 
 - Identified: a tenant website was identified.
 - NoneFound: no tenant website was identified.
