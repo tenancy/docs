@@ -104,6 +104,8 @@ packages:
               webserver:
               - apache
               - nginx
+              tutorials:
+              - spatie-medialibrary
     - name: Tenancy
       repository: https://github.com/tenancy/tenancy
       packagist: tenancy/tenancy
