@@ -86,7 +86,7 @@ In case you're not using the webserver vhost configuration files provided
 by this package you can choose to map the `MediaController` to the path, eg:
 
 ```php
-Route::get('/media/{path}', \Hyn\Tenancy\Controllers\MediaController::class)
+Route::get('/media/{path}', '\Hyn\Tenancy\Controllers\MediaController')
     ->where('path', '.+')
     ->name('tenant.media');
 ```
