@@ -6,42 +6,47 @@ tags:
     - medialibrary
     - tutorial
 ---
-1. Create a fresh install of Laravel 5.7.  If you have installed the Laravel Terminal Installer run: `$ laravel new app`
+1. Create a fresh install of Laravel 5.7.  If you have installed the Laravel Terminal Installer run: 
+
+```bash
+$ laravel new app
+```
+
 2. `$ cd app`
 3. Install `hyn/multi-tenant` package by running:
 ```bash
-composer require hyn/multi-tenant
+$ composer require hyn/multi-tenant
 ```
-4. Follow the instructions until "Deploy configuration" section.
-5. If you are using MySQL DB, you need to add the entry `LIMIT_UUID_LENGTH_32=true` in your `.env` file.
+4. Follow the instructions until the "Deploy configuration" section.
+5. If you are using MySQL as a database, make sure to add the entry `LIMIT_UUID_LENGTH_32=true` in your `.env` file.
 
 ## Install Spatie Medialibrary
 
 Install this package via composer.
-```
-composer require spatie/laravel-medialibrary:^7.0.0
+```bash
+$ composer require spatie/laravel-medialibrary
 ```
 
 Publish the migration with:
-```
-php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"
+```bash
+$ php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"
 ```
 
 Move the migration file from `database/migrations/2018_10_10_085035_create_media_table.php` to `database/migrations/tenant/`.
 
 After the migration has been published you can create the media-table in your tenant databases by running the migrations:
-```
-php artisan tenancy:migrate
+```bash
+$ php artisan tenancy:migrate
 ```
 
 You need to publish the config-file with:
-```
-php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="config"
+```bash
+$ php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="config"
 ```
 
 ## Integration
 
-This section of the tutorial assumes that you have successfully created at least 2 hostnames
+This section of the tutorial assumes that you have successfully [created at least 2 hostnames](creating-tenants)
 and successfully have accessed them via your local environment setup.
 
 We need to extend the `Media` eloquent model of the Medialibrary package so that we can add the
