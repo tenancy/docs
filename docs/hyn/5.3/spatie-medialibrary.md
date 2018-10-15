@@ -1,6 +1,7 @@
 ---
 title: Spatie media library
 excerpt: A tutorial on setting up spatie/laravel-medialibrary.
+icon: fal fa-file-archive
 tags:
     - spatie
     - medialibrary
