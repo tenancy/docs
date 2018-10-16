@@ -105,6 +105,7 @@ packages:
               - apache
               - nginx
               tutorials:
+              - spatie-laravel-permission
               - spatie-medialibrary
     - name: Tenancy
       repository: https://github.com/tenancy/tenancy
