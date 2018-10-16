@@ -7,7 +7,7 @@ tags:
     - permission
     - tutorial
 ---
-1. Create a fresh install of Laravel 5.5.  If you have installed the Laravel Terminal Installer run: `$ laravel new app`
+1. Create a fresh install of Laravel.  If you have installed the Laravel Terminal Installer run: `$ laravel new app`
 2. `$ cd app`
 3. Install `hyn/multi-tenant` package by running:
 ```bash
