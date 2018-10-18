@@ -102,5 +102,5 @@ Make sure to disable Laravel's CacheServiceProvider as TenancyCacheServiceProvid
 
 Now you can use CACHE and SESSION redis drivers
 
-> Note: If you are using spatie/laravel-permission package remove that package from auto-discovery same as hyn/multi-tenant and add provider below Tenancy providers.
+> Note: If you are using spatie/laravel-permission package remove that package from auto-discovery same as hyn/multi-tenant and add the provider below Tenancy providers.
 
