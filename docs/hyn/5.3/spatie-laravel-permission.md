@@ -30,7 +30,7 @@ We need to extend the two eloquent models (`Permission`, `Role`) of the Permissi
 package so that we can add the necessary changes we need in order for these two models
 to be tenant aware.
 
-1. Create a Permission.php and Role.php file and place them inside your `app` directory,
+1. Create a `Permission.php` and `Role.php` file and place them inside your `app` directory,
 next to your `User.php`. Make sure that these files extend `Spatie\Permission\Models\Permission::class`
 and `Spatie\Permission\Models\Role::class` respectively.
 
