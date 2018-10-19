@@ -46,7 +46,7 @@ if ($fqdn = optional($env->hostname())->fqdn) {
 }
 ```
 
-> Also note that when doing this it sets the connection glabally.
+> Please understand the risks involved of setting your default connection during runtime. All Eloquent models will from then on use the `tenant` connection instead of your previously configured default connection.
 
 ---
 
