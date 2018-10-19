@@ -33,10 +33,10 @@ All tenant related models should use the `UsesTenantConnection` trait.
 
 ### Forcing The Connection
 
-When using other packages together with tenancy, sometimes there's a need to force the default connection to use the `tenant` connection
-especially when it exists. This will allow the other packages to use the `tenant` connection.
+If you want to set the default connection to `tenant` (when it exists), you can use the snippet below.
+This is also helpful for 3rd party packages to use the `tenant` connection.
 
-We can do this by adding the following code to the `boot()` method of your `AppServiceProvider.php` file.
+Add the following code to the `boot()` method of your `AppServiceProvider.php` file.
 
 ```php
 $env = app(Environment::class);
@@ -45,6 +45,8 @@ if ($fqdn = optional($env->hostname())->fqdn) {
     config(['database.default' => 'tenant']);
 }
 ```
+
+> Also note that when doing this it sets the connection glabally.
 
 ---
 
