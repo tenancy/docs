@@ -33,7 +33,7 @@ All tenant related models should use the `UsesTenantConnection` trait.
 
 ### Forcing The Connection
 
-If you want to set the default connection to `tenant` (when it exists), you can use the snippet below.
+If you want to set the default connection to `tenant` (when a tenant website has been identified), you can use the snippet below.
 This is also helpful for 3rd party packages to use the `tenant` connection.
 
 Add the following code to the `boot()` method of your `AppServiceProvider.php` file.
