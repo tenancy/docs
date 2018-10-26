@@ -36,7 +36,7 @@ public function boot()
 }
 ```
 
-> Be wary about switching tenants. I recommend switching only once during code
+> Be wary about switching tenants. It is recommend switching only once during code
 execution. Use a background job to run mass changes on tenant databases.
 
 # Retrieve current tenant
