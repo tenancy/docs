@@ -17,7 +17,7 @@ currently requested [tenant][what-is-a-tenant]. By using an event you are not li
 one driver. The first driver to respond with a valid tenant object will cause any following
 listeners to be ignored.
 
-- [http](identification-driver-http)
+- [http][identification-driver-http]
 - [console](#)
 - [environment](#)
 
