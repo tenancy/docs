@@ -3,8 +3,8 @@ title: Cache
 icon: fal fa-window-restore
 ---
 
-Currently the Laravel cache will use the same cache key for all tenants. 
-This can and will cause issues in the long run. The config key for tenants 
+Currently the Laravel cache will use the same cache key for all tenants.
+This can and will cause issues in the long run. The config key for tenants
 should be automatically changed and the ability to disable overriding the cache key should be configurable inside `tenancy.php`.
 
 The following is an easy implementation to allow per-tenant prefixes.
@@ -20,8 +20,8 @@ public function boot()
         } else {
             // ok, this is basically a hack to set the redis cache store
             // prefix to the UUID of the current website being called
-            $fqdn = $_SERVER['SERVER_NAME'];
-            
+            $fqdn = request()->getHost();
+
             $uuid = DB::table('hostnames')
                 ->select('websites.uuid')
                 ->join('websites', 'hostnames.website_id', '=', 'websites.id')
@@ -38,8 +38,8 @@ public function boot()
 }
 ```
 
-This does not require a new Cache driver, as it's re-using 
-the existing Redis driver. All this does is override the default prefix and 
+This does not require a new Cache driver, as it's re-using
+the existing Redis driver. All this does is override the default prefix and
 allows you to set a custom cache driver in `config/cache.php`:
 
 ```php
