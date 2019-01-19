@@ -39,5 +39,5 @@ In case you'd like to manually set a specific tenant for the job, use the `onTen
 method:
 
 ```php
-dispatch(new ProcessPodcast($podcast)->onTenant($website));
+dispatch((new ProcessPodcast($podcast))->onTenant($website));
 ```
