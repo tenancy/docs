@@ -8,6 +8,43 @@ packages:
       repository: https://github.com/hyn/multi-tenant
       packagist: hyn/multi-tenant
       versions:
+        - name: 5.3
+          status: Stable
+          suggest_using: true
+          branch: 5.x
+          tree:
+              getting started:
+              - requirements
+              - upgrade-from-5.2
+              - installation
+              - configuration
+              tenant principles:
+              - concepts
+              - identification
+              - connections
+              - fallback
+              - middleware
+              implementation:
+              - creating-tenants
+              - models
+              - structure
+              tenant aware:
+              - filesystem
+              - migrations
+              - validation
+              - queues
+              - events
+              - cache
+              - commands
+              customization:
+              - custom-models
+              - logging
+              webserver:
+              - apache
+              - nginx
+              tutorials:
+              - spatie-laravel-permission
+              - spatie-medialibrary
         - name: 5.1
           branch: 5.1
           status: Deprecated
@@ -70,43 +107,6 @@ packages:
             webserver:
                 - apache
                 - nginx
-        - name: 5.3
-          status: Stable
-          suggest_using: true
-          branch: 5.x
-          tree:
-              getting started:
-              - requirements
-              - upgrade-from-5.2
-              - installation
-              - configuration
-              tenant principles:
-              - concepts
-              - identification
-              - connections
-              - fallback
-              - middleware
-              implementation:
-              - creating-tenants
-              - models
-              - structure
-              tenant aware:
-              - filesystem
-              - migrations
-              - validation
-              - queues
-              - events
-              - cache
-              - commands
-              customization:
-              - custom-models
-              - logging
-              webserver:
-              - apache
-              - nginx
-              tutorials:
-              - spatie-laravel-permission
-              - spatie-medialibrary
     - name: Tenancy
       repository: https://github.com/tenancy/tenancy
       packagist: tenancy/tenancy
