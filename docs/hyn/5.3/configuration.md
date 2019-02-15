@@ -24,6 +24,14 @@ website, but also how database connections are set up. In addition it allows for
 - custom random id logic.
 - manual tenant identification.
 - on what disk (see `config/filesystems.php`) to store the tenant specific files.
+- specifying tenant database division mode
+- specifying the password generator
+- specfiy the migrations path
+- force models to a specific connection
+- override your configs
+- override your routes
+- override translations
+- override views
 - and much, much more.
 
 ## webserver.php
