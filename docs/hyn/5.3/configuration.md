@@ -26,12 +26,12 @@ website, but also how database connections are set up. In addition, it allows fo
 - on what disk (see `config/filesystems.php`) to store the tenant-specific files.
 - specifying tenant database division mode
 - specifying the password generator
-- specify the migrations path
-- force models to a specific connection
-- override your configs
-- override your routes
-- override translations
-- override views
+- specifying the migrations path
+- forcing models to a specific connection
+- overriding your configs
+- overriding your routes
+- overriding translations
+- overriding views
 - and much, much more.
 
 ## webserver.php
