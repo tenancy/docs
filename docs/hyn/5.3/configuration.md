@@ -19,11 +19,19 @@ I've listed some of the basic settings below.
 ## tenancy.php
 
 The tenancy configuration file holds every setting related to tenants. This includes how to generate a unique
-website, but also how database connections are set up. In addition it allows for;
+website, but also how database connections are set up. In addition, it allows for;
 
 - custom random id logic.
 - manual tenant identification.
-- on what disk (see `config/filesystems.php`) to store the tenant specific files.
+- on what disk (see `config/filesystems.php`) to store the tenant-specific files.
+- specifying tenant database division mode
+- specifying the password generator
+- specifying the migrations path
+- forcing models to a specific connection
+- overriding your configs
+- overriding your routes
+- overriding translations
+- overriding views
 - and much, much more.
 
 ## webserver.php
