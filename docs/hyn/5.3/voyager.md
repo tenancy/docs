@@ -225,6 +225,8 @@ corresponding tenant.
 So we need to load `VoyagerServiceProvider` after our `AppServiceProvider`.
 
 In `composer.json` add `tcg/voyager` to `dont-disover` array:
+
+```json
 "extra": {
     "laravel": {
         "dont-discover": [
@@ -232,6 +234,7 @@ In `composer.json` add `tcg/voyager` to `dont-disover` array:
         ]
     }
 },
+```
 
 #### Install Voyager composer package
 
