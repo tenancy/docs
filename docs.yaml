@@ -107,7 +107,7 @@ packages:
               - spatie-laravel-permission
               - spatie-medialibrary
         - name: 5.4
-          status: Stable
+          status: Beta
           suggest_using: true
           branch: 5.x
           tree:
