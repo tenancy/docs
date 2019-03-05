@@ -51,3 +51,16 @@ if ($fqdn = optional($env->hostname())->fqdn) {
 ---
 
 More information about applying these connections can be found in the [models](models) article.
+
+### Password generation
+
+The password of the tenant is generated using several components mashed up as md5 hash.
+
+- `tenancy.key` with a fallback to `app.key`. You can specify an empty string `""` if you don't want to use this key.
+- Website Id.
+- Website UUID.
+- Website created_at.
+
+In case you wish to change/update the `tenancy.key` we added a useful command `tenancy:key:update`
+which will update the tenant password with the new md5 value. This allows for easier key rotation.
+

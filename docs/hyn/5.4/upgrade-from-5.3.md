@@ -12,7 +12,7 @@ more features.
 the password generation seen in previous versions by generating an md5 has of the app.key and the website Id.
 However if you set it to the recommended `env('TENANCY_KEY)` or a string of any kind, the password is now generated
 with this value, the website Id, Uuid and creation date. In addition this `tenancy.key` can be rotated more easily
-by using the new `tenancy:key:update` command.
+by using the new `tenancy:key:update` command. **Make sure you configure this setting before upgrading!**
 - The `TenantAwareJob` trait has been completely removed. Instead before dispatching any Job into the queue it will identify
 possible active tenants and remember/unserialize it when processing the job. You can still manually set the tenant website
 by giving the property `website_id` on the Job a value before dispatching it.
