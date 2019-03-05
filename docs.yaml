@@ -152,7 +152,7 @@ packages:
         flexibility and modularity with other packages like Spark.
       versions:
         - name: 1.x
-          status: Concepting
+          status: Alpha
           suggest_using: false
           branch: master
           tree:
