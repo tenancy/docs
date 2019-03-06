@@ -5,7 +5,7 @@ icon: fal fa-clipboard-check
 
 - Laravel 5.8.
 - PHP 7.2 or up.
-- MySQL 5.7+, MariaDB 10.1.13+ or PostgreSQL 9+.
+- MySQL 5.7+, MariaDB 10.2.0+ or PostgreSQL 9+.
 - Optionally Apache 2.4+ or Nginx 1.12+.
 - [Applied experience with Laravel](#experience).
 
