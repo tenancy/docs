@@ -13,8 +13,8 @@ the connection resolver dispatches a set of events which allow our database driv
 set up for the tenants. Yes, you can install multiple database drivers, thus allowing you to use a different
 connection per [tenant][what-is-a-tenant] based on your requirements.
 
-- [MySQL driver](database-driver-mysql)
-- [SQLite driver](database-driver-sqlite)
+- [MySQL](database-driver-mysql)
+- [SQLite](database-driver-sqlite)
 
 [identification-drivers]: identification-drivers
 [what-is-a-tenant]: what-is-a-tenant
