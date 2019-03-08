@@ -14,7 +14,7 @@ in user or the team the user belongs to, is entirely up to you.
 The subject of tenancy, **the tenant**, can be any eloquent Model
 in your application you wish to build your business logic around.
 
-## The contract
+## Tenant model contract
 
 The contract is required to mark a specific model as your tenant.
 Simply have the model implement the method to get started:
@@ -84,7 +84,7 @@ class User extends Model implements Tenant
 This will force your User model to implement some methods
 required for tenancy to do its work. 
 
-## The trait
+## Tenant model trait
 
 Of course tenancy offers an easy way of applying the methods
 required by the contract to the model by re-using Laravel
@@ -105,7 +105,7 @@ class User extends Model implements Tenant
 }
 ```
 
-## The registration
+## Tenant model registration
 
 In order for the package to know a valid tenant model is available, you will need 
 to register it on the tenant identification resolver. The best to do so is inside
