@@ -149,7 +149,7 @@ packages:
       description: >
         The next-gen SaaS toolkit extending Laravel to service multiple
         tenant applications from the same code base. Scalable, increased
-        flexibility and modularity with other packages like Spark.
+        flexibility and modularity with other 3rd party packages.
       versions:
         - name: 1.x
           status: Alpha
