@@ -18,7 +18,7 @@ one driver. The first driver to respond with a valid tenant object will cause an
 listeners to be ignored.
 
 - [http](identification-driver-http)
-- [console](#)
-- [environment](#)
+- [console](identification-driver-console)
+- [environment](identification-driver-environment)
 
 [what-is-a-tenant]: what-is-a-tenant

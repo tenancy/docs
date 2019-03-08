@@ -72,7 +72,7 @@ namespace App\Providers;
 
 use App\Customer;
 use Illuminate\Support\ServiceProvider;
-use Tenancy\Environment;
+use Tenancy\Identification\Contracts\ResolvesTenants;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -93,51 +93,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->make(Environment::class)
-            ->getIdentificationResolver()
-            ->addModel(Customer::class);
+        $this->app->resolving(ResolvesTenants::class, function (ResolvesTenants $resolver) {
+            $resolver->addModel(Customer::class);
+            
+            return $resolver;
+        });
     }
 }
 ```
 
-## Hostname model
+## Eager identification
 
-To make integration easier, the package offers an example Hostname model you can use to make http identification
-easier. In order to use this to identify a tenant you have to register the model as valid tenant in your
-service provider:
+By default when the http identification is installed, a middleware is activated to identify tenants
+as soon as possible. You can disable this by changing the configuration in the `identification-driver-http.php`
+configuration file. It can be published using `php artisan vendor:publish --tag=identifiation-driver-http`.
 
-```php
-
-namespace App\Providers;
-
-use Illuminate\Support\ServiceProvider;
-use Tenancy\Environment;
-use Tenancy\Identification\Drivers\Http\Models\Hostname;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->app->make(Environment::class)
-            ->getIdentificationResolver()
-            ->addModel(Hostname::class);
-    }
-}
-```
+> Instead of using tag `identification-driver-http` you can also use tag `tenancy` to publish all publishable files.
 
 [what-is-a-tenant]: what-is-a-tenant
