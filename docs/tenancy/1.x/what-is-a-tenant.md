@@ -22,6 +22,8 @@ Simply have the model implement the method to get started:
 ```php
 <?php
 
+namespace App;
+
 use Illuminate\Database\Eloquent\Model;
 use Tenancy\Identification\Contracts\Tenant;
 
@@ -91,6 +93,8 @@ functionality:
 ```php
 <?php
 
+namespace App;
+
 use Illuminate\Database\Eloquent\Model;
 use Tenancy\Identification\Concerns\AllowsTenantIdentification;
 use Tenancy\Identification\Contracts\Tenant;
@@ -100,3 +104,48 @@ class User extends Model implements Tenant
     use AllowsTenantIdentification;
 }
 ```
+
+## The registration
+
+In order for the package to know a valid tenant model is available, you will need 
+to register it on the tenant identification resolver. The best to do so is inside
+your `app/Providers/AppServiceProvider` or alternatively a dedicated `app/Providers/TenantProvider`
+which you created.
+
+```php
+<?php
+
+namespace App\Providers;
+
+use App\User;
+use Illuminate\Support\ServiceProvider;
+use Tenancy\Identification\Contracts\ResolvesTenants;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->resolving(ResolvesTenants::class, function (ResolvesTenants $resolver) {
+            $resolver->addModel(User::class);
+            
+            return $resolver;
+        });
+    }
+}
+```
+
