@@ -160,8 +160,9 @@ packages:
                 - requirements
                 - installation
                 - what-is-a-tenant
-                - compared-to-hyn
             drivers:
                 - identification-drivers
                 - database-drivers
+            meta:
+                - compared-to-hyn
 ---

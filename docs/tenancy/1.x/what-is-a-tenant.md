@@ -23,15 +23,64 @@ Simply have the model implement the method to get started:
 <?php
 
 use Illuminate\Database\Eloquent\Model;
-use Tenancy\Identification\Contracts\IdentifiableAsTenant;
+use Tenancy\Identification\Contracts\Tenant;
 
-class User extends Model implements IdentifiableAsTenant
+class User extends Model implements Tenant
 {
+    /**
+     * The attribute of the Model to use for the key.
+     *
+     * @return string
+     */
+    public function getTenantKeyName(): string
+    {
+        return 'id';
+    }
+
+    /**
+     * The actual value of the key for the tenant Model.
+     *
+     * @return string|int
+     */
+    public function getTenantKey()
+    {
+        return $this->id;
+    }
+
+    /**
+     * The value type of the key.
+     *
+     * @return string
+     */
+    public function getTenantKeyType(): string
+    {
+        return 'int';
+    }
+
+    /**
+     * A unique identifier, eg class or table to distinguish this tenant Model.
+     *
+     * @return string
+     */
+    public function getTenantIdentifier(): string
+    {
+        return get_class($this);
+    }
+
+    /**
+     * Allows overriding the system connection used for the tenant.
+     *
+     * @return null|string
+     */
+    public function getManagingSystemConnection(): ?string
+    {
+        return null;
+    }
 }
 ```
 
 This will force your User model to implement some methods
-required for tenancy to do its work.
+required for tenancy to do its work. 
 
 ## The trait
 
@@ -44,10 +93,10 @@ functionality:
 
 use Illuminate\Database\Eloquent\Model;
 use Tenancy\Identification\Concerns\AllowsTenantIdentification;
-use Tenancy\Identification\Contracts\IdentifiableAsTenant;
+use Tenancy\Identification\Contracts\Tenant;
 
-class User extends Model implements IdentifiableAsTenant
+class User extends Model implements Tenant
 {
-  use AllowsTenantIdentification;
+    use AllowsTenantIdentification;
 }
 ```

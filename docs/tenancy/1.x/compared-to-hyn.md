@@ -52,7 +52,7 @@ single 5.x version; a monolith.
 
 This has been very fruitful for the package, but it made deciding whether to add functionality
 not closely related to multi tenancy a struggle. Tenancy has been set up to work with git subsplit;
-the same way the Laravel framwork is maintained. One repository contains all packages, using
+the same way the Laravel framework is maintained. One repository contains all packages, using
 the subsplit command read-only package repositories are updated automatically.
 
 With this set up developing, maintaining and testing existing and new packages becomes far easier,
