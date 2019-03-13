@@ -14,64 +14,64 @@ packages:
           suggest_using: true
           tree:
             getting started:
-                - requirements
-                - installation
-                - configuration
+            - requirements
+            - installation
+            - configuration
             tenant principles:
-                - concepts
-                - structure
-                - identification
-                - fallback
-                - middleware
+            - concepts
+            - structure
+            - identification
+            - fallback
+            - middleware
             implementation:
-                - models
-                - repositories
-                - filesystem
-                - migrations
-                - connections
-                - validation
-                - queues
-                - events
-                - cache
+            - models
+            - repositories
+            - filesystem
+            - migrations
+            - connections
+            - validation
+            - queues
+            - events
+            - cache
             webserver:
-                - apache
-                - nginx
+            - apache
+            - nginx
             tutorials:
-                - getting-started-tutorial
-                - full-featured-tutorial
-                - spatie-laravel-permission
+            - getting-started-tutorial
+            - full-featured-tutorial
+            - spatie-laravel-permission
         - name: 5.2
           status: Deprecated
           branch: 5.x
           tree:
             getting started:
-                - requirements
-                - upgrade-from-5.1
-                - installation
-                - configuration
+            - requirements
+            - upgrade-from-5.1
+            - installation
+            - configuration
             tenant principles:
-                - concepts
-                - structure
-                - identification
-                - fallback
-                - middleware
+            - concepts
+            - structure
+            - identification
+            - fallback
+            - middleware
             implementation:
-                - models
-                - repositories
-                - filesystem
-                - migrations
-                - connections
-                - validation
-                - queues
-                - events
-                - cache
-                - logging
-                - tinker
+            - models
+            - repositories
+            - filesystem
+            - migrations
+            - connections
+            - validation
+            - queues
+            - events
+            - cache
+            - logging
+            - tinker
             webserver:
-                - apache
-                - nginx
+            - apache
+            - nginx
         - name: 5.3
-          status: Stable
+          status: Deprecated
           branch: 5.x
           tree:
               getting started:
@@ -107,42 +107,42 @@ packages:
               - spatie-laravel-permission
               - spatie-medialibrary
         - name: 5.4
-          status: Beta
+          status: Stable
           suggest_using: true
           branch: 5.x
           tree:
             getting started:
-              - requirements
-              - upgrade-from-5.3
-              - installation
-              - configuration
+            - requirements
+            - upgrade-from-5.3
+            - installation
+            - configuration
             tenant principles:
-              - concepts
-              - identification
-              - connections
-              - fallback
-              - middleware
+            - concepts
+            - identification
+            - connections
+            - fallback
+            - middleware
             implementation:
-              - creating-tenants
-              - models
-              - structure
+            - creating-tenants
+            - models
+            - structure
             tenant aware:
-              - filesystem
-              - migrations
-              - validation
-              - queues
-              - events
-              - cache
-              - commands
+            - filesystem
+            - migrations
+            - validation
+            - queues
+            - events
+            - cache
+            - commands
             customization:
-              - custom-models
-              - logging
+            - custom-models
+            - logging
             webserver:
-              - apache
-              - nginx
+            - apache
+            - nginx
             tutorials:
-              - spatie-laravel-permission
-              - spatie-medialibrary
+            - spatie-laravel-permission
+            - spatie-medialibrary
     - name: Tenancy
       repository: https://github.com/tenancy/tenancy
       packagist: tenancy/tenancy
@@ -157,12 +157,14 @@ packages:
           branch: master
           tree:
             getting started:
-                - requirements
-                - installation
-                - what-is-a-tenant
+            - requirements
+            - installation
+            - what-is-a-tenant
             drivers:
-                - identification-drivers
-                - database-drivers
+            - identification-drivers
+            - database-drivers
+            affects:
+            - affects-filesystem
             meta:
-                - compared-to-hyn
+            - compared-to-hyn
 ---
