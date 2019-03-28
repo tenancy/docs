@@ -19,7 +19,7 @@ $ php artisan tenancy:run --help
 How it works:
 
 - Using the `--tenant` option is optional, if you leave it out the command will be run on all tenants.
-- Tenant option --tenant accepts either single website id or comma separated list of website ids 
+- Tenant option --tenant accepts either single website id or comma separated list of website ids. 
 - If your target command requires options or arguments, you can add them like this:
 
 ```bash
