@@ -19,14 +19,21 @@ $ php artisan tenancy:run --help
 How it works:
 
 - Using the `--tenant` option is optional, if you leave it out the command will be run on all tenants.
+- Tenant option --tenant accepts either single website id or comma separated list of website ids. 
 - If your target command requires options or arguments, you can add them like this:
 
 ```bash
 $ php artisan tenancy:run <command> --option="key=value" --option="live=1" --argument="key=value"
 ```
-
 > Make sure you include the argument or option key!
 
+Example:
+
+Execute Artisan command permission:update for website id 2 and 3
+
+```bash
+php artisan tenancy:run permission:update --tenant=2,3
+```
 Please note this command does not do any checking and will forward any exceptions it hits.
 
 Also, **don't** run tenancy:run like this:
@@ -34,6 +41,15 @@ Also, **don't** run tenancy:run like this:
 ```bash
 $ php artisan tenancy:run tenancy:run --argument="run=tenancy:run"
 ```
+# Programmatic Artisan calls
+
+```php
+Artisan::call('tenancy:run', [
+        'run' => 'permission:update',
+        '--tenant' => [1,2,3]
+        ]);
+```
+> Make sure --tenant value is always an array, an integer value will fail.
 
 # Recreate command
 
