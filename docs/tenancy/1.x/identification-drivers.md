@@ -20,5 +20,6 @@ listeners to be ignored.
 - [http](identification-driver-http)
 - [console](identification-driver-console)
 - [environment](identification-driver-environment)
+- [queue](identification-driver-queue)
 
 [what-is-a-tenant]: what-is-a-tenant
