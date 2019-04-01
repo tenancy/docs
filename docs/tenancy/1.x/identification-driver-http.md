@@ -28,6 +28,8 @@ This allows you to set up your own identification requirements, eg:
 * Path, the requested path in the URL.
 * Get parameter.
 
+## Usage
+
 ```php
 <?php
 

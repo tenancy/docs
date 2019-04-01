@@ -164,7 +164,11 @@ packages:
             - identification-drivers
             - database-drivers
             affects:
+            - affects-cache
             - affects-filesystem
+            - affects-logs
+            - affects-routes
+            - affects-views
             meta:
             - compared-to-hyn
 ---

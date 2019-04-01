@@ -31,6 +31,8 @@ This allows you to set up your own identification requirements, eg:
 * Slug, custom generated, human readable string.
 * Id, the database auto increment id.
 
+## Usage
+
 ```php
 <?php
 
