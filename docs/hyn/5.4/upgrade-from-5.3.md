@@ -9,7 +9,7 @@ more features.
 
 - Minimum PHP requirement now 7.2.
 - The tenant database password is now generated differently. If `tenancy.key` is `null` it will use
-the password generation seen in previous versions by generating an md5 has of the app.key and the website Id.
+the password generation seen in previous versions by generating an md5 hash of the app.key and the website Id.
 However if you set it to the recommended `env('TENANCY_KEY')` or a string of any kind, the password is now generated
 with this value, the website Id, Uuid and creation date. In addition this `tenancy.key` can be rotated more easily
 by using the new `tenancy:key:update` command. **Make sure you configure this setting before upgrading!**
