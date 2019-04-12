@@ -54,9 +54,10 @@ name and assigning the Role model to the tenant connection.
 
 ```php
     public function roles() {
-        $website   = app(\Hyn\Tenancy\Environment::class)->tenant();
-        return $this->belongsToMany('App\Role', "{$website->uuid}.role_user");
+        $config = app(\Hyn\Tenancy\Database\Connection::class)->configuration();
+        return $this->belongsToMany('App\Role', "{$config['database']}.role_user");
     }
 ```
 
-> The above will trigger an error when there was no tenant identified.
+> This only works if tenant databases are on the same server as the system database! You cannot
+use the managing system connection feature in this scenario.
