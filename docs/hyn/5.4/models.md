@@ -42,4 +42,21 @@ use the connection of the identified tenant per default.
 
 > Please note these models are using their respective traits.
 
+#### Relationships
 
+Model eloquent relations are possible from tenant to system and vice versa. One thing to remember
+with intermediate tables involved, for instance on the belongsToMany relationship, is that you can
+prefix the intermediate table with the connection. 
+ 
+For instance, when you have your User model on the system database - acting as a global user - you can
+store the user roles on the tenant database by prefixing that intermediate table with the tenant database
+name and assigning the Role model to the tenant connection. 
+
+```php
+    public function roles() {
+        $website   = app(\Hyn\Tenancy\Environment::class)->tenant();
+        return $this->belongsToMany('App\Role', "{$website->uuid}.role_user");
+    }
+```
+
+> The above will trigger an error when there was no tenant identified.
