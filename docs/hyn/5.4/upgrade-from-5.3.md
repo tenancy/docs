@@ -32,5 +32,5 @@ by giving the property `website_id` on the Job a value before dispatching it.
 - Website related events now also contain hostname in case one was identified.
 - Upgraded to phpunit 8.
 
-See the [changelog](https://github.com/hyn/multi-tenant/blob/5.x/changelog.md) for
+See the [changelog](https://github.com/tenancy/multi-tenant/blob/5.x/changelog.md) for
 all modifications.

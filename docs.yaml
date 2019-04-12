@@ -5,7 +5,7 @@ packages:
         Run multiple websites using the same Laravel installation while
         keeping tenant specific data separated for fully independent
         multi-domain setups.
-      repository: https://github.com/hyn/multi-tenant
+      repository: https://github.com/tenancy/multi-tenant
       packagist: hyn/multi-tenant
       versions:
         - name: 5.1

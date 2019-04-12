@@ -23,5 +23,5 @@ one or more tenant-enabled environments.
 - Fixed grants being given on users we weren't creating.
 - More minor bug fixes and improvements.
 
-See the [changelog](https://github.com/hyn/multi-tenant/blob/5.x/changelog.md) for
+See the [changelog](https://github.com/tenancy/multi-tenant/blob/5.x/changelog.md) for
 all modifications.
