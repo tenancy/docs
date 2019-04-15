@@ -27,9 +27,9 @@ class ProcessPodcast implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     
-    protected $website_id;
+    public $website_id;
     
-    public function __construct(int $website_id){
+    public function __construct(int $website_id) {
         $this->website_id = $website_id;
     }
 }
