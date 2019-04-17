@@ -1,5 +1,5 @@
 ---
-title: Affects
+title: About Affects
 icon: fal fa-reply-all
 excerpt: >
     How tenancy modifies your Laravel app.
