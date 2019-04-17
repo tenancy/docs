@@ -1,6 +1,6 @@
 ---
 title: Config
-icon: fal fa-clipboard-list-check
+icon: fal fa-stream
 excerpt: >
     Makes the config adapt to your tenant identification.
 tags:
