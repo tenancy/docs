@@ -14,3 +14,4 @@ Install using composer:
 composer require tenancy/affects-filesystem
 ```
 
+Event: `Tenancy\Affects\Filesystem\Events\ConfigureDisk`.

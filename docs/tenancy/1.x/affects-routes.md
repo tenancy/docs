@@ -14,3 +14,4 @@ Install using composer:
 composer require tenancy/affects-routes
 ```
 
+Event: `Tenancy\Affects\Routes\Events\ConfigureRoutes`.

@@ -14,3 +14,4 @@ Install using composer:
 composer require tenancy/affects-views
 ```
 
+Event: `Tenancy\Affects\Views\Events\ConfigureViews`.

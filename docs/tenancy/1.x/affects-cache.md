@@ -14,3 +14,4 @@ Install using composer:
 composer require tenancy/affects-cache
 ```
 
+Event: `Tenancy\Affects\Cache\Events\ConfigureCache`.

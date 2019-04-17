@@ -14,3 +14,4 @@ Install using composer:
 composer require tenancy/affects-logs
 ```
 
+Event: `Tenancy\Affects\Logs\Events\ConfigureLogs`.
