@@ -166,6 +166,7 @@ packages:
             affects:
             - affects
             - affects-cache
+            - affects-config
             - affects-filesystem
             - affects-logs
             - affects-routes
