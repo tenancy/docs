@@ -22,4 +22,44 @@ listeners to be ignored.
 - [environment](identification-driver-environment)
 - [queue](identification-driver-queue)
 
+# Driver principles
+
+Every driver uses the same principle. In order for a tenant to be used by the driver it has to
+implement an interface (or in Laravel terminology contract) related to the driver. For instance
+the http identification driver requires the tenant to implement the `IdentifiesByHttp` contract
+which demands the method `tenantIdentificationByHttp`.
+
+> The identification driver will only attempt identification of a tenant model when it implements
+the contract of the driver.
+
+The second principle is that all tenant models have to be registered on the tenant resolver. Assuming
+your tenant model is `App\Customer`, you could do so in the `AppServiceProvider` like this:
+
+```php
+<?php
+
+namespace App\Providers;
+
+use App\Customer;
+use Illuminate\Support\ServiceProvider;
+use Tenancy\Identification\Contracts\ResolvesTenants;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->resolving(ResolvesTenants::class, function (ResolvesTenants $resolver) {
+            $resolver->addModel(Customer::class);
+            
+            return $resolver;
+        });
+    }
+}
+```
+
 [what-is-a-tenant]: what-is-a-tenant
