@@ -1,6 +1,6 @@
 ---
 title: Views
-icon: fal fa-warehouse-alt
+icon: fal fa-desktop-alt
 excerpt: >
     Makes the views adapt to your tenant identification.
 tags:

@@ -1,6 +1,6 @@
 ---
 title: Cache
-icon: fal fa-warehouse-alt
+icon: fal fa-inventory
 excerpt: >
     Makes the cache adapt to your tenant identification.
 tags:

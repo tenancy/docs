@@ -1,6 +1,6 @@
 ---
 title: Routes
-icon: fal fa-warehouse-alt
+icon: fal fa-route
 excerpt: >
     Makes the routes adapt to your tenant identification.
 tags:

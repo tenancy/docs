@@ -1,6 +1,6 @@
 ---
 title: Affects
-icon: fal fa-warehouse-alt
+icon: fal fa-reply-all
 excerpt: >
     How tenancy modifies your Laravel app.
 tags:

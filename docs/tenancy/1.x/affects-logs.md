@@ -1,6 +1,6 @@
 ---
 title: Logs
-icon: fal fa-warehouse-alt
+icon: fal fa-list-alt
 excerpt: >
     Makes the logs adapt to your tenant identification.
 tags:
