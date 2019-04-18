@@ -17,7 +17,7 @@ in your application you wish to build your business logic around.
 ## Tenant model contract
 
 The contract is required to mark a specific model as your tenant.
-Simply have the model implement the method to get started:
+Simply have the model implement the contract methods to get started:
 
 ```php
 <?php
