@@ -56,9 +56,9 @@ class Customer extends Model implements Tenant, IdentifiesByConsole
      */
     public function tenantIdentificationByConsole(InputInterface $input): ?Tenant
     {
-        if (app()->runningInConsole() && $input->hasArgument('tenant')) {
+        if (app()->runningInConsole() && $input->hasParameterOption('--tenant')) {
             return $this->query()
-                ->where('slug', $input->getArgument('tenant'))
+                ->where('slug', $input->getParameterOption('--tenant'))
                 ->first();
         }
         
