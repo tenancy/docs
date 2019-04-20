@@ -35,7 +35,7 @@ the same methods you are used to, including; `get`, `put` and `setVisibility`.
 
 # Tenancy directory
 
-In case you prefer having a higher level access to the files for tenants. You can use the Filesystem bound to Laravel's container.
+In case you prefer having a higher level access to the files for tenants you can use the Filesystem bound to Laravel's container.
 
 ```php
 /** @var \Illuminate\Contracts\Filesystem\Filesystem $tenancy */
