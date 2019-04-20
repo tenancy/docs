@@ -7,17 +7,14 @@ tags:
     - medialibrary
     - tutorial
 ---
-1. Create a fresh install of Laravel 5.7.  If you have installed the Laravel Terminal Installer run: 
+1. Create a fresh install of Laravel.  If you have installed the Laravel Terminal Installer run: 
 
 ```bash
 $ laravel new app
 ```
 
 2. `$ cd app`
-3. Install `hyn/multi-tenant` package by running:
-```bash
-$ composer require hyn/multi-tenant
-```
+3. Install `hyn/multi-tenant` package by running: `composer require hyn/multi-tenant`
 4. Follow the instructions until the "Deploy configuration" section.
 5. If you are using MySQL as a database, make sure to add the entry `LIMIT_UUID_LENGTH_32=true` in your `.env` file.
 
@@ -33,7 +30,7 @@ Publish the migration with:
 $ php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"
 ```
 
-Move the migration file from `database/migrations/2018_10_10_085035_create_media_table.php` to `database/migrations/tenant/`.
+Move the migration file (`2018_10_10_085035_create_media_table.php`) from `database/migrations/` to `database/migrations/tenant/`.
 
 After the migration has been published you can create the media-table in your tenant databases by running the migrations:
 ```bash
@@ -48,13 +45,13 @@ $ php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryService
 ## Integration
 
 This section of the tutorial assumes that you have successfully [created at least 2 hostnames](creating-tenants)
-and successfully have accessed them via your local environment setup.
+and have successfully accessed them via your local environment setup.
 
 We need to extend the `Media` eloquent model of the Medialibrary package so that we can add the
-necessary changes we need in order for these two models to be tenant aware.
+necessary changes for these two models to be tenant aware.
 
-1. Create a Media.php file and place them inside your `app` directory,
-next to your `User.php`. Make sure that these files extend `Spatie\MediaLibrary\Models\Media::class`.
+1. Create a Media.php file and place it inside your `app` directory,
+next to your `User.php`. Make sure that this class extends `Spatie\MediaLibrary\Models\Media::class`.
 
 `App\Media.php` - extends from `SpatieMedia` and uses the `UsesTenantConnection` trait.
 ```php
@@ -73,7 +70,7 @@ class Media extends SpatieMedia
 
 2. Prepare your model
 
-To associate media with a model, the tenant aware model must implement the following interface and trait:
+To associate media with a model, the tenant aware model must implement the following interface and traits, as shown below:
 
 ```php
 <?php
@@ -92,7 +89,7 @@ class User extends Model implements HasMedia
 }
 ```
 
-3. Modify your `config/medialibrary.php` file and modify the `media_model` that is being used here to point to your newly created model. e.g. `App\Media::class`
+3. Modify your `config/medialibrary.php` file and modify the `media_model` to point to your newly created model. e.g. `App\Media::class`
 
 `config\medialibrary.php`
 ```php

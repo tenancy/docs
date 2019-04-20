@@ -6,7 +6,7 @@ icon: fal fa-arrow-alt-to-bottom
 
 # Elevated database user
 
-Tenancy requires a system connection that allows creating new databases for her
+Tenancy requires a `system` connection that allows creating new databases for
 tenants. In order to do so, we need to have a database user with elevated
 permissions.
 
@@ -28,8 +28,8 @@ CREATE USER tenancy WITH CREATEDB CREATEROLE PASSWORD 'someRandomPassword';
 GRANT ALL PRIVILEGES ON DATABASE tenancy to tenancy WITH GRANT OPTION;
 ```
 
-Make sure you configure this user as your system connection in your `database.php`.
-Under connections:
+Make sure you configure this user as your `system` connection in your `database.php`.
+Under `connections`:
 
 ```php
 'system' => [
@@ -48,9 +48,9 @@ Under connections:
 ]
 ```
 
-Most often it makes sense to use either `system` or `tenant` as your default database connection setting; this is `DB_CONNECTION` in your `.env` file. This environment variable is assigned to the `default` key in the `config/database.php` configuration file.
+Most often it makes sense to use either `system` or `tenant` as your default database connection setting. For example, Laravel assigns the value from `DB_CONNECTION` in your `.env` file to the `default` key in the `config/database.php` configuration file.
 
-In case you use the `tenant` make sure to enable [early identification](identification) and configure
+In case you use `tenant` make sure to enable [early identification](identification) and configure
 a decent [fallback](fallback) later on.
 
 > There is no need to configure the `tenant` connection in the `database.php`
@@ -65,11 +65,9 @@ Run the composer command to add the tenancy package as dependency:
 composer require "hyn/multi-tenant:5.4.*"
 ```
 
-Laravel offers [package auto discovery][3]
-in version 5.6. So that's all you need to do; no need to register any
-service providers manually in your `config/app.php`.
+Laravel's [package auto discovery][3] will register the service provider automatically.
 
-Publish the configuration files and migrations for tenancy, which allows you
+Publish the configuration files and migrations for Tenancy, which allow you
 to configure the behavior of the package.
 
 ```bash

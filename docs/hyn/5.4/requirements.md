@@ -9,9 +9,7 @@ icon: fal fa-clipboard-check
 - Optionally Apache 2.4+ or Nginx 1.12+.
 - [Applied experience with Laravel](#experience).
 
-> Please note that MySQL limits username and database length to 32, 
-enable in the `tenancy.php` configuration file:  `website > uuid-limit-length-to-32`
-to fix this.
+> Please note that MySQL limits username and database length to 32. Enable this in the `tenancy.php` configuration file:  `website > uuid-limit-length-to-32` to accommodate this.
 
 ## Experience
 

@@ -3,8 +3,8 @@ title: Logging
 icon: fal fa-book
 ---
 
-Especially in production you might want to split the default laravel log by tenants.
-Tenancy ships with a custom tenant aware logger which you can register in the logger config.
+Especially in production you might want to split the default Laravel log by tenants.
+Tenancy ships with a custom tenant aware logger which you can register in the `logging.php` config.
 
 - If a tenant is detected it will create a `logs` folder within the tenant directory:
 `storage/app/tenancy/tenants/<tenant uuid>/logs/<log_level>_<YYYY>-<MM>-<DD>.log`

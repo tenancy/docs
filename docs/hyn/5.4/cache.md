@@ -49,5 +49,5 @@ allows you to set a custom cache driver in `config/cache.php`:
 ],
 ```
 
-> Make sure the CacheServiceProvider is registered in `config/app.php`. Or your driver will not be
-available for use.
+> Make sure the CacheServiceProvider is registered in `config/app.php` or else your driver will 
+not be available for use.

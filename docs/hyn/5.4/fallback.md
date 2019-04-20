@@ -27,12 +27,12 @@ enabled, all routes contained in that file will automatically override any decla
 from `routes/web.php` or `routes/api.php`. Make sure to apply the proper middleware to those routes.
 
 In case you enable `tenancy.routes.replace-global` all previously declared routes
-will be removed and replaced with the contents of the tenants.php routes file.
+will be removed and replaced with the contents of the `routes/tenants.php` file.
 
 > Understand unlike the default `web.php` and `api.php` files no group is set around this file. You need
 to apply your own `namespace`, `middleware` and other group settings inside the `tenants.php`.
 
-An example `tenants.php` file:
+An example `routes/tenants.php` file:
 
 ```php
 <?php

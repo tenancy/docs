@@ -3,8 +3,7 @@ title: Filesystem
 icon: fal fa-hdd
 ---
 
-You are now, most likely, aware about the [directory structure][directory-structure]
-available to tenants. 
+Tenancy offers a strategic [directory structure][directory-structure] for tenants. 
 
 # Tenant disk
 
@@ -36,8 +35,7 @@ the same methods you are used to, including; `get`, `put` and `setVisibility`.
 
 # Tenancy directory
 
-In case you prefer having a higher level access to the files for tenants. You can use the ioc bound
-Filesystem.
+In case you prefer having a higher level access to the files for tenants. You can use the Filesystem bound to Laravel's container.
 
 ```php
 /** @var \Illuminate\Contracts\Filesystem\Filesystem $tenancy */
@@ -45,4 +43,4 @@ $tenancy = app('tenancy.disk');
 ```
 
 [directory-structure]: structure
-[laravel-filesystem]: https://laravel.com/docs/5.6/filesystem
+[laravel-filesystem]: https://laravel.com/docs/5.8/filesystem

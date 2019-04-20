@@ -3,11 +3,11 @@ title: Models
 icon: fal fa-hand-holding-box
 ---
 
-For you to more easily connect with the correct database a few ways are possible.
+Tenancy offers a few ways to more easily connect with the correct database.
 
 #### Traits
 
-Two traits exist to force a model onto either the tenant or system connection.
+Two traits exist to force a model onto either the `tenant` or `system` connection.
 
 - `Hyn\Tenancy\Traits\UsesSystemConnection` to make a model use the system connection.
 - `Hyn\Tenancy\Traits\UsesTenantConnection` to make a model use the tenant connection.
@@ -32,7 +32,7 @@ class User extends Authenticatable
 
 #### Abstract models
 
-Instead of using the traits one can also simply have the models extend the abstract
+Instead of using the traits directly one can also simply have the models extend the abstract
 models provided in the package.
 
 - `Hyn\Tenancy\Abstracts\SystemModel` can be extended to give easy access to 
@@ -40,7 +40,7 @@ the system database connection.
 - `Hyn\Tenancy\Abstracts\TenantModel` can be extended to have your Eloquent models 
 use the connection of the identified tenant per default.
 
-> Please note these models are using their respective traits.
+> Please note these abstract models are using the respective traits mentioned above.
 
 #### Relationships
 
