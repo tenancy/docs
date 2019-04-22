@@ -151,31 +151,6 @@ class TinkerCommand extends BaseCommand
 }
 ```
 
-Third, add the `TinkerCommand` to your Console Kernel `$commands` array.
-
-```php
-<?php
-
-namespace App\Console;
-
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Console\Tinker\TinkerCommand;
-
-class Kernel extends ConsoleKernel
-{
-    /**
-     * The Artisan commands provided by your application.
-     *
-     * @var array
-     */
-    protected $commands = [
-        TinkerCommand::class,
-    ];
-    // ...
-}
-```
-
 Now we have created a new `tenancy:tinker` artisan command. The `tenancy:tinker` requires the `--website_id=` option as a parameter. So, in order to run tinker on a `website_id` of 1, you’ll need to run:
 
 ```bash
