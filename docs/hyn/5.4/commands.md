@@ -54,8 +54,8 @@ Artisan::call('tenancy:run', [
 # Recreate command
 
 The recreate command allows you to create databases and filesystem directories for
-all tenants. It will check whether a database already exists, and if not it will recreate
-it and dispatch a "Created" event that causes the folders and possible vhost configurations
+all tenants. It will check whether each tenant database already exists, create it if necessary
+and then dispatch a "Created" event that causes the folders and possible vhost configurations
 to be made.
 
 ```bash
