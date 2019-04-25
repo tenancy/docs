@@ -3,9 +3,9 @@ title: Queues
 icon: fal fa-conveyor-belt
 ---
 
-One of the strongest features of Laravel are its queues. One drawback of sending
+One of the strongest features of Laravel is its queues. One drawback of sending
 Jobs into the Queue is that these are executed in a completely different process
-depending on your queue configuration including redis and beanstalk.
+depending on your queue configuration, including redis and beanstalk.
 
 In order to assist you with tenant aware jobs, this package automatically identifies
 whether a tenant website is active before processing the job. This ensures that

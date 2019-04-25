@@ -16,15 +16,15 @@ If for some reason you need to create an Eloquent Model that would need to conne
 to the system connection, you can apply the `Hyn\Tenancy\Traits\UsesSystemConnection`
 trait on your given Model. In doing so, the model’s connection will always default to use the `system`.
 
-One reason for using the `system` connection is when you have data which you'd like
-to share between all tenants or which you need to influence the tenant identification
+One reason for using the `system` connection is for storing data which you'd like
+to share between all tenants or which you need to use to influence the tenant identification
 process. For instance when you are creating an admin portal that would manage all of your
 tenants in one place.
 
 ## Tenant Connection
 This is maybe the most used database connection. Data in use by single tenant instances,
-not shared with others, is persisted into the database using the tenant connection. The
-implementation of the tenant connection ensures that no tenant can access another tenants data.
+not shared with others, is persisted into the database using the `tenant` connection. The
+implementation of the `tenant` connection ensures that no tenant can access another tenant's data.
 
 By using the `Hyn\Tenancy\Traits\UsesTenantConnection` trait, the package will make sure
 that it is using the right database connection.
@@ -61,6 +61,6 @@ The password of the tenant is generated using several components mashed up as md
 - Website UUID.
 - Website created_at.
 
-In case you wish to change/update the `tenancy.key` we added a useful command `tenancy:key:update`
+In case you wish to change/update the `tenancy.key` we provide a useful command `tenancy:key:update`
 which will update the tenant password with the new md5 value. This allows for easier key rotation.
 

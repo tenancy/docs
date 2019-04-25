@@ -6,8 +6,8 @@ icon: fal fa-server
 # Set up
 
 You need to set up your own PHP FPM. The preferred way of running php is through a [socket][setup-socket] by
-configuring the `listen` value in your pool correctly. Make sure to copy the path to your
-sock and update your `webserver.php` configuration file in your app to reflect that value, for instance:
+configuring the `listen` value in your pool correctly. Make sure to copy the path of your
+sock and update your `webserver.php` configuration file to reflect that value, for instance:
 
 ```php
     /**
