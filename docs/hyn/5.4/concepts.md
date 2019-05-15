@@ -16,7 +16,7 @@ Make sure you understand that the `Website` model is the subject of tenancy.
 
 The default method for identifying such a tenant website is by using the requested
 domain aka `hostname`. Taking a URL `http://yourdomain.com/foo/bar` only `yourdomain.com`
-is taken into account although modifications to this logic is easy to implement. The
+is taken into account, although modifications to this logic are easy to implement. The
 `yourdomain.com` part of the URL is called a Fully Qualified Domain Name or `fqdn` for short.
  
 A website can have zero or more hostnames connected to it. This allows for easier
