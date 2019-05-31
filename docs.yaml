@@ -177,18 +177,20 @@ packages:
       description: >
         Understanding our processes for contributions and how we manage our projects, team and funding.
       versions:
-        - name: active
+        - name: tenancy
           status: dev
           branch: master
           tree:
             organisation:
+            - team
             - strategy
             - donations
+            - reward-system
             conventions:
             - code-style
             - versioning
             processes:
-            - team-membership
             - issues
             - pull-requests
+            - team-membership
 ---
