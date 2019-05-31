@@ -173,4 +173,22 @@ packages:
             - affects-views
             meta:
             - compared-to-hyn
+    - name: Governance
+      description: >
+        Understanding our processes for contributions and how we manage our projects, team and funding.
+      versions:
+        - name: active
+          status: dev
+          branch: master
+          tree:
+            organisation:
+            - strategy
+            - donations
+            conventions:
+            - code-style
+            - versioning
+            processes:
+            - team-membership
+            - issues
+            - pull-requests
 ---
