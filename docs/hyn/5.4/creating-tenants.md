@@ -4,7 +4,7 @@ icon: fal fa-dolly-flatbed
 ---
 
 Tenancy is heavily driven by events. For event listeners to properly work, you
-have to use the repositories to create new websites and hostnames.
+have to use the provided repositories to create new websites and hostnames.
 
 # Create website
 
@@ -27,9 +27,9 @@ The UUID is used for the database username and database name. In addition
 I'd recommend using this unique string for every public facing URL, eg
 an admin dashboard.
 
-By default tenancy will create a `uuid` automatically
-using a UUID generator, you can replace that class in the 
-`tenancy.php > website > random-id-generator`, make sure it implements
+By default this package will create a `uuid` automatically
+using a UUID generator. You can replace that class in the 
+`tenancy.php > website > random-id-generator`, as long as it implements
 `Hyn\Tenancy\Contracts\Website\UuidGenerator`.
 
 If you want to force your own UUID for the website, without creating a full
@@ -39,7 +39,7 @@ it to the repository.
 ```php
 $website = new Website;
 // Implement custom random hash using Laravels Str::random
-$website->uuid = str_random(10);
+$website->uuid = Str::random(10);
 app(WebsiteRepository::class)->create($website);
 dd($website->uuid); // Random string of length 10
 ```
@@ -86,7 +86,7 @@ Fully Qualified Domain Name and can be something like `yourapp.com` or
 # Switch to new tenant
 
 For the package to set up Laravel for the specific tenant, the environment has to be
-"switched". This switching will set up amongst other the tenant database connection and
+"switched". This switching will set up things like the tenant database connection and
 filesystem logic like custom config files.
 
 ```php
@@ -111,4 +111,4 @@ In case you would like to query the database for hostnames or websites. Use the
 `query()` method of the repositories, this will return a [`Illuminate\Database\Eloquent\Builder`][query-builder]
 instance.
 
-[query-builder]: https://laravel.com/docs/5.6/queries
+[query-builder]: https://laravel.com/docs/5.8/queries

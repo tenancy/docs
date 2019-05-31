@@ -4,11 +4,11 @@ icon: fal fa-shield-alt
 excerpt: Automatic actions per tenant
 ---
 This package offers additional automation to make your life easier. Using
-middleware, you can mutate how specific requests are handled.
+middleware you can mutate how specific requests are handled.
 
 # Maintenance
 
-Set the property `under_maintenance_since` of the hostname to show a
+Set the property `under_maintenance_since` of the `hostname` to show a
 Laravel generic maintenance page.
 
 # Redirection
@@ -18,7 +18,7 @@ requests to this hostname.
 
 # Secure
 
-Set the property `force_https` to true to force all connections on this
+Set the property `force_https` to `true` to force all connections on this
 hostname to be handled using a SSL encrypted connection.
 
 # Abort

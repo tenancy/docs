@@ -5,14 +5,14 @@ icon: fal fa-street-view
 
 During runtime, the `Environment` class is bound into Laravel's container. The
 tenancy environment holds one single responsibility, which is telling our code
-what hostname was currently identified and resolving the related website.
+what `hostname` is currently identified and resolving the related website.
 
 # Early identification
 
-By default tenancy will identify the tenant after all Middleware has been processed.
-One could simply resolve the Environment class through the service container
+By default Tenancy will identify the tenant after all Middleware has been processed.
+You can resolve the Environment class through the service container
 inside a middleware to force identification of the tenant early on. If you want the 
-package to handle this on your behalf you can now simply enable the `early-identification` flag in
+package to handle this on your behalf you can enable the `early-identification` flag in
  your `tenancy.php` configuration file under `hostname`.
 
 # Manual identification
@@ -41,7 +41,7 @@ execution. Use a background job to run mass changes on tenant databases.
 
 # Retrieve current tenant
 
-In case you like to work with the current environment, you can do the following:
+To work with the current environment, you can do the following:
 
 ```php
  

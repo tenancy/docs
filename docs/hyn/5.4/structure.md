@@ -10,19 +10,19 @@ file under `website > disk`. By default tenant files
 are stored in `storage/app/tenancy/tenants`.
 
 Inside this tenant directory you are able to override global logic by
-generating the necessary files. Check the tenancy configuration file under
+generating the necessary files. Check the `config/tenancy.php` file under
 `folders` to see which ones are enabled by default.
 
 ## Config
 
-Any php files stored inside a `config/` directory of the tenant is read
+Any php files stored inside a `config/` directory of the tenant are read
 during runtime. Existing configuration values are replaced and new ones
 are appended.
 
 A great use case for this feature is the ability to configure client 
 specific mail settings.
 
-The tenancy configuration file allows you to refuse overrides of specific
+The `config/tenancy.php` configuration file allows you to refuse overrides of specific
 configuration settings using the `folders > config > blacklist` setting.
 By default it disallows database, tenancy and webserver changes.
 
@@ -34,8 +34,8 @@ url's will be matched for this specific tenant only.
 
 ## Trans
 
-New translations can be easily added by creating a `lang/` folder.
-The native Laravel translator will parse any files contained within
+New translations can be added easily by creating a `lang/` folder.
+The native Laravel translator will parse any files contained here
 to be used in the application of this specific tenant.
 
 You are able to specify whether these language files should override
@@ -71,16 +71,16 @@ The media folder can be used by creating a `media/` folder inside the
 tenant directory. Files inside that directory will become automatically
 available as a public directory inside an equally named directory `media/`.
 
-Eg, storing a file `media/bg.jpg` will allow you to use `/media/bg.jpg` inside
+Eg: storing a file `media/bg.jpg` will allow you to use `/media/bg.jpg` inside
 your html. This applies to any file you store.
 
-## /media webserver
+### /media webserver
 
 An alias is set up binding the private tenant media directory to the public
 media directory. This is implemented using the auto generated web server
 configuration files for apache and nginx.
 
-## /media fallback controller
+### /media fallback controller
 
 In case you're not using the webserver vhost configuration files provided
 by this package you can choose to map the `MediaController` to the path, eg:

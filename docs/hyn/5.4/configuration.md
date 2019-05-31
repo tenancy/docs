@@ -18,12 +18,13 @@ I've listed some of the basic settings below.
 
 ## tenancy.php
 
-The tenancy configuration file holds every setting related to tenants. This includes how to generate a unique
-website, but also how database connections are set up. In addition, it allows for;
+The `tenancy.php` configuration file holds every setting related to tenants. 
+This includes how to generate a unique website, but also how database connections are set up. 
+In addition, it allows for:
 
-- custom random id logic.
-- manual tenant identification.
-- on what disk (see `config/filesystems.php`) to store the tenant-specific files.
+- custom random id logic
+- manual tenant identification
+- on what disk (see `config/filesystems.php`) to store the tenant-specific files
 - specifying tenant database division mode
 - specifying the password generator
 - specifying the migrations path
@@ -36,10 +37,10 @@ website, but also how database connections are set up. In addition, it allows fo
 
 ## webserver.php
 
-With the webserver.php one can more closely fine tune integration of this package with your webserver.
+The `webserver.php` configuration file allows one to more closely fine tune integration of this package with your webserver.
 Ports, vhost configuration files and the location to save these files are all contained in this config.
 
-In general you can expect the following settings for each webserver;
+The settings in this configuration file are:
 
 - enabled; whether the service is enabled and thus the package will write files for it and reload the service.
 - ports; which ports we should use, this is required to configure the vhost files properly.

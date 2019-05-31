@@ -18,8 +18,8 @@ $ php artisan tenancy:run --help
 
 How it works:
 
-- Using the `--tenant` option is optional, if you leave it out the command will be run on all tenants.
-- Tenant option --tenant accepts either single website id or comma separated list of website ids. 
+- Using the `--tenant` option is optional. If you leave it out the command will be run on all tenants.
+- The `--tenant` option accepts either a single website id or a comma separated list of website ids. 
 - If your target command requires options or arguments, you can add them like this:
 
 ```bash
@@ -49,13 +49,13 @@ Artisan::call('tenancy:run', [
         '--tenant' => [1,2,3]
         ]);
 ```
-> Make sure --tenant value is always an array, an integer value will fail.
+> Make sure --tenant value is always an array. An integer value will fail.
 
 # Recreate command
 
 The recreate command allows you to create databases and filesystem directories for
-all tenants. It will check whether a database already exists, if not it will recreate
-it and dispatch a "Created" event that causes the folders and possible vhost configurations
+all tenants. It will check whether each tenant database already exists, create it if necessary
+and then dispatch a "Created" event that causes the folders and possible vhost configurations
 to be made.
 
 ```bash
@@ -64,7 +64,7 @@ $ php artisan tenancy:recreate
 
 # Tenant Aware Tinker Command
 
-This article describes how to enable tenant awareness for the native Laravel tinker command.
+This section describes how to enable tenant awareness for the native Laravel `tinker` command.
 
 First, create a trait named `MutatesTinkerCommand` with the following content:
 
@@ -133,7 +133,7 @@ trait MutatesTinkerCommand
     }
 }
 ```
-You can only tinker on one database at a time, therefore, the `website_id` needs to be a required option. Utilizing the `AddWebsiteFilterOnCommand` trait available in the Tenancy package would not work in this instance; it is tailored to run processes on multiple websites and makes the `website_id` parameter optional.
+You can only tinker on one database at a time. Therefore the `website_id` needs to be a required option. Utilizing the `AddWebsiteFilterOnCommand` trait available in the Tenancy package would not work in this instance as it is tailored to run processes on multiple websites and makes the `website_id` parameter optional.
 
 Second, create a new console command `TinkerCommand` that uses the trait above.
 
@@ -151,32 +151,7 @@ class TinkerCommand extends BaseCommand
 }
 ```
 
-Third, add the `TinkerCommand` to your Console Kernel `$commands` array.
-
-```php
-<?php
-
-namespace App\Console;
-
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Console\Tinker\TinkerCommand;
-
-class Kernel extends ConsoleKernel
-{
-    /**
-     * The Artisan commands provided by your application.
-     *
-     * @var array
-     */
-    protected $commands = [
-        TinkerCommand::class,
-    ];
-    // ...
-}
-```
-
-Now we have created a new `tenancy:tinker` artisan command. The `tenancy:tinker` requires the `--website_id=` option as a parameter. So, in order to run tinker on, let’s say with a `website_id` of 1, you’ll need to run:
+Now we have created a new `tenancy:tinker` artisan command. The `tenancy:tinker` requires the `--website_id=` option as a parameter. So, in order to run tinker on a `website_id` of 1, you’ll need to run:
 
 ```bash
 $ php artisan tenancy:tinker --website_id=1

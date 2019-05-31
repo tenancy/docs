@@ -5,8 +5,7 @@ icon: fal fa-hourglass-end
 
 To create a fluid ecosystem around Laravel, this package uses events heavily.
 
-> It's highly recommended to read up on the native [events][laravel-events] by Laravel
-in case you are unaware about its purposes.
+> It's highly recommended to read up on the native [events][laravel-events] in Laravel.
 
 # Model events
 
@@ -15,8 +14,7 @@ Namespaces:
 - `Hyn\Tenancy\Events\Hostnames`
 - `Hyn\Tenancy\Events\Websites`
 
-All of the models have the following events per default, these should be
-self explanatory.
+All of the models have the following events, whose purposes mirror Laravel's own model events.
 
 - Creating
 - Created
@@ -38,7 +36,7 @@ Namespace: `Hyn\Tenancy\Events\Websites`.
 
 Namespace: `Hyn\Tenancy\Events\Hostnames`.
 
-The hostname models has a few additional events:
+The hostname model has a few additional events:
 
 - Attached: the hostname was attached to a website.
 - Detached: the hostname was removed from a website.
@@ -71,4 +69,4 @@ Namespace: `Hyn\Tenancy\Events\Webservers`.
 
 - ConfigurationSaved: the configuration for the webserver was saved to disk.
 
-[laravel-events]: https://laravel.com/docs/5.6/events
+[laravel-events]: https://laravel.com/docs/5.8/events
