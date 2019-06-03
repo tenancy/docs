@@ -50,16 +50,6 @@ class User extends Model implements Tenant
     }
 
     /**
-     * The value type of the key.
-     *
-     * @return string
-     */
-    public function getTenantKeyType(): string
-    {
-        return 'int';
-    }
-
-    /**
      * A unique identifier, eg class or table to distinguish this tenant Model.
      *
      * @return string
@@ -67,16 +57,6 @@ class User extends Model implements Tenant
     public function getTenantIdentifier(): string
     {
         return get_class($this);
-    }
-
-    /**
-     * Allows overriding the system connection used for the tenant.
-     *
-     * @return null|string
-     */
-    public function getManagingSystemConnection(): ?string
-    {
-        return null;
     }
 }
 ```
