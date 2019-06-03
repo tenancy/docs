@@ -47,7 +47,20 @@ When the HookResolver fires the hooks it will:
  - Resolve the registered hooks.
  - Call the `for()` method on the hook with the specific [lifecycle event](#events).
  - Filter hooks that aren't supposed to fire, by checking the response of the method `fires()`.
- - Sorts based on the `priority()` method.
+ - Sorts based on the `priority()` method, see [priorities](#priorities).
  - Then calls the `fire()` method either:
     - directly.
     - or dispatched to the queue returned from the `queue()` method when `queued()` is true.
+    
+## Priorities
+
+For hooks to be executed in the right sequence (eg migrations running after the database is created),
+the hooks require a priority. Make sure your hooks use the correct value. Hooks are ran from lowest
+to highest.
+
+- Databases created, updated and deleted: `-100`
+- Migrations, if hooks-migrations is enabled: `-50`
+
+As a result if you want to set up and configure a database server when a tenant is created, make sure to
+do so with a priority lower than -100. If you want to configure a database value dynamically after the
+migrations and seeds are done, use a value higher than -50.
