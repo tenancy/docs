@@ -171,6 +171,9 @@ packages:
             - affects-logs
             - affects-routes
             - affects-views
+            hooks:
+            - hooks
+            - hooks-migrations
             meta:
             - compared-to-hyn
     - name: Governance
