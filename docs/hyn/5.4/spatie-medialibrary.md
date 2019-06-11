@@ -111,11 +111,6 @@ return [
 ```php
 <?php
 
-use App\User;
-use App\Role;
-use App\Permission;
-use Hyn\Tenancy\Models\Hostname;
-
 // Retrieve your user model.
 $user = App\User::find(1);
 
