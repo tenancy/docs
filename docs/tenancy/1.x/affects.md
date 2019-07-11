@@ -7,6 +7,11 @@ tags:
     - affects
     - tenant
 ---
+
+Affects change the behaviour of your Laravel application by integrating closely with the
+framework. You can modify routes, views and much more by using an affect or creating
+your own!
+
 Affects are an important component to the workings of tenancy. Each affect influences your
 Laravel app, but enabling them isn't enough for most of them. Affects fire events, which allow
 you to hook into. This makes it incredibly easy to implement your own specific modifications
@@ -34,7 +39,7 @@ class TenantRoutes
             ->flush()
             ->fromFile(
                 ['middleware' => ['web']],
-                __DIR__ . '/../../routes/tenant.php'
+                base_path('/routes/tenant.php')
             );
     }
 }
@@ -70,4 +75,4 @@ class EventServiceProvider extends ServiceProvider
 ```
 
 That's it, from now on whenever a tenant is identified or switched to, the routes
-are activated.
+contained in `routes/tenant.php` are activated.
