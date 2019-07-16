@@ -140,7 +140,7 @@ Second, create a new console command `TinkerCommand` that uses the trait above.
 ```php
 <?php
 
-namespace App\Console\Tinker;
+namespace App\Console\Commands;
 
 use Laravel\Tinker\Console\TinkerCommand as BaseCommand;
 use App\Traits\MutatesTinkerCommand;
