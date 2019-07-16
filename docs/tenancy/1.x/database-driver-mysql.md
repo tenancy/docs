@@ -12,7 +12,7 @@ tags:
 Install using composer:
 
 ```bash
-$ composer require tenancy/database-driver-mysql
+$ composer require tenancy/db-driver-mysql
 ```
 
 ## Configuration
