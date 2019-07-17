@@ -108,44 +108,4 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-## Hostname model
-
-To make integration easier, the package offers an example Hostname model you can use to make http identification
-easier. In order to use this to identify a tenant you have to register the model as valid tenant in your
-service provider:
-
-```php
-
-namespace App\Providers;
-
-use Illuminate\Support\ServiceProvider;
-use Tenancy\Environment;
-use Tenancy\Identification\Drivers\Http\Models\Hostname;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->app->make(Environment::class)
-            ->getIdentificationResolver()
-            ->addModel(Hostname::class);
-    }
-}
-```
-
 [what-is-a-tenant]: what-is-a-tenant
