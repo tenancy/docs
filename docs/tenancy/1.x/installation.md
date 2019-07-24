@@ -24,7 +24,7 @@ composer require tenancy/framework
 
 After that selectively add:
 
-- [Database drivers](database-drivers.md).
+- [Database drivers](database-drivers).
 - [Identification drivers](identification-drivers).
 - [Affects](affects).
 - [Lifecycle hooks](hooks).
