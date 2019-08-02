@@ -19,14 +19,14 @@ composer require hyn/multi-tenant
 4. Follow the instructions until "Deploy configuration" section.
 5. If you are using MySQL DB, you need to add the entry `LIMIT_UUID_LENGTH_32=true` in your `.env` file.
 
-## Install Spatie Permissions Package
+## Install the Spatie Permissions Package
 
 To install the package follow the entire installation section
-at [GitHub - spatie/laravel-permission: Associate users with roles and permissions](https://github.com/spatie/laravel-permission#installation).
+at [spatie/laravel-permission](https://docs.spatie.be/laravel-permission/v2/installation-laravel/).
 
 ## Integration
 
-This section of the tutorial assumes that you have successfully [created at least 2 hostnames](creating-tenants)
+The rest of this section assumes that you have successfully [created at least 2 hostnames](creating-tenants)
 and have successfully accessed them via your local environment setup.
 
 We need to extend the two eloquent models (`Permission`, `Role`) of the Permissions
