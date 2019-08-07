@@ -41,6 +41,9 @@ Also, **don't** run tenancy:run like this:
 ```bash
 $ php artisan tenancy:run tenancy:run --argument="run=tenancy:run"
 ```
+
+> Note: `tenancy:run` should not be called when running migrations. Use the `tenancy:migrate` command instead.
+
 # Programmatic Artisan calls
 
 ```php
