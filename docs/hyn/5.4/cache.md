@@ -51,3 +51,26 @@ allows you to set a custom cache driver in `config/cache.php`:
 
 > Make sure the CacheServiceProvider is registered in `config/app.php` or else your driver will 
 not be available for use.
+
+If you are using Spatie\Permission package and receive error about driver `redis_tenancy` is not supported,
+you need to turn off Laravel's package auto discovery for the package. This way you can set the load order and
+ensure that Spatie permissions is loaded after redis_tenancy driver has been added.
+
+You can do this by adding don't discover to your composer.json file
+```
+"extra": {
+   "laravel":
+      "dont-discover": [
+          "spatie/laravel-permission"
+      ]
+   }
+}
+```
+Lastly make sure you load up the `PermissionServiceProvider` after your `AppServiceProvider` in `config/app.php`
+
+```
+App\Providers\AppServiceProvider::class,
+...
+Spatie\Permission\PermissionServiceProvider::class,
+``` 
+
