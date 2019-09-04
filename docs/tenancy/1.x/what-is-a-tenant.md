@@ -14,10 +14,36 @@ in user or the team the user belongs to, is entirely up to you.
 The subject of tenancy, **the tenant**, can be any eloquent Model
 in your application you wish to build your business logic around.
 
+## Deciding on your tenant
+
+The most important decision in building a multi tenant application
+is choosing your tenant. In order to help you with this, ask yourself the
+following questions.
+
+To which entity in my business logic does the tenant data belong to?
+
+Do I have companies with employees signing up? Then most likely that
+company is the tenant, it holds all the information we want to keep separated
+from any other company in the application. This is a very common
+choice visible with applications using a vanity url, eg yourteam.saas.app.
+
+Or perhaps we can keep it simple by marking the user as tenant. This will
+connect all data to a single account instead. A great example of this is
+GMail. You log in and see only the emails of your account.
+
+A hybrid version is also well known, GitHub offers personal namespaces, for instance
+github.com/luceos and team namespaces like github.com/tenancy.
+
+Tenancy offers a solution for any scenario as there's no limitation to how
+a tenant is identified, nor how many tenants can be configured. To give you an idea
+using the hybrid example from above the tenants would be both a User model 
+and an Organisation model. They can be marked as a valid tenant entity by applying
+a contract and implementing the required methods. 
+
 ## Tenant model contract
 
-The contract is required to mark a specific model as your tenant.
-Simply have the model implement the contract methods to get started:
+The tenant contract `Tenancy\Identification\Contracts\Tenant` marks a specific 
+model as a valid tenant. Have the model implement the contract methods to get started:
 
 ```php
 <?php
@@ -84,6 +110,9 @@ class User extends Model implements Tenant
     use AllowsTenantIdentification;
 }
 ```
+
+Your first valid tenant model is a fact. Now we need to make sure our application
+is aware it exists.
 
 ## Tenant model registration
 
