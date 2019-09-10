@@ -3,8 +3,8 @@ title: HelpSpace
 url: https://helpspace.io
 author: Janis Kelemen & Stefan Dreßler
 author_link: https://twitter.com/helpspaceio
-logo: https://helpspace.io/img/brand/helpspace_logo.svg
-background: https://helpspace.io/img/brand/og_helpspace.png
+logo: https://d1cjxzgv7c3jta.cloudfront.net/brand/helpspace_logo.svg
+background: https://d1cjxzgv7c3jta.cloudfront.net/brand/og_card.png
 uses:
     package: hyn
     version: 5.x
