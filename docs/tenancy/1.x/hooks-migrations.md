@@ -10,3 +10,9 @@ tags:
     - migrations
     - seeds
 ---
+
+Install using composer:
+
+```bash
+composer require tenancy/hooks-migration
+```
