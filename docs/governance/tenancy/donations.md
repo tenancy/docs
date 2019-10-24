@@ -8,6 +8,10 @@ the amount of effort needed to maintain and develop new features for the project
 is not sustainable without proper financial backing. You can support development
 via the following methods:
 
+## GitHub Sponsors
+
+On all our repositories you will find a button with a heart to sponsor the project through Open Collective or our sponsorable developers separately. 
+
 ## Open Collective
 
 Our Open Collective offers one-time and recurring pledges. Open Collective works as our
