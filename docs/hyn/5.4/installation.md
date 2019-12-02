@@ -62,7 +62,7 @@ configuring this connection may cause unwanted behaviour.
 Run the composer command to add the tenancy package as dependency:
 
 ```bash
-composer require "hyn/multi-tenant:5.4.*"
+composer require hyn/multi-tenant
 ```
 
 Laravel's [package auto discovery][3] will register the service provider automatically.
