@@ -98,7 +98,7 @@ class AppServiceProvider extends ServiceProvider
 
 By default when the http identification is installed, a middleware is activated to identify tenants
 as soon as possible. You can disable this by changing the configuration in the `identification-driver-http.php`
-configuration file. It can be published using `php artisan vendor:publish --tag=identifiation-driver-http`.
+configuration file. It can be published using `php artisan vendor:publish --tag=identification-driver-http`.
 
 > Instead of using tag `identification-driver-http` you can also use tag `tenancy` to publish all publishable files.
 
