@@ -24,3 +24,6 @@ The following resources we recommend:
 
 - [Laravel documentation](https://laravel.com/docs)
 - [Laravel from scratch free series at Laracasts](https://laracasts.com/series/laravel-from-scratch-2017)
+
+
+Lenny33
