@@ -22,8 +22,13 @@ How it works:
 - The `--tenant` option accepts either a single website id or a comma separated list of website ids. 
 - If your target command requires options or arguments, you can add them like this:
 
+To use arguments and options with values
 ```bash
 $ php artisan tenancy:run <command> --option="key=value" --option="live=1" --argument="key=value"
+```
+To use options without values i.e. --force you need to include = with empty value
+```bash
+$ php artisan tenancy:run <command> --option="force="
 ```
 > Make sure you include the argument or option key!
 
