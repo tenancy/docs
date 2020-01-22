@@ -17,11 +17,6 @@ $ composer require tenancy/db-driver-mysql
 
 ## Configuration
 
-Publish the `db-driver-mysql.php` config file using artisan.
-
-```bash
-$ php artisan vendor:publish --tag db-driver-mysql
-```
 There are several ways of setting the tenant database configuration
 for MySQL:
 
