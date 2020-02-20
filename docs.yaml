@@ -143,6 +143,7 @@ packages:
             tutorials:
             - spatie-laravel-permission
             - spatie-medialibrary
+            - laravel-scheduler
     - name: Tenancy
       repository: https://github.com/tenancy/tenancy
       packagist: tenancy/tenancy
