@@ -14,5 +14,3 @@ All you need to manage a promotions, modelling or other temporary staffing agenc
 Talent database, scheduling, GPS check-ins, payroll, data collection + more.
 
 Started in 2010 in pure PHP + jquery, today using Hyn Tenancy 5.0, Angular 7 & Framework 7 + Cordova.
-
-Over 100 tenants around the world and growing :)
