@@ -1,6 +1,6 @@
 ---
 title: Laravel Scheduler
-excerpt: A tutorial on setting up laravel's Scheduler to be Tenant Aware.
+excerpt: A tutorial on setting up Laravel's Scheduler to be Tenant Aware.
 icon: fal fa-file-archive
 tags:
     - laravel
@@ -147,10 +147,10 @@ protected $commands = [
 
 ```
 
-2. Create a method for each commands that needs to run. We will be using the `before` [Task Hook](https://laravel.com/docs/master/scheduling#task-hooks) to specify code to be executed before the scheduled task is launched. Here is an example:
+2. Create a method for each command you need to run. We will be using the `before` [Task Hook](https://laravel.com/docs/master/scheduling#task-hooks) to specify code to be executed before the scheduled task is launched. Here is an example:
 
 ```php
-/*
+/**
  * Example Command Schedule
  * @param  Illuminate\Console\Scheduling\Schedule   $schedule   Instance of schedule
  * @return void
@@ -165,29 +165,29 @@ protected function scheduleExampleCommand(Schedule $schedule)
 
     // Setup your schedule
     $scheduledEvent
-    // Setup our `before` Hook
-    ->before(function () use ($scheduledEvent, &$commandString) {
-        // Retreive current tenant
-        $tenant = app(\Hyn\Tenancy\Environment::class)->tenant();
+        // Setup our `before` Hook
+        ->before(function () use ($scheduledEvent, &$commandString) {
+            // Retreive current tenant
+            $tenant = app(\Hyn\Tenancy\Environment::class)->tenant();
 
-        // Retreive and store the inital generated command. See note below*
-        if ($commandString === null) {
-            $commandString = $scheduledEvent->command;
-        }
+            // Retreive and store the inital generated command. See note below*
+            if ($commandString === null) {
+                $commandString = $scheduledEvent->command;
+            }
 
-        // Replace the Event's generated command
-        // Adding our tenant's `website_id` option
-        $scheduledEvent->command = sprintf(
-            "%s --website_id=%d",
-            $commandString,
-            $tenant->id
-        );
-    })
+            // Replace the Event's generated command
+            // Adding our tenant's `website_id` option
+            $scheduledEvent->command = sprintf(
+                "%s --website_id=%d",
+                $commandString,
+                $tenant->id
+            );
+        })
 
-    // Define your schedule as you would normally do
-    //->everyHour()
-    //->runInBackground()
-    //->evenInMaintenanceMode();
+        // Define your schedule as you would normally do
+        //->everyHour()
+        //->runInBackground()
+        //->evenInMaintenanceMode();
 }
 ```
 Your can find all available schedule options on [Laravel's Official Documentation](https://laravel.com/docs/master/scheduling#schedule-frequency-options) page.
