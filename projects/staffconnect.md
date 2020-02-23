@@ -3,8 +3,8 @@ title: StaffConnect
 url: https://staffconnect-app.com
 author: Jeremy Jacob
 author_link: https://nobox.hk
-logo: http://staffconnect-app.com/images/logo.png
-background: http://staffconnect-app.com/images/app-screenshot-big.jpg
+logo: /img/projects/staffconnect/logo.png
+background: /img/projects/staffconnect/bg.png
 uses:
     package: hyn
     version: 5.0
