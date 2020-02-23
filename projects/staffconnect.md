@@ -2,7 +2,7 @@
 title: StaffConnect
 url: https://staffconnect-app.com
 author: Jeremy Jacob
-author_link: https://www.instagram.com/cool_runnings_11/
+author_link: https://nobox.hk
 logo: http://staffconnect-app.com/images/logo.png
 background: http://staffconnect-app.com/images/app-screenshot-big.jpg
 uses:
