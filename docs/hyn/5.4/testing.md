@@ -17,8 +17,8 @@ MySQL:
   - Accessible via a SQL editor for debugging
 - Cons:
   - Extremely slow tests due to the sheer amount of queries generated
-  - If using the `prefix` division driver, you may run into duplicate foreign key errors.
-  - If using the `database` division driver, you will have to manually clean up databases if a test fails with an error.
+  - If using the `prefix` division driver, you may run into duplicate foreign key errors
+  - If using the `database` division driver, you will have to manually clean up databases if a test fails with an error
   - CI servers will require MySQL installed
 
 In-memory SQLite:
@@ -77,7 +77,7 @@ Schema::table('users', function (Blueprint $table) {
 
 ## Boilerplate
 
-### SQLiteDriver.php
+### tests/Helpers/SqliteDriver.php
 
 ```php
 <?php
@@ -91,7 +91,7 @@ use Hyn\Tenancy\Events\Websites\Created;
 use Hyn\Tenancy\Events\Websites\Deleted;
 use Hyn\Tenancy\Events\Websites\Updated;
 
-class SQLiteDriver implements DatabaseGenerator
+class SqliteDriver implements DatabaseGenerator
 {
     public function created(Created $event, array $config, Connection $connection): bool
     {
@@ -115,7 +115,7 @@ class SQLiteDriver implements DatabaseGenerator
 }
 ```
 
-### TenantAwareTestCase.php
+### tests/TenantAwareTestCase.php
 
 ```php
 <?php
