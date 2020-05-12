@@ -49,4 +49,4 @@ This event will allow you to:
 - Reprioritize the Hook
 - Disable the hook
 
-YOu could do anything you could want when this event is fired.
+You could do anything you could want when this event is fired.
