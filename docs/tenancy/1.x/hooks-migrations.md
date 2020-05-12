@@ -21,7 +21,7 @@ composer require tenancy/hooks-migration
 ```
 
 #### Configuring Migrations
-Once you've installed the package, you will have to configure how Tenant should be migrated. You can this by listening to the `\Tenancy\Hooks\Migration\Events\ConfigureMigrations` event. It will provide you with some simple functionality in order to make your Migrations work like a charm:
+Once you've installed the package, you will have to configure how Tenant should be migrated. You can do this by listening to the `\Tenancy\Hooks\Migration\Events\ConfigureMigrations` event. It will provide you with some simple functionality in order to make your Migrations work like a charm:
 - `path()`, this function allows you to register a path where your migrations are located. These migrations will be used once the migrations run.
 - `disable()`, this function allows you to completely disable the migrations.
 
