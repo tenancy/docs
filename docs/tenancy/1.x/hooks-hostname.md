@@ -12,7 +12,7 @@ tags:
 ## Introduction
 `Hooks-hostname` is all about working with hostnames of a tenant. A tenant might have one or multiple domains it is served over. During the lifecycle of this tenant it might change a few times and you need to take care of some really specific things.
 
-This hooks allows you to register so called `Hostnamehandlers`. These handlers will take care of anything related to the hostname of a tenant. There might be several different things you want to do:
+This hooks allows you to register so called `HostnameHandlers`. These handlers will take care of anything related to the hostname of a tenant. There might be several different things you want to do:
 - Register a new SSL Certificate
 - Register the domain
 - Change some configuration files
