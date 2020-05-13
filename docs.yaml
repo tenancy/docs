@@ -178,7 +178,17 @@ packages:
             - identification-console
             - identification-environment
             affects:
-            # - TBA
+            - affects-broadcasts
+            - affects-cache
+            - affects-configs
+            - affects-connections
+            - affects-filesystems
+            - affects-logs
+            - affects-mails
+            - affects-models
+            - affects-routes
+            - affects-urls
+            - affects-views
             database:
             - database-drivers
             - database-mysql
