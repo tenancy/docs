@@ -17,10 +17,10 @@ currently requested [tenant][what-is-a-tenant]. By using an event you are not li
 one driver. Each driver will only trigger it's own contract when it is identifying. However, if identification is triggered without a specific driver, it will try to identify all drivers. The first driver to respond with a valid tenant object will cause any following
 listeners to be ignored.
 
-- [http](identification-driver-http)
-- [console](identification-driver-console)
-- [environment](identification-driver-environment)
-- [queue](identification-driver-queue)
+- [http](identification-http)
+- [console](identification-console)
+- [environment](identification-environment)
+- [queue](identification-queue)
 
 # General Principles
 All types of identification that are using Tenancy's default `TenantResolver` require you to register Tenant model(s). Assuming
