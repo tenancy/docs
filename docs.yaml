@@ -154,27 +154,45 @@ packages:
       versions:
         - name: 1.x
           status: Alpha
-          suggest_using: false
+          suggest_using: true
           branch: master
           tree:
             getting started:
+            - introduction
             - requirements
             - installation
             - what-is-a-tenant
-            drivers:
-            - identification-drivers
-            - database-drivers
-            affects:
-            - affects
-            - affects-cache
-            - affects-config
-            - affects-filesystem
-            - affects-logs
-            - affects-routes
-            - affects-views
-            hooks:
-            - hooks
+            architecture:
+            - architecture-general
+            - architecture-lifecycle
+            - architecture-identification
+            - architecture-affects
+            lifecycle:
+            - hooks-database
             - hooks-migrations
+            - hooks-hostname
+            identification:
+            - identification-general
+            - identification-http
+            - identification-queue
+            - identification-console
+            - identification-environment
+            affects:
+            - affects-broadcasts
+            - affects-cache
+            - affects-configs
+            - affects-connections
+            - affects-filesystems
+            - affects-logs
+            - affects-mails
+            - affects-models
+            - affects-routes
+            - affects-urls
+            - affects-views
+            database:
+            - database-drivers
+            - database-mysql
+            - database-sqlite
             meta:
             - compared-to-hyn
     - name: Governance

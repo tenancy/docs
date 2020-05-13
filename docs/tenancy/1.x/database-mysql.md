@@ -21,5 +21,4 @@ There are several ways of setting the tenant database configuration
 for MySQL:
 
 - Re-using a connection configured in `database.php` under `connections`.
-- Providing a `preset` which the driver uses to generate a unique configuration from.
 - Listen to the `Tenancy\Database\Events\Drivers\Configuring` event to further change the configuration.

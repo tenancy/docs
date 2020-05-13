@@ -8,13 +8,12 @@ For a quick, simplified installation you can install everything at once:
 composer require tenancy/tenancy
 ```
 
-> CAUTION: This will load specific non intrusive Affects by default. You can check which are loaded by looking in the `composer.json` of the repository.
-
 This is an easy way of giving this toolkit a spin!
 
 > We recommend selectively installing the packages you need.
 
-After you've installed tenancy/tenancy make sure you register the Affects and Hooks you wish to use. You do this by simply registering the respective Providers.
+After you've installed tenancy/tenancy make sure to register the ServiceProvider
+for the [database driver](database-drivers) you wish to use in your app.
 
 ## Selective install
 
