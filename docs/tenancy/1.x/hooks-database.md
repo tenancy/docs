@@ -10,7 +10,7 @@ tags:
 ---
 
 # Installation
-Most hooks have a really straight forward installation. `hooks-database` has a different approach and requires more work to actually get working. This package actually requires atleast 2 different packages:
+Most hooks have a really straight forward installation. `hooks-database` has a different approach and requires more work to actually get working. This hook actually requires atleast 2 different packages:
 - `Hooks-Database`
 - One of the Database Drivers
 
