@@ -1,6 +1,6 @@
 ---
-title: mails
-icon: fal fa-reply-all
+title: Mails
+icon: fal fa-envelope
 excerpt: >
     How you can easily affect the mails in your Laravel application.
 tags:
