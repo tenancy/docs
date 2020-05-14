@@ -1,5 +1,56 @@
 ---
 packages:
+    - name: Tenancy
+      repository: https://github.com/tenancy/tenancy
+      packagist: tenancy/tenancy
+      description: >
+        The next-gen SaaS toolkit extending Laravel to service multiple
+        tenant applications from the same code base. Scalable, increased
+        flexibility and modularity.
+      versions:
+        - name: 1.x
+          status: Stable
+          suggest_using: true
+          branch: master
+          tree:
+            getting started:
+            - introduction
+            - requirements
+            - installation
+            - what-is-a-tenant
+            architecture:
+            - architecture-general
+            - architecture-lifecycle
+            - architecture-identification
+            - architecture-affects
+            lifecycle:
+            - hooks-database
+            - hooks-migrations
+            - hooks-hostname
+            identification:
+            - identification-general
+            - identification-http
+            - identification-queue
+            - identification-console
+            - identification-environment
+            affects:
+            - affects-broadcasts
+            - affects-cache
+            - affects-configs
+            - affects-connections
+            - affects-filesystems
+            - affects-logs
+            - affects-mails
+            - affects-models
+            - affects-routes
+            - affects-urls
+            - affects-views
+            database:
+            - database-drivers
+            - database-mysql
+            - database-sqlite
+            meta:
+            - compared-to-hyn
     - name: Hyn
       description: >
         Run multiple websites using the same Laravel installation while
@@ -144,57 +195,6 @@ packages:
             - spatie-laravel-permission
             - spatie-medialibrary
             - laravel-scheduler
-    - name: Tenancy
-      repository: https://github.com/tenancy/tenancy
-      packagist: tenancy/tenancy
-      description: >
-        The next-gen SaaS toolkit extending Laravel to service multiple
-        tenant applications from the same code base. Scalable, increased
-        flexibility and modularity.
-      versions:
-        - name: 1.x
-          status: Stable
-          suggest_using: true
-          branch: master
-          tree:
-            getting started:
-            - introduction
-            - requirements
-            - installation
-            - what-is-a-tenant
-            architecture:
-            - architecture-general
-            - architecture-lifecycle
-            - architecture-identification
-            - architecture-affects
-            lifecycle:
-            - hooks-database
-            - hooks-migrations
-            - hooks-hostname
-            identification:
-            - identification-general
-            - identification-http
-            - identification-queue
-            - identification-console
-            - identification-environment
-            affects:
-            - affects-broadcasts
-            - affects-cache
-            - affects-configs
-            - affects-connections
-            - affects-filesystems
-            - affects-logs
-            - affects-mails
-            - affects-models
-            - affects-routes
-            - affects-urls
-            - affects-views
-            database:
-            - database-drivers
-            - database-mysql
-            - database-sqlite
-            meta:
-            - compared-to-hyn
     - name: Governance
       description: >
         Understanding our processes for contributions and how we manage our projects, team and funding.
