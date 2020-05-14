@@ -10,7 +10,7 @@ tags:
 ---
 
 ## Introduction
-A lot of modern sites use WebSockets in order to provide real-time notifications, updates and messages. In order to have maximum scalability for your application, you might want to have tenant aware broadcastss.
+A lot of modern sites use WebSockets in order to provide real-time notifications, updates and messages. In order to have maximum scalability for your application, you might want to have tenant aware broadcasts.
 
 ## Installation
 Install via composer:

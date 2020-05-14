@@ -10,7 +10,7 @@ tags:
 ---
 
 ## Introduction
-Tenants might need different sites / views in your application. If you ever need such a thing, you can use `affects-views`. It will allow you to load and/or override views iny our application really easily.
+Tenants might need different sites / views in your application. If you ever need such a thing, you can use `affects-views`. It will allow you to load and/or override views in our application really easily.
 
 ## Installation
 Install via composer
@@ -19,7 +19,7 @@ composer require tenancy/affects-views
 ```
 
 ### Configuring
-Once you've installed the package, all you'll stil have to do is configure it. The package will fire a `Tenancy\Affects\Views\Events\ConfigureViews` event to configure all the views for a specific tenant. The event will come with some basic functionality:
+Once you've installed the package, all you have to do is configure it. The package will fire a `Tenancy\Affects\Views\Events\ConfigureViews` event to configure all the views for a specific tenant. The event will come with some basic functionality:
 - `addNamespace()`, this will allow you to load a specific path of views in a specific namespace.
 - `addPath()`, this will allow you to load a specific path of views into the specific namespace.
 

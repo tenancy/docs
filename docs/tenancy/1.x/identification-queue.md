@@ -24,18 +24,18 @@ composer require tenancy/identification-driver-queue
 > Make sure that the model you are using [is registered in the TenantResolver](identification-general).
 
 ### Configuring
-In order to enable queue identification for a tenant, it will have to implement the specific contract `Tenancy\Identification\Drivers\Queue\Contracts\IdentifiesByQueue`. You will see that in this function you will get a simple custom `Processing` which will contain on of these 2 pieces of information:
+In order to enable queue identification for a tenant, it will have to implement the specific contract `Tenancy\Identification\Drivers\Queue\Contracts\IdentifiesByQueue`. You will see that in this function you will get a simple custom `Processing` event which will contain one of these 2 pieces of information:
 - The default provided `tenant_key` and `tenant_identifier` that are registered if a tenant was identified when a job was queued.
 - The overriden `tenant`, `tenant_key` or `tenant_identifier`, which you can provide yourself.
 
 ### Overriding
-Sometimes you might want to override the tenant (when you have an admin panel that is a tenant for exmaple). You can do this by providing one fo the follow public keys for a job:
+Sometimes you might want to override the tenant (when you have an admin panel that is a tenant for exmaple). You can do this by providing one of the following public keys for a job:
 - `tenant_identifier`, this should be the same as the `getTenantIdentifier` of a tenant.
 - `tenant_key`, this should be the same as the `getTenantKey` of a tenant.
 - `tenant`, this can be an entire Tenant object.
 
 ### Example
-In the example below we will first check if a override tenant has been provided. If that is not the case, we will simply check if we can find the tenant in this model.
+In the example below we will first check if an override tenant has been provided. If that is not the case, we will simply check if we can find the tenant in this model.
 
 `app/Models/Customer.php`
 ```php

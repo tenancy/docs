@@ -12,13 +12,13 @@ tags:
 ## Introduction
 Identifying a tenant through the HTTP request object is a very common way of identifying tenants.
 In order to allow a tenant to be identified with the Http driver, you
-need to apply a Contract to the [tenant][what-is-a-tenant] class and implement the required
+need to apply a Contract to the [tenant](what-is-a-tenant) class and implement the required
 methods.
 
 This allows you to set up your own identification requirements, for example:
 * Host, a Fully Qualified Domain Name.
 * Path, the requested path in the URL.
-* Get parameter.
+* Query parameter.
 
 Install using composer:
 
@@ -62,5 +62,5 @@ class Customer extends Model implements Tenant, IdentifiesByHttp
 ```
 
 The example above assumes your Customer has two additional columns to identify the portal it's configured to use. The
-portal hostname and -path allow you to identify this Customer as being the Tenant for the current hostname and path 
+portal hostname and path allow you to identify this Customer as being the Tenant for the current hostname and path 
 requested.

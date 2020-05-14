@@ -1,6 +1,6 @@
 ---
 title: Hooks Database
-icon: fal fa-heartbeat
+icon: fal fa-database
 excerpt: >
     How tenancy works with the Tenant lifecycle for Database mutations.
 tags:
