@@ -18,7 +18,7 @@ methods.
 This allows you to set up your own identification requirements, for example:
 * Host, a Fully Qualified Domain Name.
 * Path, the requested path in the URL.
-* Get parameter.
+* Query parameter.
 
 Install using composer:
 
