@@ -48,7 +48,7 @@ use Symfony\Component\Console\Input\InputInterface;
 
 class Customer extends Model implements Tenant, IdentifiesByConsole
 {
-  use AllowsTenantIdentification;
+    use AllowsTenantIdentification;
   
     /**
      * Specify whether the tenant model is matching the request.
@@ -58,7 +58,7 @@ class Customer extends Model implements Tenant, IdentifiesByConsole
      */
     public function tenantIdentificationByConsole(InputInterface $input): ?Tenant
     {
-        if (app()->runningInConsole() && $input->hasParameterOption('--tenant')) {
+        if ($input->hasParameterOption('--tenant')) {
             return $this->query()
                 ->where('slug', $input->getParameterOption('--tenant'))
                 ->first();
