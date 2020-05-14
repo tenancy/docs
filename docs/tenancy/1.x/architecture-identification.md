@@ -18,9 +18,9 @@ one driver. Each driver will only trigger it's own contract when it is identifyi
 listeners to be ignored.
 
 - [http](identification-http)
+- [queue](identification-queue)
 - [console](identification-console)
 - [environment](identification-environment)
-- [queue](identification-queue)
 
 # General Principles
 All types of identification that are using Tenancy's default `TenantResolver` require you to register Tenant model(s). Assuming
