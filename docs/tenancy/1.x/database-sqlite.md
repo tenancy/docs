@@ -19,6 +19,6 @@ composer require tenancy/database-driver-sqlite
 
 This package will allow you to use the `hooks-database` for SQLite Database instances.
 
-> CAUTION: This will only provide **local** dataabases, which are not remote accessibly.
+> CAUTION: This will only provide **local** databases, which are not remote accessibly.
 
 > CAUTION: This database driver might require additional steps for configuration. It is based on a filesystem, and not a real database like most Database Drivers.
