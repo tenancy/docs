@@ -153,7 +153,7 @@ packages:
         flexibility and modularity.
       versions:
         - name: 1.x
-          status: Alpha
+          status: Stable
           suggest_using: true
           branch: master
           tree:
