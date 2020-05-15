@@ -51,6 +51,9 @@ packages:
             - database-sqlite
             meta:
             - compared-to-hyn
+            tutorials:
+            - tutorial-basic-setup
+            - tutorial-multi-database
     - name: Hyn
       description: >
         Run multiple websites using the same Laravel installation while
