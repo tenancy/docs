@@ -29,6 +29,24 @@ There are a few functions to help you with setting up your Configuration.
 > All the above functions allow you to provide an `override` which will be merged in the provided configuration.
 - `defaults()`, this function returns an array where tenant specific information and a password in inserted. The password is generated based on the `PasswordGenerator` that is in `tenancy/framework`.
 
+### Example
+In the example below we will configure the database to be created using the information from the `mysql` database connection defined in the `config/database.php` and add Tenancy's default database settings to this.
+```php
+<?php
+
+namespace App\Listeners;
+
+use Tenancy\Hooks\Database\Events\Drivers\Configuring;
+
+class ConfigureTenantDatabase
+{
+    public function handle(Configuring $event)
+    {
+        $event->useConnection('mysql', $event->defaults($event->tenant));
+    }
+}
+```
+
 ## Database Driver
 A Database Driver is responsible for actually creating the database. Most of the Database Drivers will run specific "elevated permissions" queries in order to provide a database and/or a database user.
 
