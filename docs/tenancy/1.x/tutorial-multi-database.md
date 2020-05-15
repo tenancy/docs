@@ -36,7 +36,7 @@ There are multiple ways to configure the Database Creation. In this tutorial we 
 $event->useConnection('mysql', $event->defaults($event->tenant))
 ```
 
-What this code will do is quiet simple:
+What this code will do is quite simple:
 - It will use the `mysql` configuration provided in the `config/database.php` of your application.
 - It will use the `tenant_key` for a database name and database username
 - It will use some information on the tenant for generating a secret password
