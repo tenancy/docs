@@ -15,7 +15,7 @@ In some application you might want to completely separate tenant data by using d
 ## Installation
 Install via composer
 ```bash
-composer require affects-connections
+composer require tenancy/affects-connections
 ```
 
 ### Resolving the configuration
