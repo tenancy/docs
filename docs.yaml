@@ -19,7 +19,6 @@ packages:
             - installation
             - what-is-a-tenant
             architecture:
-            - architecture-general
             - architecture-lifecycle
             - architecture-identification
             - architecture-affects
