@@ -28,6 +28,6 @@ composer require tenancy/framework
 After that selectively add:
 
 - [Database drivers](database-drivers). Where to allocate tenant information.
-- [Identification drivers](identification-drivers). Allowing you to configure how your tenant is identified.
-- [Affects](affects). How your application is modified once a tenant is identified.
-- [Lifecycle hooks](hooks). Impact your application whenever tenants are created, updated or deleted.
+- [Identification drivers](architecture-identification). Allowing you to configure how your tenant is identified.
+- [Affects](architecture-affects). How your application is modified once a tenant is identified.
+- [Lifecycle hooks](architecture-lifecycle). Impact your application whenever tenants are created, updated or deleted.
