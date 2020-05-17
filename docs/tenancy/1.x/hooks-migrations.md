@@ -59,7 +59,7 @@ class ConfigureTenantSeeds
 {
     public function handle(ConfigureSeeds $event)
     {
-        $event->seed(UsersSeeder::class);
+        $event->seed(\UsersSeeder::class);
     }
 }
 ```
