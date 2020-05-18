@@ -30,11 +30,11 @@ In the example we will register the routes for a Tenant if one is identified.
 
 namespace App\Listeners;
 
-use Tenancy\Affects\Routes\Events\ConfigureRoutes;
+use Tenancy\Affects\Routes\Events\ConfiguresRoutes;
 
 class TenantRoutes 
 {
-    public function handle(ConfigureRoutes $event) 
+    public function handle(ConfiguresRoutes $event) 
     {
         if($event->event->tenant)
         {
