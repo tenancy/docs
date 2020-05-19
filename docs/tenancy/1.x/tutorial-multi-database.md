@@ -84,6 +84,7 @@ However, this class does not implements the `ProvidesConfiguration` contract whi
 
 namespace App\Listeners;
 
+use Tenancy\Identification\Contracts\Tenant;
 use Tenancy\Affects\Connections\Contracts\ProvidesConfiguration;
 use Tenancy\Affects\Connections\Events\Resolving;
 
