@@ -110,9 +110,10 @@ In this tutorial we decided to fire off a `Configuring` event. You can do that b
 
 namespace App\Listeners;
 
-use Tenancy\Affects\Connections\Contracts\ProvidesConfiguration;
+use Tenancy\Identification\Contracts\Tenant;
 use Tenancy\Affects\Connections\Events\Resolving;
 use Tenancy\Affects\Connections\Events\Drivers\Configuring;
+use Tenancy\Affects\Connections\Contracts\ProvidesConfiguration;
 
 class ResolveTenantConnection implements ProvidesConfiguration
 {
