@@ -26,7 +26,7 @@ composer require tenancy/framework
 When the installation is done, create a model and a migration for your Tenant model. In this tutorial we will use a `Customer` model.
 
 After you've created your model, make sure it implements the `Tenancy\Identification\Contracts\Tenant` contract.
-> Tip: You can easily implement de contract by using our simple trait: `Tenancy\Identification\Concerns\AllowsTenantIdentification`
+> Tip: You can easily implement the contract by using our simple trait: `Tenancy\Identification\Concerns\AllowsTenantIdentification`
 
 Your model should now look something like this:
 `app/Models/Customer.php`
