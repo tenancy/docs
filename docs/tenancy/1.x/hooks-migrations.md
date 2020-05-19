@@ -45,7 +45,7 @@ class ConfigureTenantMigrations
 ```
 
 #### Configuring Seeding
-Once you've installed the migrations, you might want to seed the database with some data for the tenant. In that case you can listen to the `\Tenancy\Hooks\Migration\Events\ConfigureSeeds` event. This event has one very simple event that will be of use to you:
+Once you've installed the migrations, you might want to seed the database with some data for the tenant. In that case you can listen to the `\Tenancy\Hooks\Migration\Events\ConfigureSeeds` event. This event has one very simple method that will be of use to you:
 - `seed()`, this function will take the string of the seeder class. You can see how to use this in the example below.
 
 ```php
