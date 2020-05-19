@@ -112,4 +112,4 @@ class Customer extends Model implements Tenant
     ];
 }
 ```
-Now when you're creating a model like you normally do, it will fire of the Events for tenancy. When Tenancy receives these events, it will start firing Lifecycle Hooks.
+Now when you're creating a model like you normally do, it will fire off the Events for tenancy. When Tenancy receives these events, it will start firing Lifecycle Hooks.
