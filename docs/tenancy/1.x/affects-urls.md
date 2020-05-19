@@ -29,9 +29,9 @@ In the below example, we'll change the URL to the tenant's name suffixed with `.
 ```php
 <?php
 
-use Tenancy\Affects\URLs\Events\ConfigureURL;
-
 namespace App\Listeners;
+
+use Tenancy\Affects\URLs\Events\ConfigureURL;
 
 class ConfigureApplicationUrl
 {
