@@ -109,7 +109,7 @@ class Customer extends Model implements Tenant
         'created' => Events\Created::class,
         'updated' => Events\Updated::class,
         'deleted' => Events\Deleted::class,
-    ]
+    ];
 }
 ```
 Now when you're creating a model like you normally do, it will fire of the Events for tenancy. When Tenancy receives these events, it will start firing Lifecycle Hooks.
