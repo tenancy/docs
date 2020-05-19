@@ -48,3 +48,4 @@ class TenantRoutes
     }
 }
 ```
+> Note: This example does not set a namespace for your routes. If you're following the default laravel convention you might want to specify a namespace. Alternative is to use tuple notation.
