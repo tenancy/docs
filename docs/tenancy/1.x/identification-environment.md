@@ -1,6 +1,6 @@
 ---
 title: Environment Identification
-icon: far fa-globe-africa
+icon: fal fa-leaf
 excerpt: >
     Identifies tenants using the environment
 tags:
