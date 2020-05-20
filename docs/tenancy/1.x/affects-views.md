@@ -1,6 +1,6 @@
 ---
 title: Views
-icon: fal fa-reply-all
+icon: fal fa-file-alt
 excerpt: >
     How you can easily affect the views in your Laravel application.
 tags:
