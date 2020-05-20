@@ -1,6 +1,6 @@
 ---
 title: Configs
-icon: fal fa-reply-all
+icon: fal fa-sliders-v
 excerpt: >
     How you can easily affect the configs in your Laravel application.
 tags:

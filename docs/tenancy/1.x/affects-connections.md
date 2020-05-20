@@ -1,6 +1,6 @@
 ---
 title: Connections
-icon: fal fa-list
+icon: fal fa-network-wired
 excerpt: >
     Makes the database connections adapt to your tenant identification.
 tags:

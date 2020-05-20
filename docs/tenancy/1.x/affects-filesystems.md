@@ -1,6 +1,6 @@
 ---
 title: Filesystems
-icon: fal fa-archive
+icon: fal fa-hdd
 excerpt: >
     Makes the filesystems adapt to your tenant identification.
 tags:

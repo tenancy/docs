@@ -1,6 +1,6 @@
 ---
 title: Routes
-icon: fal fa-reply-all
+icon: fal fa-road
 excerpt: >
     How you can easily affect the routes in your Laravel application.
 tags:

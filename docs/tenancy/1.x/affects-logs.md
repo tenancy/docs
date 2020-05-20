@@ -1,6 +1,6 @@
 ---
 title: Logs
-icon: fal fa-list
+icon: fal fa-book
 excerpt: >
     Makes the logs adapt to your tenant identification.
 tags:
