@@ -1,6 +1,6 @@
 ---
 title: Models
-icon: fal fa-reply-all
+icon: fal fa-hand-holding-box
 excerpt: >
     How you can easily affect the models in your Laravel application.
 tags:
