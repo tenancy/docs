@@ -1,6 +1,6 @@
 ---
 title: URLs
-icon: fal fa-reply-all
+icon: fal fa-link
 excerpt: >
     How you can easily affect the urls in your Laravel application.
 tags:
