@@ -82,7 +82,7 @@ Now when the `TenantResolver` is being made, it will register the model. Really 
 > Tip: If you have multiple Tenant models, you could register all of them like this.
 
 ## Preparing for Lifecycle Hooks
-> If you have no idea what the Lifecycle or Lifecycle Hooks are, we recommend you to [read about those first](architecture-lifecycle.md).
+> If you have no idea what the Lifecycle or Lifecycle Hooks are, we recommend you to [read about those first](architecture-lifecycle).
 
 To prepare your tenant for lifecycle hooks, we will fire off some events for when a model is:
 - Created
