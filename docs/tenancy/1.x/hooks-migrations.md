@@ -45,16 +45,21 @@ class ConfigureTenantMigrations
 ```
 
 #### Running migrations manually
-If you have setup migration hook, you can trigger migrations by emitting `Tenancy\Tenant\Events\Updated` event:
+If you have migration hook set up, you can fire `Tenancy\Tenant\Events\Updated` event, which will trigger hooks and run the migrations:
 ```php
 event(new \Tenancy\Tenant\Events\Updated($tenant));
 ```
 
-Alternativelly, you can use `php artisan migrate` command by passing `tenant`, `database` and `path` parameters:
+Alternativelly, you can use `php artisan migrate` command by passing addditional parameters:
+* `--tenant` parameter will specify which tenant to run migrations for. This requires [console identification](identification-console).
+* `--database` parameter will tell migrations to run on `tenant` connection, which is set up dinamically using [affects-connections](affects-connections). 
+* `--path` parameter will specify migration path.
+
+Example:
 ```
 php artisan migrate --tenant=1 --database=tenant --path=database/tenant/migrations
 ```
-> Note: this requires [console identification](identification-console).
+
 
 #### Configuring Seeding
 Once you've installed the migrations, you might want to seed the database with some data for the tenant. In that case you can listen to the `\Tenancy\Hooks\Migration\Events\ConfigureSeeds` event. This event has one very simple method that will be of use to you:
