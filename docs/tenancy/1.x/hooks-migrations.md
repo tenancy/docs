@@ -45,7 +45,7 @@ class ConfigureTenantMigrations
 ```
 
 #### Running migrations manually
-If you have setup migration hook, you can trigger migrations by emiting `Tenancy\Tenant\Events\Updated` event:
+If you have setup migration hook, you can trigger migrations by emitting `Tenancy\Tenant\Events\Updated` event:
 ```php
 event(new \Tenancy\Tenant\Events\Updated($tenant));
 ```
