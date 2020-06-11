@@ -21,7 +21,7 @@ This hooks allows you to register so called `HostnameHandlers`. These handlers w
 ## Installation
 Installation via Composer:
 ```
-compose require tenancy/hooks-hostname
+composer require tenancy/hooks-hostname
 ```
 
 ## Configuring
