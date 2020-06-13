@@ -14,7 +14,7 @@ tags:
 Install using composer:
 
 ```bash
-composer require tenancy/database-driver-sqlite
+composer require tenancy/db-driver-sqlite
 ```
 
 This package will allow you to use the `hooks-database` for SQLite Database instances.
