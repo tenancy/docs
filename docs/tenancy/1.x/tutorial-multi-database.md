@@ -33,7 +33,19 @@ Configuring the database is fairly easy. It starts of with creating a new listen
 
 There are multiple ways to configure the Database Creation. In this tutorial we will use tenancy's default functionality in order to make it work. In your listener use the following code:
 ```php
-$event->useConnection('mysql', $event->defaults($event->tenant))
+<?php
+
+namespace App\Listeners;
+
+use Tenancy\Hooks\Database\Events\Drivers\Configuring;
+
+class ConfigureTenantDatabase
+{
+    public function handle(Configuring $event)
+    {
+        $event->useConnection('mysql', $event->defaults($event->tenant))
+    }
+}
 ```
 
 What this code will do is quite simple:
