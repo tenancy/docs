@@ -64,3 +64,76 @@ to highest.
 As a result if you want to set up and configure a database server when a tenant is created, make sure to
 do so with a priority lower than -100. If you want to configure a database value dynamically after the
 migrations and seeds are done, use a value higher than -50.
+
+## Soft-Delete Models
+
+When using a model that has soft-deletes enabled registering the lifecycle events in the model itself will cause the delete event to be thrown for both the "soft" and "hard" delete.
+
+To overcome this you can create an [observer](https://laravel.com/docs/7.x/eloquent#observers) for your model and dispatch the appropriate events as needed. This will also allow you to preform other actions prior to the event being dispatched.
+
+Here is an example of an observer.
+```php
+<?php
+
+namespace App\Observers;
+
+use App\User;
+
+class UserObserver
+{
+    /**
+     * Handle the user "created" event.
+     *
+     * @param  \App\User  $user
+     * @return void
+     */
+    public function created(User $user)
+    {
+        event(new \Tenancy\Tenant\Events\Created($user));
+    }
+
+    /**
+     * Handle the user "updated" event.
+     *
+     * @param  \App\User  $user
+     * @return void
+     */
+    public function updated(User $user)
+    {
+        event(new \Tenancy\Tenant\Events\Updated($user));
+    }
+
+    /**
+     * Handle the user "deleted" event.
+     *
+     * @param  \App\User  $user
+     * @return void
+     */
+    public function deleted(User $user)
+    {
+        //Preform some logic when the model is "soft" deleted
+    }
+
+    /**
+     * Handle the user "restored" event.
+     *
+     * @param  \App\User  $user
+     * @return void
+     */
+    public function restored(User $user)
+    {
+        //Preform some logic when the model is restored after being "soft" deleted
+    }
+
+    /**
+     * Handle the user "force deleted" event.
+     *
+     * @param  \App\User  $user
+     * @return void
+     */
+    public function forceDeleted(User $user)
+    {
+        event(new \Tenancy\Tenant\Events\Deleted($user));
+    }
+}
+```
