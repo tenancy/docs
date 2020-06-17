@@ -26,7 +26,3 @@ Each Database Driver will have their own installation guide.
 
 - [MySQL](database-mysql)
 - [SQLite](database-sqlite)
-
-### Second Party Drivers
-
-Check back soon!
