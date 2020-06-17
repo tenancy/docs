@@ -24,12 +24,14 @@ The purpose of this package is to enable the management (Creation, Updating, Del
 
 **Requirements**
 
-When using the [`hooks-database`](hooks-database) package the MySQL user defined in `database.php` must have the ability to create users, databases, and grant privileges.
+- MySQL server with a version >= `5.7.6`
+- When using the [`hooks-database`](hooks-database) package the MySQL user defined in `database.php` must have the ability to create users, databases, and grant privileges.
+- This package also required the installation and configuration of the [`affects-connections`](https://tenancy.dev/docs/tenancy/1.x/affects-connections) package. 
+  (*Note:* This package is not required for the use of the [`affects-connections`](affects-connections) package)
 
 **Recommendations**
 
 - To automate the management of Tenant Databases when a Tenant is created, updated, or deleted; The [`hooks-database`](hooks-database) package should also be installed.
-- To use the Tenant Database with the `onTenant` trait; The [`affects-connections`](https://tenancy.dev/docs/tenancy/1.x/affects-connections) package should also be installed. (*Note:* This package is not required for the use of the [`affects-connections`](affects-connections) package)
 
  **Use Cases**
 
@@ -38,13 +40,21 @@ When using the [`hooks-database`](hooks-database) package the MySQL user defined
 
 ## Requirements
 
-Because this package runs specific "elevated permissions" queries in order to provide a database and a database user, the user defined in `database.php` needs to have the ability to create users, databases, and grant privileges.
+- Because this package uses the MySQL command `IF NOT EXISTS` is used which is only supported in versions >= `5.7.6`
 
-The following is a sample query to create a user with those privileges. 
+- Because this package runs specific "elevated permissions" queries in order to provide a database and a database user, the user defined in `database.php` needs to have the ability to create users, databases, and grant privileges.
+
+  The following is a sample query to create a user with those privileges. 
 
 ```mysql
-TODO
+CREATE DATABASE IF NOT EXISTS tenancy;
+CREATE USER IF NOT EXISTS tenancy@localhost IDENTIFIED BY 'someRandomPassword';
+GRANT ALL PRIVILEGES ON *.* TO tenancy@localhost WITH GRANT OPTION;
 ```
+
+> **Note:** The above command is simply an example. It will grant full access to all databases to the `tenancy` user. Please consult your teams security professional.
+
+- The  `affects-connections` package is required by this package in order to transfer the database from one database user to another when the database user. This change occurs when the Tenant is updated causing a new database username within the `hooks-database` package.
 
 ## Installation
 
