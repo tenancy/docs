@@ -66,7 +66,7 @@ In the following example we set the connection to use SQLite, and set the databa
 
 ```php
 $event->useConnection('sqlite', [
-	'database' => database_path('tenant/'.$event->tenant->id.'.sqlite'),
+	'database' => database_path('tenant/'.$event->tenant->getTenantKey().'.sqlite'),
 ]);
 ```
 
