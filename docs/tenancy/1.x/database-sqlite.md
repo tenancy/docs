@@ -62,7 +62,7 @@ Detailed configuration steps are located in the [`hooks-database`](hooks-databas
 
 ### Example
 
-In the following example we set the connection to use SQLite, and set the database path to be specific to the tenant based on the Tenant's ID.
+In the following example we set the connection to use SQLite, and set the database path to be specific to the tenant based on the Tenant's Key.
 
 ```php
 $event->useConnection('sqlite', [
