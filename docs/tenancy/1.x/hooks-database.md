@@ -51,7 +51,7 @@ There are a few functions to help you with setting up your Configuration.
 - `useConnection()`, this function allows you to use one of the connections that you have defined in the `config/database.php` of your Laravel application. It uses the name of the connection to identify which connection you're trying to use.
 - `useConfig()`, this function allows you to use a file in any path to provide an array as a configuration.
 
-All the above functions allow you to provide an `override` which will be merged in the provided configuration.
+> All the above functions allow you to provide an `override` which will be merged in the provided configuration.
 
 - `defaults()`, this function returns an array where tenant specific information and a password is inserted. The password is generated based on the `PasswordGenerator` that is in `tenancy/framework`.
 
