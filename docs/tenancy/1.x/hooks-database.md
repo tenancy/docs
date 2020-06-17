@@ -26,11 +26,11 @@ The purpose of this package is to handle the creation, updating, and deletion of
 
 **Requirements**
 
-In order to use this package a [Database Driver](./database-drivers.md) must also be installed.
+In order to use this package a [Database Driver](database-drivers) must also be installed.
 
 **Recommendations**
 
-- To use the Tenant Database with the `onTenant` trait; The [`affects-connections`](./affects-connections.md) package should also be installed.
+- To use the Tenant Database with the `onTenant` trait; The [`affects-connections`](affects-connections) package should also be installed.
 
 **Use Cases**
 
@@ -52,11 +52,11 @@ In order to use this package a [Database Driver](./database-drivers.md) must als
 
 A Database Driver is responsible for actually creating the database. Most of the Database Drivers will run specific "elevated permissions" queries in order to provide a database and/or a database user.
 
-Find a driver and corresponding information on the [Database Drivers Page]()
+Find a driver and corresponding information on the [Database Drivers Page](database-drivers)
 
 ## Installation
 
-Most hooks have a really straight forward installation. `hooks-database` has a different approach and requires at least one of the [Database Drivers](./database-drivers.md) to also be installed.
+Most hooks have a really straight forward installation. `hooks-database` has a different approach and requires at least one of the [Database Drivers](database-drivers) to also be installed.
 
 ```bash
 composer require tenancy/hooks-database
