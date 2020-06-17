@@ -20,13 +20,33 @@ tags:
 
 ## Overview
 
-| Key                       | Value                                                        |
-| ------------------------- | ------------------------------------------------------------ |
-| **Purpose**               | The purpose of this package is to handle the creation, updating, and deletion of a Tenant's Database. |
-| **Requirements**          | In order to use this package a [Database Driver](./database-drivers.md) must also be installed. |
-| **Recommendations**       | <ul><li>To use the Tenant Database with the `onTenant` trait; The [`affects-connections`](./affects-connections.md) package should also be installed.</li></ul> |
-| **Use Cases**              | <ul><li>Create a new Database when a Tenant is created.</li><li>Update the Database when the Tenant is updated.</li><li>Delete a Database when a Tenant is deleted.</li></ul> |
-| **Events &<br />Methods** | `Tenancy\Hooks\Database\Events\Drivers\Configuring`<br />`useConnection()`, `useConfig()`, `defaults()`<br /><br />`Tenancy\Hooks\Database\Events\ConfigureDatabaseMutation`<br />`disable()`, `priority()` |
+**Purpose**
+
+The purpose of this package is to handle the creation, updating, and deletion of a Tenant's Database.
+
+**Requirements**
+
+In order to use this package a [Database Driver](./database-drivers.md) must also be installed.
+
+**Recommendations**
+
+- To use the Tenant Database with the `onTenant` trait; The [`affects-connections`](./affects-connections.md) package should also be installed.
+
+**Use Cases**
+
+- Create a new Database when a Tenant is created.
+- Update the Database when the Tenant is updated.
+- Delete a Database when a Tenant is deleted.
+
+**Events & Methods**
+
+- `Tenancy\Hooks\Database\Events\Drivers\Configuring`
+    - `useConnection()`
+    - `useConfig()`
+    - `defaults()` 
+-  `Tenancy\Hooks\Database\Events\ConfigureDatabaseMutation`
+    - `disable()`
+    - `priority()`
 
 ## Requirements
 
