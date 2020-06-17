@@ -8,29 +8,57 @@ tags:
     - tenant
     - database
 ---
+# Hooks-Database
 
-# Installation
-Most hooks have a really straight forward installation. `hooks-database` has a different approach and requires more work to actually get working. This hook actually requires atleast 2 different packages:
-- `Hooks-Database`
-- One of the Database Drivers
+1. [Overview](#overview)
+2. [Requirements](#requirements)
+3. [Installation](#installation)
+4. [Configuring](#configuring)
+   1. [Example](#configuring-example)
+5. [Database Mutations](#database-mutations)
+   1. [Example](#mutations-example)
 
-## Hook Database
-This package has the main responsibility of providing an interface for providing the configuration of a Database and the actions around it.
-```
+## Overview
+
+| Key                       | Value                                                        |
+| ------------------------- | ------------------------------------------------------------ |
+| **Purpose**               | The purpose of this package is to handle the creation, updating, and deletion of a Tenant's Database. |
+| **Requirements**          | In order to use this package a [Database Driver](./database-drivers.md) must also be installed. |
+| **Recommendations**       | <ul><li>To use the Tenant Database with the `onTenant` trait; The [`affects-connections`](./affects-connections.md) package should also be installed.</li></ul> |
+| **Use Cases**              | <ul><li>Create a new Database when a Tenant is created.</li><li>Update the Database when the Tenant is updated.</li><li>Delete a Database when a Tenant is deleted.</li></ul> |
+| **Events &<br />Methods** | `Tenancy\Hooks\Database\Events\Drivers\Configuring`<br />`useConnection()`, `useConfig()`, `defaults()`<br /><br />`Tenancy\Hooks\Database\Events\ConfigureDatabaseMutation`<br />`disable()`, `priority()` |
+
+## Requirements
+
+A Database Driver is responsible for actually creating the database. Most of the Database Drivers will run specific "elevated permissions" queries in order to provide a database and/or a database user.
+
+Find a driver and corresponding information on the [Database Drivers Page]()
+
+## Installation
+
+Most hooks have a really straight forward installation. `hooks-database` has a different approach and requires at least one of the [Database Drivers](./database-drivers.md) to also be installed.
+
+```bash
 composer require tenancy/hooks-database
 ```
 
-### Setting up the Database Configuration
-After requiring the package, we highly recommend you to listen to the `\Tenancy\Hooks\Database\Events\Drivers\Configuring` event. This allows you to adjust the Database configuration just the way you want it.
+## Configuring
+
+After requiring the package, we highly recommend you to listen to the `Tenancy\Hooks\Database\Events\Drivers\Configuring` event. This allows you to adjust the Database configuration just the way you want it.
 
 There are a few functions to help you with setting up your Configuration.
-- `useConnection()`, this function allows you to use one of the connections that you have defined in the `config/database.php` in your Laravel application. It uses the name of the connection to identify which one you're trying to use.
-- `useConfig()`, this function allows you to use a file in any path to provide an array as a configuration.
-> All the above functions allow you to provide an `override` which will be merged in the provided configuration.
-- `defaults()`, this function returns an array where tenant specific information and a password in inserted. The password is generated based on the `PasswordGenerator` that is in `tenancy/framework`.
 
-### Example
+- `useConnection()`, this function allows you to use one of the connections that you have defined in the `config/database.php` of your Laravel application. It uses the name of the connection to identify which connection you're trying to use.
+- `useConfig()`, this function allows you to use a file in any path to provide an array as a configuration.
+
+All the above functions allow you to provide an `override` which will be merged in the provided configuration.
+
+- `defaults()`, this function returns an array where tenant specific information and a password is inserted. The password is generated based on the `PasswordGenerator` that is in `tenancy/framework`.
+
+### Configuring Example
+
 In the example below we will configure the database to be created using the information from the `mysql` database connection defined in the `config/database.php` and add Tenancy's default database settings to this.
+
 ```php
 <?php
 
@@ -47,24 +75,38 @@ class ConfigureTenantDatabase
 }
 ```
 
-## Database Driver
-A Database Driver is responsible for actually creating the database. Most of the Database Drivers will run specific "elevated permissions" queries in order to provide a database and/or a database user.
+## Database Mutations
 
-There are some Database Drivers that are maintained by the Tenancy organisation, some might also be maintained by our Community.
-
-Right now Tenancy provides several Database Drivers;
-- SQLite
-- MySQL
-
-Each Database Driver will have their own installation guide.
-
-# Advanced Setup
-
-## ConfigureDatabaseMutation
 Tenancy has provided a specific Event (`Tenancy\Hooks\Database\Events\ConfigureDatabaseMutation`) that will allow you to "configure" the Database Mutation. This event will be fired once we're sure that the Database Mutation should fire.
 
 This event will allow you to:
+
 - Reprioritize the Hook
 - Disable the hook
 
 You could do anything you could want when this event is fired.
+
+### Mutations Example
+
+In the example below we disable the mutation in order to retain the database after a Tenant is deleted.
+
+```php
+<?php
+
+namespace App\Listeners;
+
+use Tenancy\Hooks\Database\Events\ConfigureDatabaseMutation;
+use Tenancy\Tenant\Events\Deleted;
+
+class ConfigureTenantDatabaseMutations
+{
+    public function handle(ConfigureDatabaseMutation $event)
+    {
+        if($event->event instanceof Deleted)
+        {
+            $event->disable();
+        }
+    }
+}
+```
+
