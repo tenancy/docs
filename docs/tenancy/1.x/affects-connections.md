@@ -21,7 +21,8 @@ tags:
       1. [Example](#configuring-example)
 5. [Using the Connection](#using-the-connection)
    1. [Tenancy's Trait Example](#trait-example)
-   2. [Laravel DB Facade Example](#laravel-db-facade-example)
+   2. [Tenancy Facade Example](#tenancy-facade-example)
+   3. [Laravel DB Facade Example](#laravel-db-facade-example)
 
 ## Overview
 
@@ -140,10 +141,22 @@ class Role extends Model
 }
 ```
 
+### Tenancy Facade Example
+
+Using the `Tenancy` () Facade, we can also retrieve the connection of the identified tenant as seen in the example below.
+
+```php
+Tenancy::getTenantConnection()->select(...);
+```
+
+
+
 ### Laravel DB Facade Example
 
 If you are using Laravel's `DB` Facade, you are able to access the tenant connection as seen in the example below.
 
 ```php
-DB::connection('tenant')->select(...);
+DB::connection(Tenancy::getTenantConnectionName())->select(...);
 ```
+
+> Note: This is not a recommended Method.
