@@ -37,6 +37,7 @@ In order to use this package a [Database Driver](database-drivers) must also be 
 - Create a new Database when a Tenant is created.
 - Update the Database when the Tenant is updated.
 - Delete a Database when a Tenant is deleted.
+- and Many More!
 
 **Events & Methods**
 
@@ -73,7 +74,10 @@ There are a few functions to help you with setting up your Configuration.
 
 > All the above functions allow you to provide an `override` which will be merged in the provided configuration.
 
-- `defaults()`, this function returns an array where tenant specific information and a password is inserted. The password is generated based on the `PasswordGenerator` that is in `tenancy/framework`.
+- `defaults()`, this will return an array that uses Tenancy's internal code to figure out the following:
+  - Database Name, which is the tenant key
+  - Database User, which is the tenant key
+  - Database User Password, which is generated based on the `PasswordGenerator` that is in `tenancy/framework`.
 
 ### Configuring Example
 
