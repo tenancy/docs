@@ -8,13 +8,25 @@ tags:
     - tenant
 ---
 
+# What is a Tenant?
+
+1. [Overview](#overview)
+2. [Deciding on your Tenant](#deciding-on-your-tenant)
+   1. [Tenant Contact](#tenant-contract)
+   2. [Tenant Trait](#tenant-trait)
+3. [Tenant Registration](#tenant-registration)
+
+## Overview
+
 Whether to separate data based on the requested hostname, the logged
 in user or the team the user belongs to, is entirely up to you.
 
 The subject of tenancy, **the tenant**, can be any eloquent Model
 in your application you wish to build your business logic around.
 
-## Deciding on your tenant
+> Before beginning changes to your application, it is highly recommended to read through both the Contract and Trait sections
+
+## Deciding on your Tenant
 
 The most important decision in building a multi tenant application
 is choosing your tenant. In order to help you with this, ask yourself the
@@ -37,10 +49,10 @@ github.com/luceos and team namespaces like github.com/tenancy.
 Tenancy offers a solution for any scenario as there's no limitation to how
 a tenant is identified, nor how many tenants can be configured. To give you an idea
 using the hybrid example from above the tenants would be both a User model 
-and an Organisation model. They can be marked as a valid tenant entity by applying
+and an Organization model. They can be marked as a valid tenant entity by applying
 a contract and implementing the required methods. 
 
-## Tenant model contract
+### Tenant Contract
 
 The tenant contract `Tenancy\Identification\Contracts\Tenant` marks a specific 
 model as a valid tenant. Have the model implement the contract methods to get started:
@@ -90,7 +102,7 @@ class User extends Model implements Tenant
 This will force your User model to implement some methods
 required for tenancy to do its work. 
 
-## Tenant model trait
+### Tenant Trait
 
 Of course tenancy offers an easy way of applying the methods
 required by the contract to the model by re-using Laravel
@@ -114,7 +126,7 @@ class User extends Model implements Tenant
 Your first valid tenant model is a fact. Now we need to make sure our application
 is aware it exists.
 
-## Tenant model registration
+## Tenant Registration
 
 In order for the package to know a valid tenant model is available, you will need 
 to register it on the tenant identification resolver. The best to do so is inside

@@ -2,6 +2,13 @@
 title: Installation
 icon: fal fa-arrow-alt-to-bottom
 ---
+# Installation
+
+1. [Simplified Install](#simplified-install)
+2. [Selective Install](#selective-install) (*Recommended*)
+
+## Simplified Install
+
 For a quick, simplified installation you can install everything at once:
 
 ```bash
@@ -16,14 +23,14 @@ This is an easy way of giving this toolkit a spin!
 
 After you've installed tenancy/tenancy make sure you register the Affects and Hooks you wish to use. You do this by simply registering the respective Providers.
 
-## Selective install
+## Selective Install
 
 Instead of loading all tenancy packages at once, you can selectively install
 what you need. You need at least the framework:
 
 ```bash
 composer require tenancy/framework
-``` 
+```
 
 After that selectively add:
 
