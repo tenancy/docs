@@ -143,7 +143,7 @@ class Role extends Model
 
 ### Tenancy Facade Example
 
-Using the `Tenancy` () Facade, we can also retrieve the connection of the identified tenant as seen in the example below.
+Using the `Tenancy` (`Tenancy\Facades\Tenancy`) Facade, we can also retrieve the connection of the identified tenant as seen in the example below.
 
 ```php
 Tenancy::getTenantConnection()->select(...);
