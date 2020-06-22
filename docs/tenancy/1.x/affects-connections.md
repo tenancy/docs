@@ -149,8 +149,6 @@ Using the `Tenancy` (`Tenancy\Facades\Tenancy`) Facade, we can also retrieve the
 Tenancy::getTenantConnection()->select(...);
 ```
 
-
-
 ### Laravel DB Facade Example
 
 If you are using Laravel's `DB` Facade, you are able to access the tenant connection as seen in the example below.

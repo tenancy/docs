@@ -105,8 +105,7 @@ required for tenancy to do its work.
 ### Tenant Trait
 
 Of course tenancy offers an easy way of applying the methods
-required by the contract to the model by re-using Laravel
-functionality:
+required by the contract to the model by using a trait for those specific functions.
 
 ```php
 <?php
