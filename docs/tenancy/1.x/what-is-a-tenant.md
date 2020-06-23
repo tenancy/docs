@@ -13,7 +13,7 @@ tags:
 1. [Overview](#overview)
 2. [Deciding on your Tenant](#deciding-on-your-tenant)
    1. [Tenant Contact](#tenant-contract)
-   2. [Tenant Trait](#tenant-trait)
+   2. [Tenant Model Trait](#tenant-model-trait)
 3. [Tenant Registration](#tenant-registration)
 
 ## Overview
@@ -102,7 +102,7 @@ class User extends Model implements Tenant
 This will force your User model to implement some methods
 required for tenancy to do its work. 
 
-### Tenant Trait
+### Tenant Model Trait
 
 Of course tenancy offers an easy way of applying the methods
 required by the contract to the model by using a trait for those specific functions.
