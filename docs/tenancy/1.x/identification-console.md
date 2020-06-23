@@ -10,20 +10,41 @@ tags:
     - artisan
 ---
 
+# Tenant Identification: Console
+
+- Overview
+- Introduction
+- Installation
+- Configuration
+  - Example
+- Usage
+
+## Overview
+
+**Purpose**
+
+The purpose of this package is to allow a [Tenant](what-is-a-tenant) to be identified though console commands
+
+**Requirements**
+
+The Tenant Model [must be registered in the TenantResolver](identification-general)
+
+**Use Cases**
+
+- Identify a Tenant by a custom field
+- Identify a Tenant by an ID
+- And many more!
+
 ## Introduction
 
 Uses the console input object to identify a tenant. 
 
 In order to allow a tenant to be identified with the Console driver, all
-commands have gained two new options, `--tenant` and `--tenant-type`.
+commands have gained two new options, `--tenant` and `--tenant-identifier`.
 
 For a tenant to be identified with the Console driver, you
 need to apply a Contract to the [tenant][what-is-a-tenant] class and implement the required
 methods.
-
-This allows you to set up your own identification requirements, as an example:
-* Slug, custom generated, human readable string.
-* Id, the database auto increment id.
 
 ## Installation
 Install using composer:
@@ -33,7 +54,15 @@ composer require tenancy/identification-driver-console
 ```
 > Make sure that the model you are using [is registered in the TenantResolver](identification-general).
 
-## Usage
+## Configuration
+
+Models that will be identified by console need to implement the `Tenancy\Identification\Drivers\Console\Contracts\IdentifiesByConsole` contract.
+
+The `tenantIdentificationByConsole` method should return the tenant that is identified based on the current request.
+
+### Example
+
+The following example assumes your Customer has a slug column with which we use to identify it.
 
 ```php
 <?php
@@ -69,6 +98,28 @@ class Customer extends Model implements Tenant, IdentifiesByConsole
 }
 ```
 
-The example above assumes your Customer has a slug column with which we identify it.
+## Usage
 
-[what-is-a-tenant]: what-is-a-tenant
+### `--tenant`
+
+In the following example we will assume that you want to list the routes available for a specific tenant.
+
+We will also assume that the tenant in question has the previous example implemented, has the slug of "my-first-tenant".
+
+```bash
+php artisan route:list --tenant my-first-tenant
+```
+
+### `--tenant-identifier`
+
+In the following example we will assume that you have a custom command, and in that command you do something to all tenants.
+
+We will also assume that you have two Tenant models; User's and Organization's. 
+
+In order to run your custom command only for User models you can do the following:
+
+```bash
+php artisan custom:command --tenant-identifier User
+```
+
+TODO: expand this example with detailed explanation 
