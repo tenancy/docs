@@ -12,12 +12,12 @@ tags:
 
 # Tenant Identification: Console
 
-- Overview
-- Introduction
-- Installation
-- Configuration
-  - Example
-- Usage
+- [Overview](#overview)
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Configuration](#configuration)
+  - [Example](#example)
+- [Usage](#usage)
 
 ## Overview
 
@@ -122,4 +122,4 @@ In order to run your custom command only for User models you can do the followin
 php artisan custom:command --tenant-identifier User
 ```
 
-TODO: expand this example with detailed explanation 
+**TODO**: expand this example with detailed explanation 
