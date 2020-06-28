@@ -122,7 +122,7 @@ class Customer extends Model implements Tenant, IdentifiesByConsole
      * Specify whether the tenant model is matching the request.
      *
      * @param Request $request
-     * @return Tenant
+     * @return Tenant|null
      */
     public function tenantIdentificationByConsole(InputInterface $input): ?Tenant
     {
@@ -155,7 +155,7 @@ In the following example we will assume that you want to list the routes availab
 We will also assume that the tenant in question has the previous example implemented, has the slug of "my-first-tenant".
 
 ```bash
-php artisan route:list --tenant my-first-tenant
+php artisan route:list --tenant=my-first-tenant
 ```
 
 ### `--tenant-identifier`
@@ -216,6 +216,6 @@ class TenantMaintenanceCommand extends Command
 In order to run your custom command only for User Tenants you can do the following:
 
 ```bash
-php artisan tenant:maintenance --tenant-identifier mysql.users
+php artisan tenant:maintenance --tenant-identifier=mysql.users
 ```
 
