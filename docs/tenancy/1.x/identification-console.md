@@ -98,9 +98,56 @@ class Customer extends Model implements Tenant, IdentifiesByConsole
 }
 ```
 
+### Advance Example
+
+In the following example, we will expand upon the previous example with the assumption that you have multiple Tenant types, that may share the same slug.
+
+```php
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Tenancy\Identification\Concerns\AllowsTenantIdentification;
+use Tenancy\Identification\Contracts\Tenant;
+use Tenancy\Identification\Drivers\Console\Contracts\IdentifiesByConsole;
+use Symfony\Component\Console\Input\InputInterface;
+
+class Customer extends Model implements Tenant, IdentifiesByConsole
+{
+    use AllowsTenantIdentification;
+  
+    /**
+     * Specify whether the tenant model is matching the request.
+     *
+     * @param Request $request
+     * @return Tenant
+     */
+    public function tenantIdentificationByConsole(InputInterface $input): ?Tenant
+    {
+        if ($input->hasParameterOption('--tenant-identifier')) {
+            if($input->getParameterOption('--tenant-identifier') != $this->getTenantIdentifier()) {
+                return null;
+            }
+        }
+        if ($input->hasParameterOption('--tenant')) {
+            return $this->query()
+                ->where('slug', $input->getParameterOption('--tenant'))
+                ->first();
+        }
+        
+        return null;
+    }
+}
+```
+
+
+
 ## Usage
 
 ### `--tenant`
+
+This option allows you to specify a specific Tenant.
 
 In the following example we will assume that you want to list the routes available for a specific tenant.
 
@@ -112,14 +159,62 @@ php artisan route:list --tenant my-first-tenant
 
 ### `--tenant-identifier`
 
-In the following example we will assume that you have a custom command, and in that command you do something to all tenants.
+This option allows you to specify a specific Tenant type.
+
+Because Tenants can be multiple classes this option is useful when writing custom commands to do something specific to different types of Tenants, or when different types of tenants could be identified by the same `--tenant` value.
+
+#### Custom Command
+
+In the following example command, we will assume that every tenant has a "maintenance" value to enable or disable it from being redirected to a maintenance page without having to bring down the entire application.
 
 We will also assume that you have two Tenants; User's and Organization's. 
+
+```php
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+
+class TenantMaintenanceCommand extends Command
+{
+    protected $signature = 'tenant:maintenance';
+
+    protected $description = 'Inverts the Maintenance mode for a tenant';
+
+    /** @var Resolver */
+    protected $resolver;
+
+    public function __construct(ResolvesTenants $resolver)
+    {
+        parent::__construct();
+        $this->resolver = $resolver;
+    }
+
+    public function handle()
+    {
+        $this->resolver->getModels()->each(function (string $class) {
+            $model = (new $class());
+
+            if ($this->option('tenant-identifier') != $model->getTenantIdentifier()) {
+                return;
+            }
+
+            $model->all()->each(function($tenant) {
+                $tenant->maintenance = !$tenant->maintenance;
+                $tenant->save();
+            })
+
+        });
+    }
+}
+```
+
+#### Usage
 
 In order to run your custom command only for User Tenants you can do the following:
 
 ```bash
-php artisan custom:command --tenant-identifier User
+php artisan tenant:maintenance --tenant-identifier mysql.users
 ```
 
-**TODO**: expand this example with detailed explanation 
