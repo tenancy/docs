@@ -27,7 +27,7 @@ The purpose of this package is to allow a [Tenant](what-is-a-tenant) to be ident
 
 **Requirements**
 
-The Tenant Model [must be registered in the TenantResolver](identification-general)
+The Tenant [must be registered in the TenantResolver](identification-general)
 
 **Use Cases**
 
@@ -56,7 +56,7 @@ composer require tenancy/identification-driver-console
 
 ## Configuration
 
-Models that will be identified by console need to implement the `Tenancy\Identification\Drivers\Console\Contracts\IdentifiesByConsole` contract.
+Tenants that will be identified by console need to implement the `Tenancy\Identification\Drivers\Console\Contracts\IdentifiesByConsole` contract.
 
 The `tenantIdentificationByConsole` method should return the tenant that is identified based on the current request.
 
@@ -114,9 +114,9 @@ php artisan route:list --tenant my-first-tenant
 
 In the following example we will assume that you have a custom command, and in that command you do something to all tenants.
 
-We will also assume that you have two Tenant models; User's and Organization's. 
+We will also assume that you have two Tenants; User's and Organization's. 
 
-In order to run your custom command only for User models you can do the following:
+In order to run your custom command only for User Tenants you can do the following:
 
 ```bash
 php artisan custom:command --tenant-identifier User

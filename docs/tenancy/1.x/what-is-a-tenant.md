@@ -50,4 +50,4 @@ a contract and implementing the required methods.
 
 ## Next Step
 
-Once you have identified what model(s) will be your tenant you will need to setup the identification of those tenants. To get started continue to [Tenant Identification](identification-general)
+Once you have identified what object(s) will be your tenant you will need to setup the identification of those tenants. To get started continue to [Tenant Identification](identification-general)

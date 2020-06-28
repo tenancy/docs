@@ -28,7 +28,7 @@ The purpose of this package is to allow a [Tenant](what-is-a-tenant) to be ident
 
 **Requirements**
 
-The Tenant Model [must be registered in the TenantResolver](identification-general)
+The Tenant [must be registered in the TenantResolver](identification-general)
 
 **Use Cases**
 

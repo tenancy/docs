@@ -32,7 +32,7 @@ The `TenantResolver` dispatches a few events used by the identification drivers 
 ### Tenant Contract
 
 The tenant contract `Tenancy\Identification\Contracts\Tenant` marks a specific 
-model as a valid tenant. Have the model implement the contract methods to get started:
+Class as a valid tenant. Have the class implement the contract methods to get started:
 
 ```php
 <?php
@@ -82,7 +82,7 @@ required for tenancy to do its work.
 #### Tenant Model Trait
 
 Of course tenancy offers an easy way of applying the methods
-required by the contract to the model by using a trait for those specific functions.
+required by the contract to a model by using a trait for those specific functions.
 
 ```php
 <?php
@@ -99,12 +99,12 @@ class User extends Model implements Tenant
 }
 ```
 
-Your first valid tenant model is a fact. Now we need to make sure our application
+Your first valid tenant is a fact. Now we need to make sure our application
 is aware it exists.
 
 ### Tenant Registration
 
-In order for the package to know a valid tenant model is available, you will need 
+In order for the package to know a valid tenant is available, you will need 
 to register it on the tenant identification resolver. The best to do so is inside
 your `app/Providers/AppServiceProvider` or alternatively a dedicated `app/Providers/TenantProvider`
 which you created. You do this by providing the Tenant Resolver with the tenants using the `addModel` function.

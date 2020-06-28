@@ -26,7 +26,7 @@ The purpose of this package is to allow a [Tenant](what-is-a-tenant) to be ident
 
 **Requirements**
 
-The Tenant Model [must be registered in the TenantResolver](identification-general)
+The Tenant [must be registered in the TenantResolver](identification-general)
 
 **Use Cases**
 
@@ -53,7 +53,7 @@ composer require tenancy/identification-driver-http
 
 ## Configuration
 
-Models that will be identified via HTTP need to implement the `Tenancy\Identification\Drivers\Http\Contracts\IdentifiesByHttp` Contract.
+Tenants that will be identified via HTTP need to implement the `Tenancy\Identification\Drivers\Http\Contracts\IdentifiesByHttp` Contract.
 
 The `tenantIdentificationByHttp` method should return the tenant that is identified based on the current request.
 
