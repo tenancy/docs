@@ -12,9 +12,7 @@ tags:
 
 1. [Overview](#overview)
 2. [Deciding on your Tenant](#deciding-on-your-tenant)
-   1. [Tenant Contact](#tenant-contract)
-   2. [Tenant Model Trait](#tenant-model-trait)
-3. [Tenant Registration](#tenant-registration)
+3. [Next Step](#next-step)
 
 ## Overview
 
@@ -23,8 +21,6 @@ in user or the team the user belongs to, is entirely up to you.
 
 The subject of tenancy, **the tenant**, can be any eloquent Model
 in your application you wish to build your business logic around.
-
-> Before beginning changes to your application, it is highly recommended to read through both the Contract and Trait sections
 
 ## Deciding on your Tenant
 
@@ -52,120 +48,6 @@ using the hybrid example from above the tenants would be both a User model
 and an Organization model. They can be marked as a valid tenant entity by applying
 a contract and implementing the required methods. 
 
-### Tenant Contract
+## Next Step
 
-The tenant contract `Tenancy\Identification\Contracts\Tenant` marks a specific 
-model as a valid tenant. Have the model implement the contract methods to get started:
-
-```php
-<?php
-
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-use Tenancy\Identification\Contracts\Tenant;
-
-class User extends Model implements Tenant
-{
-    /**
-     * The attribute of the Model to use for the key.
-     *
-     * @return string
-     */
-    public function getTenantKeyName(): string
-    {
-        return 'id';
-    }
-
-    /**
-     * The actual value of the key for the tenant Model.
-     *
-     * @return string|int
-     */
-    public function getTenantKey()
-    {
-        return $this->id;
-    }
-
-    /**
-     * A unique identifier, eg class or table to distinguish this tenant Model.
-     *
-     * @return string
-     */
-    public function getTenantIdentifier(): string
-    {
-        return get_class($this);
-    }
-}
-```
-
-This will force your User model to implement some methods
-required for tenancy to do its work. 
-
-### Tenant Model Trait
-
-Of course tenancy offers an easy way of applying the methods
-required by the contract to the model by using a trait for those specific functions.
-
-```php
-<?php
-
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-use Tenancy\Identification\Concerns\AllowsTenantIdentification;
-use Tenancy\Identification\Contracts\Tenant;
-
-class User extends Model implements Tenant
-{
-    use AllowsTenantIdentification;
-}
-```
-
-Your first valid tenant model is a fact. Now we need to make sure our application
-is aware it exists.
-
-## Tenant Registration
-
-In order for the package to know a valid tenant model is available, you will need 
-to register it on the tenant identification resolver. The best to do so is inside
-your `app/Providers/AppServiceProvider` or alternatively a dedicated `app/Providers/TenantProvider`
-which you created.
-
-```php
-<?php
-
-namespace App\Providers;
-
-use App\User;
-use Illuminate\Support\ServiceProvider;
-use Tenancy\Identification\Contracts\ResolvesTenants;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->app->resolving(ResolvesTenants::class, function (ResolvesTenants $resolver) {
-            $resolver->addModel(User::class);
-            
-            return $resolver;
-        });
-    }
-}
-```
-
+Once you have identified what object(s) will be your tenant you will need to setup the identification of those tenants. To get started continue to [Tenant Identification](identification-general)

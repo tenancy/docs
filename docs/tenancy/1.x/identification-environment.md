@@ -10,22 +10,49 @@ tags:
     - artisan
 ---
 
+# Tenant Identification: Environment
+
+- [Overview](#overview)
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Configuration](#configuration)
+  - [Example](#example)
+
+## Overview
+
+**Purpose**
+
+The purpose of this package is to allow a [Tenant](what-is-a-tenant) to be identified based on the environment
+
+**Requirements**
+
+The Tenant [must be registered in the TenantResolver](identification-general)
+
+**Use Cases**
+
+- Identify a Tenant by which environment the application is running in
+- Ensure a specific tenant is loaded in a demonstration environment
+- And many more!
+
 ## Introduction
-Sometimes you might want to do identification of a tenant based on the Environment the tenant/code is in.
+
+This package allows the identification of a tenant based on the environment.
+
+## Installation
 
 Install using composer:
 
 ```bash
 composer require tenancy/identification-driver-environment
 ```
-> Make sure that the model you are using [is registered in the TenantResolver](identification-general).
+## Configuration
 
 This allows you to set up your own identification requirements based on environment variables, eg:
 
 * Slug, custom generated, human readable string.
 * Id, the database auto increment id.
 
-## Example
+### Example
 ```php
 <?php
 
