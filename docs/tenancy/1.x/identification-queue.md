@@ -10,10 +10,38 @@ tags:
     - queue
 ---
 
+# Tenant Identification: Queue
+
+- [Overview](#overview)
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Example](#example)
+- [Overriding](#overriding)
+  - [Example Job](#example-job)
+
+## Overview
+
+**Purpose**
+
+The purpose of this package is to allow a [Tenant](what-is-a-tenant) to be identified in a queued Job.
+
+**Requirements**
+
+The Tenant [must be registered in the TenantResolver](identification-general)
+
+**Use Cases**
+
+- Identify the Tenant a specific job is for
+- And many more!
+
 ## Introduction
+
 One of the most powerful features in Laravel are the [queues](https://laravel.com/docs/master/queues). These are used for running specific tasks that don't need a UI and can be delayed. These can be hard to handle when it comes to multi-tenancy, and that is exactly where this package comes in.
 
 The package already does a lot of work for you, if an tenant is identified at the moment a job is queued, it will remember which tenant it was. It will also provide you with some powerful override tools in case you want to queue something for a different tenant.
+
+## Installation
 
 Install using composer:
 
@@ -21,18 +49,10 @@ Install using composer:
 composer require tenancy/identification-driver-queue
 ```
 
-> Make sure that the model you are using [is registered in the TenantResolver](identification-general).
-
-### Configuring
+## Configuring
 In order to enable queue identification for a tenant, it will have to implement the specific contract `Tenancy\Identification\Drivers\Queue\Contracts\IdentifiesByQueue`. You will see that in this function you will get a simple custom `Processing` event which will contain one of these 2 pieces of information:
 - The default provided `tenant_key` and `tenant_identifier` that are registered if a tenant was identified when a job was queued.
-- The overriden `tenant`, `tenant_key` or `tenant_identifier`, which you can provide yourself.
-
-### Overriding
-Sometimes you might want to override the tenant (when you have an admin panel that is a tenant for exmaple). You can do this by providing one of the following public keys for a job:
-- `tenant_identifier`, this should be the same as the `getTenantIdentifier` of a tenant.
-- `tenant_key`, this should be the same as the `getTenantKey` of a tenant.
-- `tenant`, this can be an entire Tenant object.
+- The [overridden](#overriding) `tenant`, `tenant_key` or `tenant_identifier`, which you can provide yourself.
 
 ### Example
 In the example below we will first check if an override tenant has been provided. If that is not the case, we will simply check if we can find the tenant in this model.
@@ -68,7 +88,16 @@ class Customer extends Model implements Tenant, IdentifiesByQueue
 } 
 ```
 
+## Overriding
+
+Sometimes you might want to override the tenant (when you have an admin panel that is a tenant for example). You can do this by providing one of the following public keys for a job:
+
+- `tenant_identifier`, this should be the same as the `getTenantIdentifier` of a tenant.
+- `tenant_key`, this should be the same as the `getTenantKey` of a tenant.
+- `tenant`, this can be an entire Tenant object.
+
 ### Overridable Job
+
 ```php
 <?php
 
@@ -86,12 +115,12 @@ class MailCustomer implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /** @var Customer $customer */
+    /** @var Customer $tenant */
     public $tenant;
 
     public function __construct(Customer $customer, $tenant_key = null, string $tenant_identifier = null)
     {
-        $this->customer = $customer;
+        $this->tenant = $customer;
     }
 
     public function handle()
