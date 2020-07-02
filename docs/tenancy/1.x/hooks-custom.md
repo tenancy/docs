@@ -10,13 +10,14 @@ tags:
 
 # Lifecycle Hooks: Custom Hooks
 
-- Overview
-- Base
-- Implementation
-  - Differences
-- Registration
-- Advance
-  - ConfiguresHook Event
+- [Overview](#overview)
+- [Base](#base)
+- [Implementation](#implementation)
+  - [General](#general)
+  - [Differences](#differences)
+- [Registration](#registration)
+- [Advance](#advance)
+  - [ConfiguresHook Event](#configureshook-event)
 
 ## Overview
 
@@ -44,6 +45,8 @@ I.E. A Lifecycle Hook that always run at the same priority on the same queue sho
 But a LifecycleHook that will run on the Tenant's Queue should use `ConfigurableHook`
 
 ## Implementation
+
+### General
 
 Implementation only requires you to create a `fire` method that contains the logic for the hook.
 
@@ -96,6 +99,8 @@ class CustomCreateHook extends ConfigurableHook
 }
 ```
 
+For more advance or tenant dependent changes to the event consider creating an [Event and Listener](#configureshooks-event) to configure the Hook
+
 ### Differences
 
 The implementation of both `Hook` and `ConfigurableHook` is generally the same with the exception of the following differences.
@@ -103,7 +108,7 @@ The implementation of both `Hook` and `ConfigurableHook` is generally the same w
 **Queues**
 
 `Hook` defaults to running on a queue, and defaults to the applications default queue.
-`ConfigurableHook` does not default to a queue and will only run on the queue specified.
+`ConfigurableHook` does not default to using a queue and will only run on a queue when the queue is specified
 
 ```php
 // Hook
@@ -127,6 +132,8 @@ public $fires = true;
 // ConfigurableHook
 public $fires = true;
 ```
+
+> Note: Both `Hook` and `ConfigurableHook` have the `$event` property which contains the tenant in `$event->tenant`
 
 ## Registration
 
@@ -180,7 +187,7 @@ class AppServiceProvider extends ServiceProvider
 
 > It is recommended that you only implement this for `ConfigurableHook` hooks.
 
-In the event you want to do advance logic as the available Hooks allow you can create a new Event and Listener to configure the hook. In order to do so ensure you override the `for` method in your hook as follows.
+In the event you want to do preform advance logic to configure the hook as is done with the available Hooks you can create a new Event and Listener in order to configure your custom Hook. In order to do so ensure you override the `for` method in your hook as follows.
 
 ```php
 // Hook
@@ -191,6 +198,8 @@ public function for($event)
     return $this;
 }
 ```
+
+**Example Event**
 
 ```php
 <?php
