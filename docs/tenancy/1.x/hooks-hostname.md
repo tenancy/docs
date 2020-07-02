@@ -11,13 +11,13 @@ tags:
 
 # Lifecycle Hook: Hostname
 
-- Overview
-- Introduction
-- Installation
-- Configuration
-  - Tenant
-  - Hook
-- Example
+- [Overview](#overview)
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Configuration](#configuration)
+  - [Tenant](#tenant)
+  - [Handlers](#handlers)
+  - [Hook](#hook)
 
 ## Overview
 
