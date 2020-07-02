@@ -8,7 +8,7 @@ tags:
     - tenant
     - database
 ---
-# Hooks-Database
+# Lifecycle Hook: Database
 
 1. [Overview](#overview)
 2. [Requirements](#requirements)

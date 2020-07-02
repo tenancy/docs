@@ -11,7 +11,10 @@ tags:
     - seeds
 ---
 
+# Lifecycle Hook: Migrations
+
 ## Installation
+
 `Hooks-migration` is a package that is a bit more complex than most Tenancy packages. This will take care of everything after a Database is created for your multi database setup.
 
 
