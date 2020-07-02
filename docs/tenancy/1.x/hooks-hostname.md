@@ -11,32 +11,77 @@ tags:
 
 # Lifecycle Hook: Hostname
 
+- Overview
+- Introduction
+- Installation
+- Configuration
+  - Tenant
+  - Hook
+- Example
+
+## Overview
+
+**Purpose**
+
+The purpose of this package is to allow running custom functions when a Tenant is updated.
+
+**Use Cases**
+
+- Register a new SSL Certificate
+- Register a domain
+- Change some configuration files
+- Test the DNS to make sure the records are configured correctly
+- and Many More!
+
+**Events & Methods**
+
+- `\Tenancy\Hooks\Hostname\Events\ConfigureHostnames`
+  - `disable()`
+  - `priority()`
+  - `registerHandler()` 
+  - `getHandlers()`
+
 ## Introduction
 
 `Hooks-hostname` is all about working with hostnames of a tenant. A tenant might have one or multiple domains it is served over. During the lifecycle of this tenant it might change a few times and you need to take care of some really specific things.
 
-This hooks allows you to register so called `HostnameHandlers`. These handlers will take care of anything related to the hostname of a tenant. There might be several different things you want to do:
-- Register a new SSL Certificate
-- Register the domain
-- Change some configuration files
-- Test the DNS to make sure the records are configured correctly.
-
+This hooks allows you to register so called `HostnameHandlers`. These handlers will take care of anything related to the hostname of a tenant. 
 ## Installation
 Installation via Composer:
 ```
 composer require tenancy/hooks-hostname
 ```
 
-## Configuring
-Like most other hooks, this hook fires a simple event that allows you to configure it properly. The event is `\Tenancy\Hooks\Hostname\Events\ConfigureHostnames` and it has some really simply functionality:
-- `registerHandler()`, which allows you to register a handler.
-- `getHandlers()`, which allows you to get the handler.
+## Configuration
+### Tenant
 
+To begin, your Tenant's needs to be updated to use the `Tenancy\Hooks\Hostname\Contracts\HasHostnames` Contract and implement the `getHostnames` function returning an array of hostnames for the Tenant.
 
-## Example
-In this simple example we try to check if the domains of the tenant are valid. If the tenant does not have valid domains, we will send an email to the administrator regarding the domains not being valid.
+In the following example we will assume that the Tenant has a "hostname" attribute.
 
-`app/Handlers/SimpleHandler.php`
+```php
+<?php
+namespace App
+
+class Tenant implements \Tenancy\Hooks\Hostname\Contracts\HasHostnames
+{
+    public function getHostnames()
+    {
+        return [
+            $this->hostname
+        ];
+    }
+}
+```
+
+### Handlers
+
+Next Handlers need to be created, they are what preform the actual logic for this hook. Because there are so many possibilities, none are included by default.
+
+To create a handler, you need to create a new class that uses the `Tenancy\Hooks\Hostname\Contracts\HostnameHandler` contract and implements the `handle` function to preform the required logic.
+
+In the following example we try to check if the domains of the tenant are valid. If the tenant does not have valid domains, we will send an email to the administrator regarding the domains not being valid.
+
 ```php
 <?php
 
@@ -57,7 +102,15 @@ class SimpleHandler implements HostnameHandler
 }
 ```
 
-`app/Listeners/ConfigureHostnameHandlers.php`
+### Hook
+
+Like most other hooks, this hook fires a simple event that allows you to configure it properly. The event is `\Tenancy\Hooks\Hostname\Events\ConfigureHostnames` and it has some really simply functionality:
+
+- `registerHandler()`, which allows you to register a handler.
+- `getHandlers()`, which allows you to get the handler.
+
+In the following example we will register the handler created in the previous example.
+
 ```php
 <?php
 
@@ -67,7 +120,7 @@ class ConfigureHostnameHandlers
 {
     public function handle(ConfigureHostnames $event)
     {
-        $event->registerHandler(new SimpleHandler)
+        $event->registerHandler(new MyHandler)
     }
 }
 ```
