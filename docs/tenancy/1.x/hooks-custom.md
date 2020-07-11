@@ -23,11 +23,12 @@ tags:
 
 **Purpose**
 
-Enable custom functionality that isn't available though existing hooks
+Enable custom functionality that isn't available though existing hooks.
 
 **Requirements**
 
-Knowledge of how [Lifecycle Hooks work](hooks-general)
+- Knowledge of how [Lifecycle Hooks work](hooks-general)
+
 
 ## Base
 
@@ -41,8 +42,8 @@ There are two abstract Hook classes that make implementation easier:
 The basic difference is that the hook settings are not expected change in a `Hook`,
 but are expected to be fluid in the `ConfigurableHook`.
 
-I.E. A Lifecycle Hook that always run at the same priority on the same queue should use `Hook`,
-But a LifecycleHook that will run on the Tenant's Queue should use `ConfigurableHook`
+I.e. A Lifecycle Hook that always run at the same priority on the same queue should use `Hook`,
+but a LifecycleHook that will run on the Tenant's Queue should use `ConfigurableHook`
 
 ## Implementation
 
@@ -57,20 +58,21 @@ public function fire()
 }
 ```
 
-If the hook needs to implement different logic based on the event (I.E. Created vs Deleted) you can check the type of event in the `fire` method.
+If the hook needs to implement different logic based on the event (I.e. Created vs Deleted) you can check the type of event in the `fire` method.
 
 ```php
 public function fire()
 {
-    //Created Event
+    // Created Event
     if($this->event instanceof \Tenancy\Tenant\Events\Created)
     {
-        echo "Running hook for the creation of ".$this->event->tenant->name;
+        echo "Running hook for the creation of a tenant";
         return;
     }
+    // Deleted Event
     if($this->event instanceof \Tenancy\Tenant\Events\Deleted)
     {
-        echo "Running hook for the deletion of ".$this->event->tenant->name;
+        echo "Running hook for the deletion of a tenant";
         return;
     }
 }
@@ -99,7 +101,7 @@ class CustomCreateHook extends ConfigurableHook
 }
 ```
 
-For more advance or tenant dependent changes to the event consider creating an [Event and Listener](#configureshooks-event) to configure the Hook
+For more advance or tenant dependent changes to the event consider creating an [Event and Listener](#configureshooks-event) to configure the Hook.
 
 ### Differences
 
@@ -187,7 +189,7 @@ class AppServiceProvider extends ServiceProvider
 
 > It is recommended that you only implement this for `ConfigurableHook` hooks.
 
-In the event you want to do preform advance logic to configure the hook as is done with the available Hooks you can create a new Event and Listener in order to configure your custom Hook. In order to do so ensure you override the `for` method in your hook as follows.
+In the event you want to preform advance logic to configure the hook as is done with the available Hooks you can create a new Event and Listener in order to configure your custom Hook. In order to do so ensure you override the `for` method in your hook as follows.
 
 ```php
 // Hook

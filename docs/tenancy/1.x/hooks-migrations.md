@@ -69,7 +69,7 @@ Once you've installed the package, you will have to configure how Tenant should 
 
 > Warning: The default priority for migrations is: `-50` and will run *after* the [Database Hooks](hooks-database).
 >
-> If migrations are not disabled or ran with a priority less than `-100` for the `DeletedEvent` you will receive an error as the database will have already been deleted.
+> If migrations are not disabled or ran with a priority less than `-100` for the `Deleted` event you will receive an error as the database will have already been deleted.
 
 ### Migrations Example
 In the example below we'll add the `database/tenant/migrations` folder containing migrations that should be used for the Tenant database.

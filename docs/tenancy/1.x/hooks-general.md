@@ -46,7 +46,7 @@ You will have to fire these events in your own codebase, for instance:
 event(new \Tenancy\Tenant\Events\Created($tenant));
 ```
 
-Or though Laravel's `$dispatchesEvents`:
+Or through Laravel's `$dispatchesEvents`:
 
 ```php
 <?php
