@@ -66,13 +66,13 @@ public function fire()
     // Created Event
     if($this->event instanceof \Tenancy\Tenant\Events\Created)
     {
-        echo "Running hook for the creation of a tenant";
+        dump("Running hook for the creation of a tenant");
         return;
     }
     // Deleted Event
     if($this->event instanceof \Tenancy\Tenant\Events\Deleted)
     {
-        echo "Running hook for the deletion of a tenant";
+        dump("Running hook for the deletion of a tenant");
         return;
     }
 }
@@ -239,4 +239,4 @@ class ConfiguresCustomHookEvent
 }
 ```
 
-At this point you can create your listener for the new event, and register it as per the Laravel documentation.
+At this point you can create your listener for the new event and register it as per the Laravel documentation.

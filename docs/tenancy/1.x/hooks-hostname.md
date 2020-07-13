@@ -76,7 +76,7 @@ class Tenant implements \Tenancy\Hooks\Hostname\Contracts\HasHostnames
 
 ### Handlers
 
-Next Handlers need to be created, they are what perform the actual logic for this hook. Because there are so many possibilities, none are included by default.
+Next, Handlers need to be created. They perform the logic to execute for each hostname such as registering a domain, updating nginx/apache configuration files, etc.
 
 To create a handler, you need to create a new class that implements the `Tenancy\Hooks\Hostname\Contracts\HostnameHandler` contract and implements the `handle` function to perform the required logic.
 
