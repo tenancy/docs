@@ -52,7 +52,7 @@ This package requires the installation and configuration of the [`affects-connec
 
 ## Installation
 
-`hooks-migration` is a package that is a bit more complex than most Tenancy packages. This will take care of everything after a Database is created for your multi database setup.
+`hooks-migration` is a package that is a bit more complex than most Tenancy packages. This will take care of everything after a Database is created for your multi-database setup.
 
 ```bash
 composer require tenancy/hooks-migration
