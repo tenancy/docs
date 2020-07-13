@@ -16,14 +16,14 @@ tags:
   - [General](#general)
   - [Differences](#differences)
 - [Registration](#registration)
-- [Advance](#advance)
+- [Advanced](#advanced)
   - [ConfiguresHook Event](#configureshook-event)
 
 ## Overview
 
 **Purpose**
 
-Enable custom functionality that isn't available though existing hooks.
+Enable custom functionality that isn't available through existing hooks.
 
 **Requirements**
 
@@ -39,10 +39,10 @@ There are two abstract Hook classes that make implementation easier:
 - `Tenancy\Lifecycle\Hook`
 - `Tenancy\Lifecycle\ConfigurableHook`
 
-The basic difference is that the hook settings are not expected change in a `Hook`,
+The basic difference is that the hook settings are not expected to change in a `Hook`,
 but are expected to be fluid in the `ConfigurableHook`.
 
-I.e. A Lifecycle Hook that always run at the same priority on the same queue should use `Hook`,
+I.e. A Lifecycle Hook that always run at the same default priority on the same default queue should use `Hook`,
 but a LifecycleHook that will run on the Tenant's Queue should use `ConfigurableHook`
 
 ## Implementation
@@ -101,7 +101,7 @@ class CustomCreateHook extends ConfigurableHook
 }
 ```
 
-For more advance or tenant dependent changes to the event consider creating an [Event and Listener](#configureshooks-event) to configure the Hook.
+For more advanced or tenant-dependent changes to the event, consider creating an [Event and Listener](#configureshooks-event) to configure the Hook.
 
 ### Differences
 
@@ -183,19 +183,19 @@ class AppServiceProvider extends ServiceProvider
 
 > Please note, this is not the recommended method of registering your Lifecycle Event
 
-## Advance
+## Advanced
 
 ### ConfiguresHook Event
 
 > It is recommended that you only implement this for `ConfigurableHook` hooks.
 
-In the event you want to preform advance logic to configure the hook as is done with the available Hooks you can create a new Event and Listener in order to configure your custom Hook. In order to do so ensure you override the `for` method in your hook as follows.
+In the event you want to perform advanced logic to configure the hook, much like the available hooks, you can create a new Event and Listener in order to configure your custom Hook. In order to do so, ensure you override the `for` method in your hook as follows.
 
 ```php
 // Hook
 public function for($event)
 {
-    return parent::for($event);
+    parent::for($event);
     event(\App\Events\ConfiguresCustomHookEvent($this->event, $this));
     return $this;
 }

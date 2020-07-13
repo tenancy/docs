@@ -22,7 +22,7 @@ Lifecycle hooks are executed whenever a tenant is created, updated or deleted.
 They allow simple bootstrapping of a newly created tenant, like provisioning a new
 database virtual machine, registering domains or setting up a S3 bucket.
 
-When the `HookResolver` fires the hooks it will:
+When the `HookResolver` fires the hooks, it will:
 
  - Resolve the registered hooks.
  - Call the `for()` method on the hook with the specific [lifecycle event](#events).
