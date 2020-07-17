@@ -26,7 +26,7 @@ The purpose of this package is to enable the management (Creation, Updating, Del
 
 - MySQL server with a version >= `5.7.6`
 - When using the [`hooks-database`](hooks-database) package the MySQL user defined in `database.php` must have the ability to create users, databases, and grant privileges.
-- This package also required the installation and configuration of the [`affects-connections`](https://tenancy.dev/docs/tenancy/1.x/affects-connections) package. 
+- This package also requires the installation and configuration of the [`affects-connections`](affects-connections) package. 
   (*Note:* This package is not required for the use of the [`affects-connections`](affects-connections) package)
 
 **Recommendations**
