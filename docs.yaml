@@ -19,13 +19,13 @@ packages:
             - installation
             - what-is-a-tenant
             architecture:
-            - architecture-lifecycle
-            - architecture-identification
             - architecture-affects
             lifecycle:
+            - hooks-general
             - hooks-database
             - hooks-migrations
             - hooks-hostname
+            - hooks-custom
             identification:
             - identification-general
             - identification-http
