@@ -160,13 +160,50 @@ packages:
               - spatie-laravel-permission
               - spatie-medialibrary
         - name: 5.4
+          status: Deprecated
+          branch: 5.x
+          tree:
+            getting started:
+            - requirements
+            - upgrade-from-5.3
+            - installation
+            - configuration
+            tenant principles:
+            - concepts
+            - identification
+            - connections
+            - fallback
+            - middleware
+            implementation:
+            - creating-tenants
+            - models
+            - structure
+            tenant aware:
+            - filesystem
+            - migrations
+            - validation
+            - queues
+            - events
+            - cache
+            - commands
+            customization:
+            - custom-models
+            - logging
+            webserver:
+            - apache
+            - nginx
+            tutorials:
+            - spatie-laravel-permission
+            - spatie-medialibrary
+            - laravel-scheduler
+        - name: 5.5
           status: Stable
           suggest_using: true
           branch: 5.x
           tree:
             getting started:
             - requirements
-            - upgrade-from-5.3
+            - upgrade-from-5.4
             - installation
             - configuration
             tenant principles:
