@@ -61,216 +61,215 @@ packages:
       repository: https://github.com/tenancy/multi-tenant
       packagist: hyn/multi-tenant
       versions:
+        - name: 5.6
+          branch: 5.x
+          status: Stable
+          suggest_using: true
+          tree:
+            getting started:
+              - requirements
+              - upgrade-from-5.5
+              - installation
+              - configuration
+            tenant principles:
+              - concepts
+              - identification
+              - connections
+              - fallback
+              - middleware
+            implementation:
+              - creating-tenants
+              - models
+              - structure
+            tenant aware:
+              - filesystem
+              - migrations
+              - validation
+              - queues
+              - events
+              - cache
+              - commands
+            customization:
+              - custom-models
+              - logging
+            webserver:
+              - apache
+              - nginx
+            tutorials:
+              - spatie-laravel-permission
+              - spatie-medialibrary
+              - laravel-scheduler
+        - name: 5.5
+          branch: 5.x
+          status: Deprecated
+          tree:
+            getting started:
+              - requirements
+              - upgrade-from-5.4
+              - installation
+              - configuration
+            tenant principles:
+              - concepts
+              - identification
+              - connections
+              - fallback
+              - middleware
+            implementation:
+              - creating-tenants
+              - models
+              - structure
+            tenant aware:
+              - filesystem
+              - migrations
+              - validation
+              - queues
+              - events
+              - cache
+              - commands
+            customization:
+              - custom-models
+              - logging
+            webserver:
+              - apache
+              - nginx
+            tutorials:
+              - spatie-laravel-permission
+              - spatie-medialibrary
+              - laravel-scheduler
+        - name: 5.4
+          branch: 5.x
+          status: Deprecated
+          tree:
+            getting started:
+              - requirements
+              - upgrade-from-5.3
+              - installation
+              - configuration
+            tenant principles:
+              - concepts
+              - identification
+              - connections
+              - fallback
+              - middleware
+            implementation:
+              - creating-tenants
+              - models
+              - structure
+            tenant aware:
+              - filesystem
+              - migrations
+              - validation
+              - queues
+              - events
+              - cache
+              - commands
+            customization:
+              - custom-models
+              - logging
+            webserver:
+              - apache
+              - nginx
+            tutorials:
+              - spatie-laravel-permission
+              - spatie-medialibrary
+              - laravel-scheduler
+        - name: 5.3
+          branch: 5.x
+          status: Deprecated
+          tree:
+            getting started:
+              - requirements
+              - upgrade-from-5.2
+              - installation
+              - configuration
+            tenant principles:
+              - concepts
+              - identification
+              - connections
+              - fallback
+              - middleware
+            implementation:
+              - creating-tenants
+              - models
+              - structure
+            tenant aware:
+              - filesystem
+              - migrations
+              - validation
+              - queues
+              - events
+              - cache
+              - commands
+            customization:
+              - custom-models
+              - logging
+            webserver:
+              - apache
+              - nginx
+            tutorials:
+              - spatie-laravel-permission
+              - spatie-medialibrary
+        - name: 5.2
+          branch: 5.x
+          status: Deprecated
+          tree:
+            getting started:
+              - requirements
+              - upgrade-from-5.1
+              - installation
+              - configuration
+            tenant principles:
+              - concepts
+              - structure
+              - identification
+              - fallback
+              - middleware
+            implementation:
+              - models
+              - repositories
+              - filesystem
+              - migrations
+              - connections
+              - validation
+              - queues
+              - events
+              - cache
+              - logging
+              - tinker
+            webserver:
+              - apache
+              - nginx
         - name: 5.1
           branch: 5.1
           status: Deprecated
-          suggest_using: true
           tree:
             getting started:
-            - requirements
-            - installation
-            - configuration
+              - requirements
+              - installation
+              - configuration
             tenant principles:
-            - concepts
-            - structure
-            - identification
-            - fallback
-            - middleware
+              - concepts
+              - structure
+              - identification
+              - fallback
+              - middleware
             implementation:
-            - models
-            - repositories
-            - filesystem
-            - migrations
-            - connections
-            - validation
-            - queues
-            - events
-            - cache
+              - models
+              - repositories
+              - filesystem
+              - migrations
+              - connections
+              - validation
+              - queues
+              - events
+              - cache
             webserver:
-            - apache
-            - nginx
+              - apache
+              - nginx
             tutorials:
-            - getting-started-tutorial
-            - full-featured-tutorial
-            - spatie-laravel-permission
-        - name: 5.2
-          status: Deprecated
-          branch: 5.x
-          tree:
-            getting started:
-            - requirements
-            - upgrade-from-5.1
-            - installation
-            - configuration
-            tenant principles:
-            - concepts
-            - structure
-            - identification
-            - fallback
-            - middleware
-            implementation:
-            - models
-            - repositories
-            - filesystem
-            - migrations
-            - connections
-            - validation
-            - queues
-            - events
-            - cache
-            - logging
-            - tinker
-            webserver:
-            - apache
-            - nginx
-        - name: 5.3
-          status: Deprecated
-          branch: 5.x
-          tree:
-            getting started:
-            - requirements
-            - upgrade-from-5.2
-            - installation
-            - configuration
-            tenant principles:
-            - concepts
-            - identification
-            - connections
-            - fallback
-            - middleware
-            implementation:
-            - creating-tenants
-            - models
-            - structure
-            tenant aware:
-            - filesystem
-            - migrations
-            - validation
-            - queues
-            - events
-            - cache
-            - commands
-            customization:
-            - custom-models
-            - logging
-            webserver:
-            - apache
-            - nginx
-            tutorials:
-            - spatie-laravel-permission
-            - spatie-medialibrary
-        - name: 5.4
-          status: Deprecated
-          branch: 5.x
-          tree:
-            getting started:
-            - requirements
-            - upgrade-from-5.3
-            - installation
-            - configuration
-            tenant principles:
-            - concepts
-            - identification
-            - connections
-            - fallback
-            - middleware
-            implementation:
-            - creating-tenants
-            - models
-            - structure
-            tenant aware:
-            - filesystem
-            - migrations
-            - validation
-            - queues
-            - events
-            - cache
-            - commands
-            customization:
-            - custom-models
-            - logging
-            webserver:
-            - apache
-            - nginx
-            tutorials:
-            - spatie-laravel-permission
-            - spatie-medialibrary
-            - laravel-scheduler
-        - name: 5.5
-          status: Deprecated
-          branch: 5.x
-          tree:
-            getting started:
-            - requirements
-            - upgrade-from-5.4
-            - installation
-            - configuration
-            tenant principles:
-            - concepts
-            - identification
-            - connections
-            - fallback
-            - middleware
-            implementation:
-            - creating-tenants
-            - models
-            - structure
-            tenant aware:
-            - filesystem
-            - migrations
-            - validation
-            - queues
-            - events
-            - cache
-            - commands
-            customization:
-            - custom-models
-            - logging
-            webserver:
-            - apache
-            - nginx
-            tutorials:
-            - spatie-laravel-permission
-            - spatie-medialibrary
-            - laravel-scheduler
-        - name: 5.6
-          status: Stable
-          suggest_using: true
-          branch: 5.x
-          tree:
-            getting started:
-            - requirements
-            - upgrade-from-5.5
-            - installation
-            - configuration
-            tenant principles:
-            - concepts
-            - identification
-            - connections
-            - fallback
-            - middleware
-            implementation:
-            - creating-tenants
-            - models
-            - structure
-            tenant aware:
-            - filesystem
-            - migrations
-            - validation
-            - queues
-            - events
-            - cache
-            - commands
-            customization:
-            - custom-models
-            - logging
-            webserver:
-            - apache
-            - nginx
-            tutorials:
-            - spatie-laravel-permission
-            - spatie-medialibrary
-            - laravel-scheduler
+              - getting-started-tutorial
+              - full-featured-tutorial
+              - spatie-laravel-permission
     - name: Governance
       description: >
         Understanding our processes for contributions and how we manage our projects, team and funding.
