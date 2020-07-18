@@ -26,8 +26,6 @@ Once you've installed the package, all you have to do is configure it. The packa
 ## Example
 In this example we'll load the tenant routes once a tenant is identified from the `resources/views/tenant` folder.
 ```php
-<?php
-
 namespace App\Listeners;
 
 class ConfigureTenantViews

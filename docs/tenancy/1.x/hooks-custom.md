@@ -81,7 +81,6 @@ public function fire()
 In the event the hook only needs to be run based on one event you can disable the hook and only enable it when it should be fired
 
 ```php
-<?php
 namespace App\Hooks;
 
 class CustomCreateHook extends ConfigurableHook
@@ -146,8 +145,6 @@ There are two methods of registering your custom Lifecycle Event.
 The simplest method is to create a new Service Provider (or use an existing one) and have it extend `Tenancy\Support\HooksProvider`. Then create an array of your custom hooks.
 
 ```php
-<?php
-
 namespace App\Providers;
 
 class TenantLifecycleProvider extends \Tenancy\Support\HooksProvider
@@ -163,8 +160,6 @@ class TenantLifecycleProvider extends \Tenancy\Support\HooksProvider
 ### Resolving the Resolver
 
 ```php
-<?php
-
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -204,7 +199,6 @@ public function for($event)
 **Example Event**
 
 ```php
-<?php
 namespace App\Events;
 
 class ConfiguresCustomHookEvent

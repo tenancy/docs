@@ -31,10 +31,6 @@ This allows you to set up your own identification requirements, eg:
 ## Usage
 
 ```php
-<?php
-
-namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Tenancy\Identification\Concerns\AllowsTenantIdentification;
@@ -68,8 +64,6 @@ requested.
 Make sure to register the model in the identification resolver:
 
 ```php
-<?php
-
 namespace App\Providers;
 
 use App\Customer;

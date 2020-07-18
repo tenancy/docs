@@ -12,8 +12,6 @@ Instead of applying the `SerializesModel` trait as per suggestion in the Laravel
 documentation, you should use this Trait instead.
 
 ```php
-<?php
-
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;

@@ -36,8 +36,6 @@ The second principle is that all tenant models have to be registered on the tena
 your tenant model is `App\Customer`, you could do so in the `AppServiceProvider` like this:
 
 ```php
-<?php
-
 namespace App\Providers;
 
 use App\Customer;

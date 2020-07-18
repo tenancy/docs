@@ -24,8 +24,6 @@ Configuration of the package is really easy. You can listen to the `Tenancy\Affe
 ## Example
 In the below example, we will add a `tenant` cache driver that uses the `tenant` database connection.
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Affects\Cache\Events\ConfigureCache;

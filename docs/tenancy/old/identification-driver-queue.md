@@ -24,8 +24,6 @@ override the tenant, make sure to set the `$tenant_key` and `$tenant_identifier`
 on the Job class before dispatching it.
 
 ```php
-<?php
-
 namespace App\Jobs;
 
 use App\Customer;

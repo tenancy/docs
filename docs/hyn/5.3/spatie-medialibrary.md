@@ -58,10 +58,6 @@ next to your `User.php`. Make sure that these files extend `Spatie\MediaLibrary\
 
 `App\Media.php` - extends from `SpatieMedia` and uses the `UsesTenantConnection` trait.
 ```php
-<?php
-
-namespace App;
-
 use Hyn\Tenancy\Traits\UsesTenantConnection;
 use Spatie\MediaLibrary\Models\Media as SpatieMedia;
 
@@ -76,10 +72,6 @@ class Media extends SpatieMedia
 To associate media with a model, the tenant aware model must implement the following interface and trait:
 
 ```php
-<?php
-
-namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Hyn\Tenancy\Traits\UsesTenantConnection;
@@ -96,8 +88,6 @@ class User extends Model implements HasMedia
 
 `config\medialibrary.php`
 ```php
-<?php
-
 return [
 
     /*
@@ -112,13 +102,6 @@ return [
 4. Attaching a media to your user model.
 
 ```php
-<?php
-
-use App\User;
-use App\Role;
-use App\Permission;
-use Hyn\Tenancy\Models\Hostname;
-
 // Retrieve your user model.
 $user = App\User::find(1);
 

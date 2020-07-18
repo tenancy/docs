@@ -54,10 +54,6 @@ This allows you to set up your own identification requirements based on environm
 
 ### Example
 ```php
-<?php
-
-namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 use Tenancy\Identification\Concerns\AllowsTenantIdentification;
 use Tenancy\Identification\Contracts\Tenant;

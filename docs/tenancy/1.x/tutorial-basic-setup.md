@@ -31,10 +31,6 @@ After you've created your model, make sure it implements the `Tenancy\Identifica
 Your model should now look something like this:
 `app/Models/Customer.php`
 ```php
-<?php
-
-namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
 use Tenancy\Identification\Concerns\AllowsTenantIdentification;
 use Tenancy\Identification\Contracts\Tenant;
@@ -53,8 +49,6 @@ Tenancy needs to be aware of the tenant that you have just created in order to i
 We can easily register a model by using a callback in one of Laravel's default Service Providers. Let's use the `app/Providers/AppServiceProvider` in this case.
 
 ```php
-<?php
-
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -92,10 +86,6 @@ To prepare your tenant for lifecycle hooks, we will fire off some events for whe
 We can do this with Laravel's really handy `dispatchesEvents` variable on models. It allows you to define specific events that should be fired when a model is being made. Here's an example of how to make it work for our Customer model:
 `app/Models/Customer.php`
 ```php
-<?php
-
-namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
 use Tenancy\Identification\Concerns\AllowsTenantIdentification;
 use Tenancy\Identification\Contracts\Tenant;

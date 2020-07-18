@@ -64,10 +64,6 @@ portal hostname and path allow you to identify this Customer as being the Tenant
 requested.
 
 ```php
-<?php
-
-namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Tenancy\Identification\Concerns\AllowsTenantIdentification;
@@ -99,10 +95,6 @@ class Customer extends Model implements Tenant, IdentifiesByHttp
 The following example assumes that your Customer model has an extra column for a subdomain the user is configured to use.
 
 ```php
-<?php
-
-namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Tenancy\Identification\Concerns\AllowsTenantIdentification;

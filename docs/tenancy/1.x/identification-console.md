@@ -66,10 +66,6 @@ The `tenantIdentificationByConsole` method should return the tenant that is iden
 The following example assumes your Customer has a slug column with which we use to identify it.
 
 ```php
-<?php
-
-namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 use Tenancy\Identification\Concerns\AllowsTenantIdentification;
 use Tenancy\Identification\Contracts\Tenant;
@@ -104,10 +100,6 @@ class Customer extends Model implements Tenant, IdentifiesByConsole
 In the following example, we will expand upon the previous example with the assumption that you have multiple Tenant types, that may share the same slug.
 
 ```php
-<?php
-
-namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 use Tenancy\Identification\Concerns\AllowsTenantIdentification;
 use Tenancy\Identification\Contracts\Tenant;
@@ -171,8 +163,6 @@ In the following example command, we will assume that every tenant has a "mainte
 We will also assume that you have two Tenants; User's and Organization's. 
 
 ```php
-<?php
-
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
