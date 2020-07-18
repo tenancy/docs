@@ -27,8 +27,6 @@ Once you've installed the package, there's only some small configuring to do. Yo
 ## Example
 In the below example, we'll change the URL to the tenant's name suffixed with `.test`.
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Affects\URLs\Events\ConfigureURL;

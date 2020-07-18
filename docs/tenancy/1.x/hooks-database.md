@@ -84,8 +84,6 @@ There are a few functions to help you with setting up your Configuration.
 In the example below we will configure the database to be created using the information from the `mysql` database connection defined in the `config/database.php` and add Tenancy's default database settings to this.
 
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Hooks\Database\Events\Drivers\Configuring;
@@ -115,8 +113,6 @@ You could do anything you could want when this event is fired.
 In the example below we disable the mutation in order to retain the database after a Tenant is deleted.
 
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Hooks\Database\Events\ConfigureDatabaseMutation;

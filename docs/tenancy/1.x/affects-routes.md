@@ -26,8 +26,6 @@ After the installation of the package, all you have to do is configure the packa
 ## Example
 In the example we will register the routes for a Tenant if one is identified.
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Affects\Routes\Events\ConfigureRoutes;

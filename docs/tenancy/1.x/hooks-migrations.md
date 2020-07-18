@@ -75,8 +75,6 @@ Once you've installed the package, you will have to configure how Tenant should 
 In the example below we'll add the `database/tenant/migrations` folder containing migrations that should be used for the Tenant database.
 
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Hooks\Migration\Events\ConfigureMigrations;
@@ -104,8 +102,6 @@ Once you've installed the migrations, you might want to seed the database with s
 ### Seeds Example
 
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Hooks\Migration\Events\ConfigureSeeds;

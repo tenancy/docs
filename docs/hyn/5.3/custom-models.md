@@ -10,10 +10,6 @@ package-end. You also need to implement `Hyn\Tenancy\Contracts\{Model}`
 Take this example:
 
 ```php
-<?php
-
-namespace App;
-
 use Hyn\Tenancy\Contracts\Website as Contract;
 
 class Website implements Contract
@@ -24,7 +20,6 @@ class Website implements Contract
 All you need to do is update the `tenancy.php` configuration file:
 
 ```php
-<?php
 return [
   'models' => [
       // ..

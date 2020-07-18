@@ -25,8 +25,6 @@ as an example.
 First, create a listener.
 
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Affects\Routes\Events\ConfigureRoutes;
@@ -48,8 +46,6 @@ class TenantRoutes
 Now register that listener in your EventServiceProvider for instance.
 
 ```php
-<?php
-
 namespace App\Providers;
 
 use App\Listeners\TenantRoutes;

@@ -35,8 +35,6 @@ to apply your own `namespace`, `middleware` and other group settings inside the 
 An example `tenants.php` file:
 
 ```php
-<?php
-
 Route::middleware('web')
     ->namespace('App\\Http\\Controllers\\Tenant\\')
     ->group(function () 

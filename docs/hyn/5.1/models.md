@@ -51,10 +51,6 @@ package-end. You also need to implement `Hyn\Tenancy\Contracts\{Model}`
 Take this example to add billing from `laravel/cashier` to our application:
 
 ```php
-<?php
-
-namespace App;
-
 use Hyn\Tenancy\Contracts\Customer as Contract;
 use Laravel\Cashier\Billable;
 
@@ -67,7 +63,6 @@ class Customer extends Authenticatable implements Contract
 All you need to do is update the `tenancy.php` configuration file:
 
 ```php
-<?php
 return [
   'models' => [
       // ..

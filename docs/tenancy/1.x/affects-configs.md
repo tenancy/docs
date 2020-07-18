@@ -25,8 +25,6 @@ All the calls you do to the event, will be forwarded to the `Repository` (the cl
 ## Example
 In the below example, we'll take the integration key from the tenant and set it in our configuration so the integration can use it.
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Affects\Configs\Events\ConfigureConfig;

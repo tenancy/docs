@@ -13,8 +13,6 @@ jobs are always tenant aware. In case you wish to override the tenant for which 
 is executed, make sure to set the `website_id` property on the Job before dispatching it.
 
 ```php
-<?php
-
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;

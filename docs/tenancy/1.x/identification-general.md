@@ -35,10 +35,6 @@ The tenant contract `Tenancy\Identification\Contracts\Tenant` marks a specific
 Class as a valid tenant. Have the class implement the contract methods to get started:
 
 ```php
-<?php
-
-namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 use Tenancy\Identification\Contracts\Tenant;
 
@@ -85,10 +81,6 @@ Of course tenancy offers an easy way of applying the methods
 required by the contract to a model by using a trait for those specific functions.
 
 ```php
-<?php
-
-namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 use Tenancy\Identification\Concerns\AllowsTenantIdentification;
 use Tenancy\Identification\Contracts\Tenant;
@@ -110,8 +102,6 @@ your `app/Providers/AppServiceProvider` or alternatively a dedicated `app/Provid
 which you created. You do this by providing the Tenant Resolver with the tenants using the `addModel` function.
 
 ```php
-<?php
-
 namespace App\Providers;
 
 use App\User;

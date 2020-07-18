@@ -24,8 +24,6 @@ When you're configuring this package, you will have to listen to the `Tenancy\Af
 ## Example
 In this example we will register the `tenant` disk driver as a local driver with a folder in the `storage/app/` folder.
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Affects\Filesystems\Events\ConfigureDisk;

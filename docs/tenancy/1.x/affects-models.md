@@ -29,8 +29,6 @@ You can do this by using the following functions:
 In the below example, we'll change the `ConnectionResolver` of the Models, so they will use a different Database Connection.
 
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Vendor\Package\Models\Permission;

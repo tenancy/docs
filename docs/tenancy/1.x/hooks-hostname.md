@@ -60,9 +60,6 @@ To begin, your Tenant's needs to be updated to use the `Tenancy\Hooks\Hostname\C
 In the following example we will assume that the Tenant has a "hostname" attribute.
 
 ```php
-<?php
-namespace App
-
 class Tenant implements \Tenancy\Hooks\Hostname\Contracts\HasHostnames
 {
     public function getHostnames()
@@ -83,8 +80,6 @@ To create a handler, you need to create a new class that implements the `Tenancy
 In the following example we try to check if the domains of the tenant are valid. If the tenant does not have valid domains, we will send an email to the administrator regarding the domains not being valid.
 
 ```php
-<?php
-
 namespace App\Handlers;
 
 use Tenancy\Hooks\Hostname\Contracts\HostnameHandler;
@@ -112,8 +107,6 @@ Like most other hooks, this hook fires a simple event that allows you to configu
 In the following example we will register the handler created in the previous example.
 
 ```php
-<?php
-
 namespace App\Listeners;
 
 class ConfigureHostnameHandlers
