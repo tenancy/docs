@@ -195,6 +195,7 @@ packages:
             tutorials:
             - spatie-laravel-permission
             - spatie-medialibrary
+            - laravel-scheduler
         - name: 5.5
           status: Stable
           suggest_using: true
