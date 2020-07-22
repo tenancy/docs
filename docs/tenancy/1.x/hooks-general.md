@@ -49,9 +49,6 @@ event(new \Tenancy\Tenant\Events\Created($tenant));
 Or through Laravel's `$dispatchesEvents`:
 
 ```php
-<?php
-namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 
 class Tenant extends Model

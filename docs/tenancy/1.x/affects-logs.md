@@ -24,8 +24,6 @@ Configuration of this package is fairly easy, you can listen to the `Tenancy\Aff
 ## Example
 In the below example we will configure a `tenant` log driver which will log the errors to a slack channel configure on the tenant.
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Affects\Logs\Events\ConfigureLogs;

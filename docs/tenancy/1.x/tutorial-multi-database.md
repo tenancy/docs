@@ -33,8 +33,6 @@ Configuring the database is fairly easy. It starts of with creating a new listen
 
 There are multiple ways to configure the Database Creation. In this tutorial we will use tenancy's default functionality in order to make it work. In your listener use the following code:
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Hooks\Database\Events\Drivers\Configuring;
@@ -74,8 +72,6 @@ After the installation, we will focusing on `Resolving` the connection. This is 
 In this example, we will tell tenancy that this listener is responsible for configuring that connection. We do this by simply returning the instance like shown below.
 
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Affects\Connections\Events\Resolving;
@@ -92,8 +88,6 @@ class ResolveTenantConnection
 However, this class does not implements the `ProvidesConfiguration` contract which is responsible for providing a connection configuration to Tenant, so we will do that.
 
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Identification\Contracts\Tenant;
@@ -119,8 +113,6 @@ Right now we're providing an empty array as a connection setting. This won't wor
 
 In this tutorial we decided to fire off a `Configuring` event. You can do that by looking at the example below.
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Identification\Contracts\Tenant;
@@ -150,8 +142,6 @@ After you've done this, we will move to the actual configuring of the connection
 This allows us to use the exact same code that we used then in order to configure the database. You can see an example below.
 
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Affects\Connections\Events\Drivers\Configuring;

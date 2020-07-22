@@ -66,8 +66,6 @@ We will start with the `Tenancy\Affects\Connections\Events\Resolving` event. Thi
 #### Resolving Example
 In the below example we will return the instance itself as the class responsible for providing a connection configuration.
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Affects\Connections\Contracts\ProvidesConfiguration;
@@ -106,8 +104,6 @@ When the connection is resolved, we'll get to the configuring of the connection.
 #### Configuring Example
 In the following example we will use the MySQL connection that is inside the `config/database.php` and combine it with the configuration that tenancy provides.
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Affects\Connections\Events\Drivers\Configuring;
@@ -128,10 +124,6 @@ After you've completely configured the connection, you can finally use and all o
 The `OnTenant` trait (`Tenancy\Affects\Connections\Support\Traits\OnTenant`) allows you to put models on the Tenant connection. You can see how to use it in the example below.
 
 ```php
-<?php
-
-namespace App\Tenant\Models;
-
 use Illuminate\Database\Eloquent\Model;
 use Tenancy\Affects\Connections\Support\Traits\OnTenant;
 

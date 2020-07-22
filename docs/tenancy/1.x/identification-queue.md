@@ -59,10 +59,6 @@ In the example below we will first check if an override tenant has been provided
 
 `app/Models/Customer.php`
 ```php
-<?php
-
-namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
 use Tenancy\Identification\Concerns\AllowsTenantIdentification;
 use Tenancy\Identification\Contracts\Tenant;
@@ -99,8 +95,6 @@ Sometimes you might want to override the tenant (when you have an admin panel th
 ### Overridable Job
 
 ```php
-<?php
-
 namespace App\Jobs;
 
 use App\Models\Customer;

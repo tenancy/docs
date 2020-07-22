@@ -26,8 +26,6 @@ In the below example, we will create a pusher driver for the tenant broadcast dr
 
 > We assume that you have the pusher information on the tenant model.
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Affects\Broadcasts\Events\ConfigureBroadcasts;
