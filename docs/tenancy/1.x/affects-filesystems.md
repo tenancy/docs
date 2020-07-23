@@ -12,8 +12,8 @@ tags:
 # Affects-Filesystems
 
 1. [Overview](#overview)
-3. [Installation](#installation)
-4. [Configuration](#configuration)
+2. [Installation](#installation)
+3. [Configuration](#configuration)
     1. [Example](#example)
 
 ## Overview

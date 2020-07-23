@@ -12,8 +12,8 @@ tags:
 # Affects-Cache
 
 1. [Overview](#overview)
-3. [Installation](#installation)
-4. [Configuration](#configuration)
+2. [Installation](#installation)
+3. [Configuration](#configuration)
     1. [Example](#example)
 
 ## Overview
@@ -22,9 +22,9 @@ tags:
 
 The purpose of this package is to allow the use of different broadcast drivers and settings based on the tenant.
 
-
 **Use Cases**
 
+- Store cache information in different locations per tenant
 - Store cache files for each tenant on their own database.
 
 **Events & Methods**
