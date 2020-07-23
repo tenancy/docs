@@ -9,8 +9,29 @@ tags:
     - mails
 ---
 
-## Introduction
-From one application, you might need the ability to send emails from a customer's email address. In order to get this working, you would use `affects-mails`
+# Affects-Mails
+
+1. [Overview](#overview)
+3. [Installation](#installation)
+4. [Configuration](#configuration)
+    1. [Example](#example)
+
+## Overview
+
+**Purpose**
+
+The purpose of this package is to allow the sending of emails though a tenant's email address.
+
+**Use Cases**
+
+- TODO
+
+**Events & Methods**
+
+- `Tenancy\Affects\Mails\Events\ConfigureMails`
+  - `replaceSwiftMailer`
+
+> All other calls you do to the event, will be forwarded to the `Mailer `.
 
 ## Installation
 Install through composer
@@ -19,3 +40,5 @@ composer require tenancy/affects-mails
 ```
 
 ### Configuring
+
+TODO

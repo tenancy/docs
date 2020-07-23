@@ -9,6 +9,33 @@ tags:
     - routes
 ---
 
+# Affects-Routes
+
+1. [Overview](#overview)
+2. [Installation](#installation)
+3. [Configuration](#configuration)
+    1. [Example](#example)
+
+## Overview
+
+**Purpose**
+
+The purpose of this package is to modify the routes that are loaded once a Tenant is identified.
+
+**Use Cases**
+
+- Clear system only routes
+- Load tenant-specific routes
+
+**Events & Methods**
+
+- `Tenancy\Affects\Routes\Events\ConfigureRoutes`
+  - `flush`
+  - `fromFile`
+
+> All the method calls will be forwarded to the model in a nice and simple way
+
+
 ## Introduction
 In order to keep your application clean, you might want to separate the routes for tenants into different files.
 
@@ -23,7 +50,7 @@ After the installation of the package, all you have to do is configure the packa
 - `flush()`, this will remove all currently loaded routes.
 - `fromFile()`, this will allow you to load routes from a specific file.
 
-## Example
+### Example
 In the example we will register the routes for a Tenant if one is identified.
 ```php
 namespace App\Listeners;

@@ -9,8 +9,28 @@ tags:
     - broadcasts
 ---
 
-## Introduction
-A lot of modern sites use WebSockets in order to provide real-time notifications, updates and messages. In order to have maximum scalability for your application, you might want to have tenant aware broadcasts.
+# Affects-Broadcasts
+
+1. [Overview](#overview)
+3. [Installation](#installation)
+4. [Configuration](#configuration)
+    1. [Example](#example)
+
+## Overview
+
+**Purpose**
+
+The purpose of this package is to allow the use of different broadcast drivers and settings based on the tenant.
+
+
+**Use Cases**
+
+- Use a tenant chosen broadcast driver.
+- Use different Redis servers per tenant for broadcasts.
+
+**Events & Methods**
+
+- `Tenancy\Affects\Broadcasts\Events\ConfigureBroadcast`
 
 ## Installation
 Install via composer:
@@ -18,10 +38,10 @@ Install via composer:
 composer require tenancy/affects-broadcasts
 ```
 
-## Configuring
+## Configuration
 Once you've installed the package, all you have to do is configure the package. You can configure this package by listening to the `Tenancy\Affects\Broadcasts\Events\ConfigureBroadcasts` event. Once you're listening to the event, you can start configuring your `tenant` broadcast driver with the provided `$config` array.
 
-## Example
+### Example
 In the below example, we will create a pusher driver for the tenant broadcast driver.
 
 > We assume that you have the pusher information on the tenant model.

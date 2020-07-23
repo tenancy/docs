@@ -9,8 +9,28 @@ tags:
     - logs
 ---
 
-## Introduction
-Debugging your application is really important. Tenant aware logs are very handy when it comes to debugging your application. You can look at every single tenant individually and search for problems common across tenants really easily.
+# Affects-Logs
+
+1. [Overview](#overview)
+3. [Installation](#installation)
+4. [Configuration](#configuration)
+    1. [Example](#example)
+
+## Overview
+
+**Purpose**
+
+The purpose of this package is to allow the logging of errors into a separate file or location for each tenant.
+
+**Use Cases**
+
+- Resolve specific tenant issues without going though logs for every tenant
+- Find common problems across multiple tenants
+- Log errors in different locations
+
+**Events & Methods**
+
+- `Tenancy\Affects\Logs\Events\ConfigureLogs`
 
 ## Installation
 Install via composer:
@@ -18,10 +38,10 @@ Install via composer:
 composer require tenancy/affects-logs
 ```
 
-## Configuring
+## Configuration
 Configuration of this package is fairly easy, you can listen to the `Tenancy\Affects\Logs\Events\ConfigureLogs` event and provide a log configuration for your tenant driver.
 
-## Example
+### Example
 In the below example we will configure a `tenant` log driver which will log the errors to a slack channel configure on the tenant.
 ```php
 namespace App\Listeners;
