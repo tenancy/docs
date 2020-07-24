@@ -24,9 +24,7 @@ The purpose of this package is to allow the modification of models provided by o
 
 **Use Cases**
 
-- Resolve specific tenant issues without going though logs for every tenant
-- Find common problems across multiple tenants
-- Log errors in different locations
+- Change the connection used by a third-party package to use the tenant's database connection.
 
 **Events & Methods**
 

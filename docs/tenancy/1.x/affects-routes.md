@@ -33,8 +33,6 @@ The purpose of this package is to modify the routes that are loaded once a Tenan
   - `flush`
   - `fromFile`
 
-> All the method calls will be forwarded to the model in a nice and simple way
-
 
 ## Introduction
 In order to keep your application clean, you might want to separate the routes for tenants into different files.
