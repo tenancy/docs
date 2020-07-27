@@ -140,7 +140,7 @@ class AppServiceProvider extends ServiceProvider
 
 ### Lifecycle Hooks
 
-[Lifecycle Hooks](architecture-lifecycle) allow you to take specific actions when a Tenant is created, updated, or deleted.
+[Lifecycle Hooks](hooks-general) allow you to take specific actions when a Tenant is created, updated, or deleted.
 
 ### Identification Drivers
 

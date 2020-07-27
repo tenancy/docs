@@ -36,5 +36,5 @@ After that selectively add:
 
 - [Database drivers](database-drivers). Where to allocate tenant information.
 - [Identification drivers](identification-general). Allowing you to configure how your tenant is identified.
-- [Affects](architecture-affects). How your application is modified once a tenant is identified.
-- [Lifecycle hooks](architecture-lifecycle). Impact your application whenever tenants are created, updated or deleted.
+- [Affects](affects-general). How your application is modified once a tenant is identified.
+- [Lifecycle hooks](hooks-general). Impact your application whenever tenants are created, updated or deleted.
