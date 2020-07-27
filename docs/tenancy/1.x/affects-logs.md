@@ -20,7 +20,7 @@ tags:
 
 **Purpose**
 
-The purpose of this package is to allow the logging of errors into a separate file or location for each tenant.
+The purpose of this package is to allow the logging of errors into a separate file, location, or service for each tenant.
 
 **Use Cases**
 

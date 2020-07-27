@@ -20,7 +20,7 @@ tags:
 
 **Purpose**
 
-The purpose of this package is to allow the use of different broadcast drivers and settings based on the tenant.
+The purpose of this package is to allow the use of different cache drivers and settings based on the tenant.
 
 **Use Cases**
 

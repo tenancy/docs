@@ -20,7 +20,7 @@ tags:
 
 **Purpose**
 
-The purpose of this package is to allow the separation of tenant files
+The purpose of this package is to allow the separation of tenant files, directories or even storage servers.
 
 **Use Cases**
 
