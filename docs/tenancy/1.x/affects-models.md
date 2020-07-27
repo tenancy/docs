@@ -38,7 +38,7 @@ Install via composer
 composer require tenancy/affects-models
 ```
 
-## Configuring
+## Configuration
 After the installation, it's time for configuring. A lot of the setup for this package is the same as the other affects, but this one is a bit more flexible. It will fire the `Tenancy\Affects\Models\Events\ConfigureModels` event, which will forward all the method calls to the models in a nice and simple way.
 
 You can do this by using the following functions:

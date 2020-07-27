@@ -38,11 +38,11 @@ Install using composer
 composer require tenancy/affects-urls
 ```
 
-### Configuring
+## Configuration
 Once you've installed the package, there's only some small configuring to do. You can do this by listening to the `Tenancy\Affects\URLs\Events\ConfigureURL` event. This event provides you with some additional classes and functionality you can use.
 - `changeRoot()`, allows you to change the root url of the application.
 
-## Example
+### Example
 In the below example, we'll change the URL to the tenant's name suffixed with `.test`.
 ```php
 namespace App\Listeners;
