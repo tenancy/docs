@@ -18,6 +18,7 @@ packages:
             - requirements
             - installation
             - what-is-a-tenant
+            - architecture
             lifecycle:
             - hooks-general
             - hooks-database
