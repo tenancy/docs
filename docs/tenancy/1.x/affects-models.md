@@ -46,14 +46,14 @@ You can do this by using the following functions:
 - `ConfigureModels::functionName($models, $paramater1, $parameter2, $parameterx ...)`, this will perform the functions as static functions on the models.
 
 ### Example
-In the below example, we'll change the `ConnectionResolver` of the Models, so they will use a different Database Connection.
+In the below example, we'll change the `Connection` of the Models, so they will use the tenant's database connection
 
 ```php
 namespace App\Listeners;
 
 use Vendor\Package\Models\Permission;
-use Tenancy\Tests\Mocks\ConnectionResolver;
 use Tenancy\Affects\Models\Events\ConfigureModels;
+use Tenancy\Facades\Tenancy;
 
 class ConfigureTenantModels
 {
@@ -63,9 +63,9 @@ class ConfigureTenantModels
     {
         if($event->event->tenant)
         {
-            ConfigureModels::setConnectionResolver(
+            ConfigureModels::setConnection(
                 $this->model,
-                new ConnectionResolver('sqlite', resolve('db'))
+                Tenancy::getTenantConnectionName()
             );
         }
     }
