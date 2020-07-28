@@ -20,7 +20,7 @@ tags:
 
 **Purpose**
 
-The purpose of this package is to allow the modification of models provided by other packages
+The purpose of this package is to allow the modification of models provided by other packages.
 
 **Use Cases**
 

@@ -20,7 +20,7 @@ tags:
 
 **Purpose**
 
-The purpose of this package is to allow the use change the configuration for different integrations or packages based on the current tenant
+The purpose of this package is to allow the use change the configuration for different integrations or packages based on the current tenant.
 
 **Use Cases**
 

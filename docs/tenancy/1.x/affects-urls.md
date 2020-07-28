@@ -20,7 +20,7 @@ tags:
 
 **Purpose**
 
-The purpose of this package is to modify domain being used when generating URL's
+The purpose of this package is to modify domain being used when generating URL's.
 
 **Use Cases**
 

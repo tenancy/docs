@@ -58,7 +58,10 @@ class ConfigureTenantMails
 {
     public function handle(ConfigureMails $event)
     {
-        $event->setFrom([$event->event->tenant->email_from => $event->event->tenant->email_name]);
+        if($tenant = $event->event->tenant)
+        {
+            $event->setFrom([$tenant->email_from => $tenant->email_name]);
+        }
     }
 }
 ```
