@@ -8,6 +8,12 @@ tags:
     - tenant
 ---
 
+# Lifecycle Hooks
+
+- [Overview](#overview)
+- [Process](#Process)
+
+## Overview
 Affects change the behaviour of your Laravel application by integrating closely with the
 framework. You can modify routes, views and much more by using an affect or creating
 your own!
@@ -17,6 +23,8 @@ Laravel app, but enabling them isn't enough for most of them. Affects fire event
 you to hook into. This makes it incredibly easy to implement your own specific modifications
 without the hard work of hooking into the Laravel ecosystem or knowing the inner workings of 
 the tenancy framework.
+
+## Process
 
 The easiest way to listen to the events and influence the affects to do your bidding, is by
 creating a listener in the EventServiceProvider. Let's take the [Routes Affects](affects-routes)

@@ -18,8 +18,7 @@ packages:
             - requirements
             - installation
             - what-is-a-tenant
-            architecture:
-            - architecture-affects
+            - architecture
             lifecycle:
             - hooks-general
             - hooks-database
@@ -33,6 +32,7 @@ packages:
             - identification-console
             - identification-environment
             affects:
+            - affects-general
             - affects-broadcasts
             - affects-cache
             - affects-configs

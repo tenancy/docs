@@ -9,9 +9,28 @@ tags:
     - url
 ---
 
-## Introduction
-Once a tenant is identified, you might want to provide them with a really custom feel. Allowing tenants to affect the URL's that are used by the application can be an easy way to do this.
+# Affects-URLs
 
+1. [Overview](#overview)
+2. [Installation](#installation)
+3. [Configuration](#configuration)
+    1. [Example](#example)
+
+## Overview
+
+**Purpose**
+
+The purpose of this package is to modify domain being used when generating URL's.
+
+**Use Cases**
+
+- Tenants access the application using a custom domain
+- Tenants receive custom subdomains to access the application
+
+**Events & Methods**
+
+- `Tenancy\Affects\URLs\Events\ConfigureURL`
+  - `changeRoot`
 
 ## Installation
 Install using composer
@@ -19,12 +38,11 @@ Install using composer
 composer require tenancy/affects-urls
 ```
 
-
-### Configuring
+## Configuration
 Once you've installed the package, there's only some small configuring to do. You can do this by listening to the `Tenancy\Affects\URLs\Events\ConfigureURL` event. This event provides you with some additional classes and functionality you can use.
 - `changeRoot()`, allows you to change the root url of the application.
 
-## Example
+### Example
 In the below example, we'll change the URL to the tenant's name suffixed with `.test`.
 ```php
 namespace App\Listeners;
