@@ -9,6 +9,31 @@ tags:
     - routes
 ---
 
+# Affects-Routes
+
+1. [Overview](#overview)
+2. [Installation](#installation)
+3. [Configuration](#configuration)
+    1. [Example](#example)
+
+## Overview
+
+**Purpose**
+
+The purpose of this package is to modify the routes that are loaded once a Tenant is identified.
+
+**Use Cases**
+
+- Clear system only routes
+- Load tenant-specific routes
+
+**Events & Methods**
+
+- `Tenancy\Affects\Routes\Events\ConfigureRoutes`
+  - `flush`
+  - `fromFile`
+
+
 ## Introduction
 In order to keep your application clean, you might want to separate the routes for tenants into different files.
 
@@ -18,12 +43,12 @@ Install via composer:
 composer require tenancy/affects-routes 
 ```
 
-## Configuring
+## Configuration
 After the installation of the package, all you have to do is configure the package in the way you want. Like most affects, this package will fire an event `Tenancy\Affects\Routes\Events\ConfigureRoutes`, which will provide you with some functionality to load and configure your routes:
 - `flush()`, this will remove all currently loaded routes.
 - `fromFile()`, this will allow you to load routes from a specific file.
 
-## Example
+### Example
 In the example we will register the routes for a Tenant if one is identified.
 ```php
 namespace App\Listeners;

@@ -9,8 +9,28 @@ tags:
     - configs
 ---
 
-## Introduction
-Some applications will require you to use integrations that are separated for each tenant. You will probably have to change the configurations that are used in the application on the fly to make sure you're using your tenant's integration and not your own.
+# Affects-Config
+
+1. [Overview](#overview)
+2. [Installation](#installation)
+3. [Configuration](#configuration)
+    1. [Example](#example)
+
+## Overview
+
+**Purpose**
+
+The purpose of this package is to allow the use change the configuration for different integrations or packages based on the current tenant.
+
+**Use Cases**
+
+- Use a tenant's API credentials for a 3rd party service
+
+**Events & Methods**
+
+- `Tenancy\Affects\Configs\Events\ConfigureConfig`
+
+> All the calls you do to the event, will be forwarded to the `Repository` (the class that holds all the configs).
 
 ## Installation
 Install via composer
@@ -18,11 +38,10 @@ Install via composer
 composer require tenancy/affects-configs
 ```
 
-### Configuring
+## Configuration
 After the installation, it's all about configuring. Like other affects, you can listen to an event `Tenancy\Affects\Configs\Events\ConfigureConfig`. When you're listening to the event, you can get to work right away.
-All the calls you do to the event, will be forwarded to the `Repository` (the class that holds all the configs).
 
-## Example
+### Example
 In the below example, we'll take the integration key from the tenant and set it in our configuration so the integration can use it.
 ```php
 namespace App\Listeners;
