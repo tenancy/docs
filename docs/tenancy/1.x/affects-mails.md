@@ -35,9 +35,27 @@ The purpose of this package is to allow the sending of emails though a tenant's 
 > All other calls you do to the event, will be forwarded to the `Mailer `.
 
 ## Installation
-Install through composer
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/affects-mails
+```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Affects\Mails\Provider::class,
+        
+        // ...
+    ]
 ```
 
 ## Configuration

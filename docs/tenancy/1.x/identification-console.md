@@ -48,12 +48,31 @@ need to apply a Contract to the [tenant][what-is-a-tenant] class and implement t
 methods.
 
 ## Installation
-Install using composer:
 
+> Make sure that the model you are using [is registered in the TenantResolver](identification-general).
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/identification-driver-console
 ```
-> Make sure that the model you are using [is registered in the TenantResolver](identification-general).
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Identification\Drivers\Console\Providers\IdentificationProvider::class,
+        
+        // ...
+    ]
+```
+
 
 ## Configuration
 

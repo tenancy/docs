@@ -40,11 +40,28 @@ This package allows the identification of a tenant based on the environment.
 
 ## Installation
 
-Install using composer:
-
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/identification-driver-environment
 ```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Identification\Drivers\Environment\Providers\IdentificationProvider::class,
+        
+        // ...
+    ]
+```
+
 ## Configuration
 
 This allows you to set up your own identification requirements based on environment variables, eg:

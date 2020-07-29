@@ -43,10 +43,26 @@ The package already does a lot of work for you, if an tenant is identified at th
 
 ## Installation
 
-Install using composer:
-
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/identification-driver-queue
+```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Identification\Drivers\Queue\Providers\IdentificationProvider::class,
+        
+        // ...
+    ]
 ```
 
 ## Configuring

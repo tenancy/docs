@@ -15,14 +15,15 @@ For a quick, simplified installation you can install everything at once:
 composer require tenancy/tenancy
 ```
 
-> CAUTION: This will load specific non intrusive Affects by default. You can check which are loaded by looking in the `composer.json` of the repository.
+> CAUTION: This will load specific non-intrusive Affects by default. You can check which are loaded by looking in the `composer.json` of the repository.
 
 This is an easy way of giving this toolkit a spin!
 
 > We recommend selectively installing the packages you need.
 
 After you've installed tenancy/tenancy make sure you register the Affects and Hooks you wish to use. You do this by simply registering the respective Providers.
-Here is the non exhaustive list of providers that can be added to `config/app.php`, make sure you comment out the ones you don't need
+Here is the non-exhaustive list of providers that can be added to `config/app.php`, make sure you comment out the ones you don't need.
+The exact provider needed is included in each component's documentation.
 
 ```php
     'providers' => [

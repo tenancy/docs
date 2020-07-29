@@ -38,9 +38,27 @@ The purpose of this package is to modify the routes that are loaded once a Tenan
 In order to keep your application clean, you might want to separate the routes for tenants into different files.
 
 ## Installation
+
+### Using Tenancy/Framework
 Install via composer:
 ```bash
 composer require tenancy/affects-routes 
+```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Affects\Routes\Provider::class,
+        
+        // ...
+    ]
 ```
 
 ## Configuration

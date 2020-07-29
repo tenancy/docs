@@ -33,9 +33,27 @@ The purpose of this package is to allow the use change the configuration for dif
 > All the calls you do to the event, will be forwarded to the `Repository` (the class that holds all the configs).
 
 ## Installation
-Install via composer
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/affects-configs
+```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Affects\Configs\Provider::class,
+        
+        // ...
+    ]
 ```
 
 ## Configuration

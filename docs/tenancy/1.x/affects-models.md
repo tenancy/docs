@@ -33,9 +33,27 @@ The purpose of this package is to allow the modification of models provided by o
 > All the method calls will be forwarded to the model in a nice and simple way
 
 ## Installation
-Install via composer
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/affects-models
+```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Affects\Models\Provider::class,
+        
+        // ...
+    ]
 ```
 
 ## Configuration

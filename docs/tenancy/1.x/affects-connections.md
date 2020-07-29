@@ -50,9 +50,27 @@ To automate the management of separate databases for each tenant install the [`h
   - `useConnection`
 
 ## Installation
-Install via composer
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/affects-connections
+```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Affects\Connections\Provider::class,
+        
+        // ...
+    ]
 ```
 
 ## Configuration

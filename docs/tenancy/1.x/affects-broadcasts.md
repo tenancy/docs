@@ -32,9 +32,27 @@ The purpose of this package is to allow the use of different broadcast drivers a
 - `Tenancy\Affects\Broadcasts\Events\ConfigureBroadcast`
 
 ## Installation
+
+### Using Tenancy/Framework
 Install via composer:
 ```bash
 composer require tenancy/affects-broadcasts
+```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Affects\Broadcasts\Provider::class,
+        
+        // ...
+    ]
 ```
 
 ## Configuration

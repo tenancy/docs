@@ -33,9 +33,27 @@ The purpose of this package is to allow the logging of errors into a separate fi
 - `Tenancy\Affects\Logs\Events\ConfigureLogs`
 
 ## Installation
+
+### Using Tenancy/Framework
 Install via composer:
 ```bash
 composer require tenancy/affects-logs
+```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Affects\Logs\Provider::class,
+        
+        // ...
+    ]
 ```
 
 ## Configuration

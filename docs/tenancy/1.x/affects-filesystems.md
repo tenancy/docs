@@ -33,9 +33,27 @@ The purpose of this package is to allow the separation of tenant files, director
 
 
 ## Installation
-Install via composer
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/affects-filesystems
+```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Affects\Filesystems\Provider::class,
+        
+        // ...
+    ]
 ```
 
 ## Configuration

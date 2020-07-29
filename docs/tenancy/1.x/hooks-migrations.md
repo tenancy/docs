@@ -54,8 +54,26 @@ This package requires the installation and configuration of the [`affects-connec
 
 `hooks-migration` is a package that is a bit more complex than most Tenancy packages. This will take care of everything after a Database is created for your multi-database setup.
 
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/hooks-migration
+```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Hooks\Migration\Provider::class,
+        
+        // ...
+    ]
 ```
 
 ## Migrations

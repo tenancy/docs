@@ -32,9 +32,27 @@ The purpose of this package is to allow the use of different cache drivers and s
 - `Tenancy\Affects\Cache\Events\ConfigureCache`
 
 ## Installation
-Install via composer
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/affects-cache
+```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Affects\Cache\Provider::class,
+        
+        // ...
+    ]
 ```
 
 ## Configuration

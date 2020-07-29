@@ -33,9 +33,27 @@ The purpose of this package is to modify domain being used when generating URL's
   - `changeRoot`
 
 ## Installation
-Install using composer
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/affects-urls
+```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Add the provider to `config/app.php`.
+
+```php
+    'providers' => [
+        // ...
+        
+        /*
+        * Package Service Providers...
+        */
+        Tenancy\Affects\URLs\Provider::class,
+        
+        // ...
+    ]
 ```
 
 ## Configuration
