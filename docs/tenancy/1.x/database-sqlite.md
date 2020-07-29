@@ -44,17 +44,19 @@ Because this package will create a new SQLite database file, the location that d
 
 ## Installation
 
-Install using composer:
+> CAUTION: This will only provide **local** databases, which are not remote accessibly.
 
+> CAUTION: This database driver might require additional steps for configuration. It is based on a filesystem, and not a real database like most Database Drivers.
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/db-driver-sqlite
 ```
 
-This package will allow you to use the `hooks-database` for SQLite Database instances.
-
-> CAUTION: This will only provide **local** databases, which are not remote accessibly.
-
-> CAUTION: This database driver might require additional steps for configuration. It is based on a filesystem, and not a real database like most Database Drivers.
+### Using Tenancy/Tenancy or with provider discovery disabled
+Register the following ServiceProvider: 
+  - `Tenancy\Database\Drivers\Sqlite\Provider::class`
 
 ## Configuration
 

@@ -32,10 +32,16 @@ The purpose of this package is to allow the use of different cache drivers and s
 - `Tenancy\Affects\Cache\Events\ConfigureCache`
 
 ## Installation
-Install via composer
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/affects-cache
 ```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Cache\Provider::class`
 
 ## Configuration
 Configuration of the package is really easy. You can listen to the `Tenancy\Affects\Cache\Events\ConfigureCache` event to start configuring. Configuration can then be done by simply changing the config that will automatically be considered the `tenant` cache driver.

@@ -38,10 +38,16 @@ The purpose of this package is to modify the routes that are loaded once a Tenan
 In order to keep your application clean, you might want to separate the routes for tenants into different files.
 
 ## Installation
+
+### Using Tenancy/Framework
 Install via composer:
 ```bash
 composer require tenancy/affects-routes 
 ```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Routes\Provider::class`
 
 ## Configuration
 After the installation of the package, all you have to do is configure the package in the way you want. Like most affects, this package will fire an event `Tenancy\Affects\Routes\Events\ConfigureRoutes`, which will provide you with some functionality to load and configure your routes:

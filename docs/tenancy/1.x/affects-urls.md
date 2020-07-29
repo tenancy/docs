@@ -33,10 +33,16 @@ The purpose of this package is to modify domain being used when generating URL's
   - `changeRoot`
 
 ## Installation
-Install using composer
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/affects-urls
 ```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\URLs\Provider::class`
 
 ## Configuration
 Once you've installed the package, there's only some small configuring to do. You can do this by listening to the `Tenancy\Affects\URLs\Events\ConfigureURL` event. This event provides you with some additional classes and functionality you can use.

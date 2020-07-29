@@ -59,9 +59,15 @@ Find a driver and corresponding information on the [Database Drivers Page](datab
 
 Most hooks have a really straight forward installation. `hooks-database` has a different approach and requires at least one of the [Database Drivers](database-drivers) to also be installed.
 
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/hooks-database
 ```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Register the following ServiceProvider: 
+  - `Tenancy\Hooks\Database\Provider::class`
 
 ## Configuring
 

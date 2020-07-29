@@ -58,11 +58,15 @@ GRANT ALL PRIVILEGES ON *.* TO tenancy@localhost WITH GRANT OPTION;
 
 ## Installation
 
-Install using composer:
-
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/db-driver-mysql
 ```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Register the following ServiceProvider: 
+  - `Tenancy\Database\Drivers\Mysql\Provider::class`
 
 ## Configuration
 

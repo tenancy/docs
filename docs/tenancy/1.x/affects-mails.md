@@ -35,10 +35,16 @@ The purpose of this package is to allow the sending of emails though a tenant's 
 > All other calls you do to the event, will be forwarded to the `Mailer `.
 
 ## Installation
-Install through composer
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/affects-mails
 ```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Mails\Provider::class`
 
 ## Configuration
 After the installation of the package, all you have to do is configure the package in the way you want. Like most affects, this package will fire an event `Tenancy\Affects\Mails\Events\ConfigureMails`, which will provide you with some functionality to change or update the `Swift_Mailer` used:
