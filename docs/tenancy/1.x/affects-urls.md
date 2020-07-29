@@ -41,20 +41,8 @@ composer require tenancy/affects-urls
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
-
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Affects\URLs\Provider::class,
-        
-        // ...
-    ]
-```
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\URLs\Provider::class`
 
 ## Configuration
 Once you've installed the package, there's only some small configuring to do. You can do this by listening to the `Tenancy\Affects\URLs\Events\ConfigureURL` event. This event provides you with some additional classes and functionality you can use.

@@ -58,20 +58,8 @@ composer require tenancy/affects-connections
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
-
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Affects\Connections\Provider::class,
-        
-        // ...
-    ]
-```
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Connections\Provider::class`
 
 ## Configuration
 

@@ -55,20 +55,8 @@ composer require tenancy/db-driver-sqlite
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
-
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Database\Drivers\Sqlite\Provider::class,
-        
-        // ...
-    ]
-```
+Register the following ServiceProvider: 
+  - `Tenancy\Database\Drivers\Sqlite\Provider::class`
 
 ## Configuration
 

@@ -43,20 +43,8 @@ composer require tenancy/affects-mails
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
-
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Affects\Mails\Provider::class,
-        
-        // ...
-    ]
-```
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Mails\Provider::class`
 
 ## Configuration
 After the installation of the package, all you have to do is configure the package in the way you want. Like most affects, this package will fire an event `Tenancy\Affects\Mails\Events\ConfigureMails`, which will provide you with some functionality to change or update the `Swift_Mailer` used:

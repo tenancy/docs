@@ -61,20 +61,8 @@ composer require tenancy/hooks-migration
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
-
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Hooks\Migration\Provider::class,
-        
-        // ...
-    ]
-```
+Register the following ServiceProvider: 
+  - `Tenancy\Hooks\Migration\Provider::class`
 
 ## Migrations
 

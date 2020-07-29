@@ -47,20 +47,8 @@ composer require tenancy/identification-driver-environment
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
-
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Identification\Drivers\Environment\Providers\IdentificationProvider::class,
-        
-        // ...
-    ]
-```
+Register the following ServiceProvider: 
+  - `Tenancy\Identification\Drivers\Environment\Providers\IdentificationProvider::class`
 
 ## Configuration
 

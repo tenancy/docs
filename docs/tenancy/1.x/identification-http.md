@@ -52,20 +52,9 @@ composer require tenancy/identification-driver-http
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
+Register the following ServiceProvider: 
+  - `Tenancy\Identification\Drivers\Http\Providers\IdentificationProvider::class`
 
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Identification\Drivers\Http\Providers\IdentificationProvider::class,
-        
-        // ...
-    ]
-```
 
 ## Configuration
 

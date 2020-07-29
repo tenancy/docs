@@ -41,20 +41,8 @@ composer require tenancy/affects-configs
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
-
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Affects\Configs\Provider::class,
-        
-        // ...
-    ]
-```
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Configs\Provider::class`
 
 ## Configuration
 After the installation, it's all about configuring. Like other affects, you can listen to an event `Tenancy\Affects\Configs\Events\ConfigureConfig`. When you're listening to the event, you can get to work right away.

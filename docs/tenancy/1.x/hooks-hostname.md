@@ -56,20 +56,8 @@ composer require tenancy/hooks-hostname
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
-
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Hooks\Hostname\Provider::class,
-        
-        // ...
-    ]
-```
+Register the following ServiceProvider: 
+  - `Tenancy\Hooks\Hostname\Provider::class`
 
 ## Configuration
 ### Tenant

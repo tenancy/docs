@@ -40,20 +40,8 @@ composer require tenancy/affects-cache
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
-
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Affects\Cache\Provider::class,
-        
-        // ...
-    ]
-```
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Cache\Provider::class`
 
 ## Configuration
 Configuration of the package is really easy. You can listen to the `Tenancy\Affects\Cache\Events\ConfigureCache` event to start configuring. Configuration can then be done by simply changing the config that will automatically be considered the `tenant` cache driver.

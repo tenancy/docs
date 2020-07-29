@@ -41,20 +41,8 @@ composer require tenancy/affects-filesystems
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
-
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Affects\Filesystems\Provider::class,
-        
-        // ...
-    ]
-```
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Filesystems\Provider::class`
 
 ## Configuration
 When you're configuring this package, you will have to listen to the `Tenancy\Affects\Filesystems\Events\ConfigureDisk` event. This event will allow you to change the configuration for a `tenant` disk, simply by changing the config that is provided.

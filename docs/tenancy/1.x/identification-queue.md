@@ -50,20 +50,8 @@ composer require tenancy/identification-driver-queue
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
-
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Identification\Drivers\Queue\Providers\IdentificationProvider::class,
-        
-        // ...
-    ]
-```
+Register the following ServiceProvider: 
+  - `Tenancy\Identification\Drivers\Queue\Providers\IdentificationProvider::class`
 
 ## Configuring
 In order to enable queue identification for a tenant, it will have to implement the specific contract `Tenancy\Identification\Drivers\Queue\Contracts\IdentifiesByQueue`. You will see that in this function you will get a simple custom `Processing` event which will contain one of these 2 pieces of information:

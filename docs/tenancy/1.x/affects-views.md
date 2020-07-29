@@ -45,20 +45,8 @@ composer require tenancy/affects-views
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
-
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Affects\Views\Provider::class,
-        
-        // ...
-    ]
-```
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Views\Provider::class`
 
 ## Configuration
 Once you've installed the package, all you have to do is configure it. The package will fire a `Tenancy\Affects\Views\Events\ConfigureViews` event to configure all the views for a specific tenant. The event will come with some basic functionality:

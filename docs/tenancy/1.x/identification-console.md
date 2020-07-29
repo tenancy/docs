@@ -58,21 +58,8 @@ composer require tenancy/identification-driver-console
 ```
 
 ### Using Tenancy/Tenancy or with provider discovery disabled
-Add the provider to `config/app.php`.
-
-```php
-    'providers' => [
-        // ...
-        
-        /*
-        * Package Service Providers...
-        */
-        Tenancy\Identification\Drivers\Console\Providers\IdentificationProvider::class,
-        
-        // ...
-    ]
-```
-
+Register the following ServiceProvider: 
+  - `Tenancy\Identification\Drivers\Console\Providers\IdentificationProvider::class`
 
 ## Configuration
 
