@@ -22,6 +22,36 @@ This is an easy way of giving this toolkit a spin!
 > We recommend selectively installing the packages you need.
 
 After you've installed tenancy/tenancy make sure you register the Affects and Hooks you wish to use. You do this by simply registering the respective Providers.
+Here is the non exhaustive list of providers that can be added to `config/app.php`, make sure you comment out the ones you don't need
+
+```php
+    'providers' => [
+         // ...
+
+        /*
+         * Package Service Providers...
+         */
+        Tenancy\Affects\Broadcasts\Provider::class,
+        Tenancy\Affects\Cache\Provider::class,
+        Tenancy\Affects\Configs\Provider::class,
+        Tenancy\Affects\Connections\Provider::class,
+        Tenancy\Affects\Filesystems\Provider::class,
+        Tenancy\Affects\Logs\Provider::class,
+        Tenancy\Affects\Mails\Provider::class,
+        Tenancy\Affects\Models\Provider::class,
+        Tenancy\Affects\Routes\Provider::class,
+        Tenancy\Affects\URLs\Provider::class,
+        Tenancy\Affects\Views\Provider::class,
+
+        Tenancy\Hooks\Database\Provider::class,
+        Tenancy\Hooks\Migration\Provider::class,
+        Tenancy\Hooks\Hostname\Provider::class,
+
+        Tenancy\Database\Drivers\Mysql\Provider::class,
+        Tenancy\Database\Drivers\Sqlite\Provider::class,
+         // ...
+    ]
+```
 
 ## Selective Install
 
