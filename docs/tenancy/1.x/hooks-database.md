@@ -15,6 +15,8 @@ tags:
 3. [Installation](#installation)
 4. [Configuring](#configuring)
    1. [Example](#configuring-example)
+   2. [Remote Database Servers](#remote-database-servers)
+   3. [Seperate Database Server](#seperate-database-servers)
 5. [Database Mutations](#database-mutations)
    1. [Example](#mutations-example)
 
@@ -99,6 +101,63 @@ class ConfigureTenantDatabase
     public function handle(Configuring $event)
     {
         $event->useConnection('mysql', $event->defaults($event->tenant));
+    }
+}
+```
+
+> Note: The `Tenancy\Hooks\Database\Events\Drivers\Configuring` event is only used to generate the
+statements required to manage the Tenant's database and user. It is *NOT* used to connect to the
+database that these statements will run on.
+
+#### Remote Database Servers
+In many production applications, the database will be on a seperate server than the application
+is executing on. This may cause issues in some cases due to how databases configure user access.
+
+Expanding on the previous example, the example below will set the host for the user to a wildcard
+allowing this user to connect from any host and access the database.
+
+```php
+namespace App\Listeners;
+
+use Tenancy\Hooks\Database\Events\Drivers\Configuring;
+
+class ConfigureTenantDatabase
+{
+    public function handle(Configuring $event)
+    {
+        $overrides = array_merge(
+            ['host'=>'%'],
+            $event->defaults($event->tenant)
+        );
+        $event->useConnection('mysql', $overrides);
+    }
+}
+```
+
+#### Seperate Database Servers
+By default Tenancy will try to create the Tenant's database and user using the default connection.
+In cases where Tenant's are stored on different database servers you will need implement the
+`ManagesSystemConnection` interface.
+
+To get started have the [Tenant](what-is-a-tenant) class implement the `ManagesSystemConnection` interface
+and implement the `getManagingSystemConnection` method.
+
+In the following example, we assume that you have a a `premium-mysql` connection specified in your
+`config/database.php` configuration file.
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Tenancy\Identification\Concerns\AllowsTenantIdentification;
+use Tenancy\Identification\Contracts\Tenant;
+use Tenancy\Database\Drivers\Mysql\Concerns\ManagesSystemConnection;
+
+class User extends Model implements Tenant, ManagesSystemConnection
+{
+    use AllowsTenantIdentification;
+
+    public function getManagingSystemConnection(): ?string
+    {
+        return 'premium-mysql';
     }
 }
 ```
