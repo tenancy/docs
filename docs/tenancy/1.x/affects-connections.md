@@ -74,6 +74,7 @@ In the below example we will return the instance itself as the class responsible
 ```php
 namespace App\Listeners;
 
+use App\Tenant;
 use Tenancy\Affects\Connections\Contracts\ProvidesConfiguration;
 use Tenancy\Affects\Connections\Events\Resolving;
 use Tenancy\Affects\Connections\Events\Drivers\Configuring;
