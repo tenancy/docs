@@ -37,10 +37,16 @@ The purpose of this package is to allow the use of custom views overriding or in
 Tenants might need different sites / views in your application. If you ever need such a thing, you can use `affects-views`. It will allow you to load and/or override views in our application really easily.
 
 ## Installation
-Install via composer
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/affects-views
 ```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Views\Provider::class`
 
 ## Configuration
 Once you've installed the package, all you have to do is configure it. The package will fire a `Tenancy\Affects\Views\Events\ConfigureViews` event to configure all the views for a specific tenant. The event will come with some basic functionality:

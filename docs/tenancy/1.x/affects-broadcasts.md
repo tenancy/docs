@@ -32,10 +32,16 @@ The purpose of this package is to allow the use of different broadcast drivers a
 - `Tenancy\Affects\Broadcasts\Events\ConfigureBroadcast`
 
 ## Installation
+
+### Using Tenancy/Framework
 Install via composer:
 ```bash
 composer require tenancy/affects-broadcasts
 ```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Broadcasts\Provider::class`
 
 ## Configuration
 Once you've installed the package, all you have to do is configure the package. You can configure this package by listening to the `Tenancy\Affects\Broadcasts\Events\ConfigureBroadcasts` event. Once you're listening to the event, you can start configuring your `tenant` broadcast driver with the provided `$config` array.

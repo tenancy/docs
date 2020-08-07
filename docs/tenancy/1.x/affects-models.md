@@ -33,10 +33,16 @@ The purpose of this package is to allow the modification of models provided by o
 > All the method calls will be forwarded to the model in a nice and simple way
 
 ## Installation
-Install via composer
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/affects-models
 ```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Models\Provider::class`
 
 ## Configuration
 After the installation, it's time for configuring. A lot of the setup for this package is the same as the other affects, but this one is a bit more flexible. It will fire the `Tenancy\Affects\Models\Events\ConfigureModels` event, which will forward all the method calls to the models in a nice and simple way.

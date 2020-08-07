@@ -45,11 +45,16 @@ methods.
 
 ## Installation
 
-Install using composer:
-
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/identification-driver-http
 ```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Register the following ServiceProvider: 
+  - `Tenancy\Identification\Drivers\Http\Providers\IdentificationProvider::class`
+
 
 ## Configuration
 

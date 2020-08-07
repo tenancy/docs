@@ -33,10 +33,16 @@ The purpose of this package is to allow the logging of errors into a separate fi
 - `Tenancy\Affects\Logs\Events\ConfigureLogs`
 
 ## Installation
+
+### Using Tenancy/Framework
 Install via composer:
 ```bash
 composer require tenancy/affects-logs
 ```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Logs\Provider::class`
 
 ## Configuration
 Configuration of this package is fairly easy, you can listen to the `Tenancy\Affects\Logs\Events\ConfigureLogs` event and provide a log configuration for your tenant driver.

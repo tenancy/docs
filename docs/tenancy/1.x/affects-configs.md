@@ -33,10 +33,16 @@ The purpose of this package is to allow the use change the configuration for dif
 > All the calls you do to the event, will be forwarded to the `Repository` (the class that holds all the configs).
 
 ## Installation
-Install via composer
+
+### Using Tenancy/Framework
+Install via composer:
 ```bash
 composer require tenancy/affects-configs
 ```
+
+### Using Tenancy/Tenancy or with provider discovery disabled
+Register the following ServiceProvider: 
+  - `Tenancy\Affects\Configs\Provider::class`
 
 ## Configuration
 After the installation, it's all about configuring. Like other affects, you can listen to an event `Tenancy\Affects\Configs\Events\ConfigureConfig`. When you're listening to the event, you can get to work right away.
