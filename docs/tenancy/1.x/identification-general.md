@@ -15,6 +15,7 @@ tags:
   - [Tenant Contract](#tenant-contract)
     - [Tenant Model Trait](#tenant-model-trait)
   - [Tenant Registration](tenant-registration)
+- [Handling Nothing Identified](#handling-nothing-identified)
 - [Next Steps](#next-steps)
   - [Lifecycle Hooks](#lifecycle-hooks)
   - [Identification Drivers](#identification-drivers)
@@ -135,6 +136,29 @@ class AppServiceProvider extends ServiceProvider
     }
 }
 ```
+
+## Handling Nothing Identified
+
+Depending on how you choose to build out your application, there may be times where you need to perform 
+specific logic when no tenant is identified. To achieve this one simply needs to create a listener for the `Tenancy\Identification\Events\NothingIdentified` event.
+
+In the following example we will abort execution and return a 404 error.
+
+```php
+namespace App\Listeners;
+
+use Tenancy\Identification\Events\NothingIdentified;
+
+class TenantRoutes 
+{
+    public function handle(NothingIdentified $event) 
+    {
+        abort(404);
+    }
+}
+```
+
+> Note: This is only required if your application always expects to have a tenant identified and does not have a default non-tenant side.
 
 ## Next Steps
 
