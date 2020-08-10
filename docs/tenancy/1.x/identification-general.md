@@ -149,7 +149,7 @@ namespace App\Listeners;
 
 use Tenancy\Identification\Events\NothingIdentified;
 
-class TenantRoutes 
+class NoTenantIdentified 
 {
     public function handle(NothingIdentified $event) 
     {
