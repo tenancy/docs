@@ -28,7 +28,8 @@ The purpose of this package is to handle the creation, updating, and deletion of
 
 **Requirements**
 
-In order to use this package a [Database Driver](database-drivers) must also be installed.
+- In order to use this package a [Database Driver](database-drivers) must also be installed.
+- A [Tenant](what-is-a-tenant) that dispatches the `Created`, `Updated`, and/or `Deleted` [lifecycle events](hooks-general#events).
 
 **Recommendations**
 
@@ -53,9 +54,11 @@ In order to use this package a [Database Driver](database-drivers) must also be 
 
 ## Requirements
 
-A Database Driver is responsible for actually creating the database. Most of the Database Drivers will run specific "elevated permissions" queries in order to provide a database and/or a database user.
+- A Database Driver is responsible for actually creating the database. Most of the Database Drivers will run specific "elevated permissions" queries in order to provide a database and/or a database user.
 
-Find a driver and corresponding information on the [Database Drivers Page](database-drivers)
+  Find a driver and corresponding information on the [Database Drivers Page](database-drivers)
+
+- A [Tenant](what-is-a-tenant) that dispatches the `Created`, `Updated`, and/or `Deleted` [lifecycle events](hooks-general#events).
 
 ## Installation
 
