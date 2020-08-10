@@ -19,18 +19,18 @@ packages:
             - installation
             - what-is-a-tenant
             - architecture
-            lifecycle:
-            - hooks-general
-            - hooks-database
-            - hooks-migrations
-            - hooks-hostname
-            - hooks-custom
             identification:
             - identification-general
             - identification-http
             - identification-queue
             - identification-console
             - identification-environment
+            lifecycle:
+            - hooks-general
+            - hooks-database
+            - hooks-migrations
+            - hooks-hostname
+            - hooks-custom
             affects:
             - affects-general
             - affects-broadcasts
