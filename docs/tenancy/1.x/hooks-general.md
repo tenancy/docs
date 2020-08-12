@@ -72,7 +72,7 @@ have persisted and correct values are used by the hooks.
 
 For hooks to be executed in the right sequence (eg migrations running after the database is created),
 the hooks require a priority. Make sure your hooks use the correct value. Hooks are ran from lowest
-to highest.
+to highest priority.
 
 - Databases created, updated and deleted: `-100`
 - Migrations, if hooks-migrations is enabled: `-50`

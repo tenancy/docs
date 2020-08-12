@@ -17,20 +17,22 @@ packages:
             - introduction
             - requirements
             - installation
-            - what-is-a-tenant
             - architecture
-            identification:
-            - identification-general
-            - identification-http
-            - identification-queue
-            - identification-console
-            - identification-environment
+            tenants:
+            - tenant-what-is
+            - tenant-setup
             lifecycle:
             - hooks-general
             - hooks-database
             - hooks-migrations
             - hooks-hostname
             - hooks-custom
+            identification:
+            - identification-general
+            - identification-http
+            - identification-queue
+            - identification-console
+            - identification-environment
             affects:
             - affects-general
             - affects-broadcasts

@@ -28,7 +28,7 @@ Enable custom functionality that isn't available through existing hooks.
 **Requirements**
 
 - Knowledge of how [Lifecycle Hooks work](hooks-general)
-- A [Tenant](what-is-a-tenant) that dispatches the `Created`, `Updated`, and/or `Deleted` [lifecycle events](hooks-general#events).
+- A [Tenant](tenant-what-is) that dispatches the `Created`, `Updated`, and/or `Deleted` [lifecycle events](hooks-general#events).
 
 
 ## Base

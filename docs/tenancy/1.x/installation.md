@@ -4,10 +4,22 @@ icon: fal fa-arrow-alt-to-bottom
 ---
 # Installation
 
+1. [Base Installation](#base-installation)
 1. [Simplified Install](#simplified-install)
 2. [Selective Install](#selective-install) (*Recommended*)
+3. [Next Steps](#next-steps)
 
-## Simplified Install
+## Base Installation
+
+There are two methods for getting the base package installed, [Simplified](#simplified-install) and [Selective](#selective-install).
+
+The simplified install method will install the base package and all of the additional modules, but will not register all of the providers.
+
+The selective install method will only install the base package, and each additional module will need to be installed on its own.
+
+We would highly recommend using the selective installation method as it ensure that only the modules you need are installed, and it will automatically register the appropriate providers.
+
+### Simplified Install
 
 For a quick, simplified installation you can install everything at once:
 
@@ -54,7 +66,7 @@ The exact provider needed is included in each component's documentation.
     ]
 ```
 
-## Selective Install
+### Selective Install
 
 Instead of loading all tenancy packages at once, you can selectively install
 what you need. You need at least the framework:
@@ -63,9 +75,13 @@ what you need. You need at least the framework:
 composer require tenancy/framework
 ```
 
-After that selectively add:
+## Next Steps
 
-- [Identification drivers](identification-general). Allowing you to configure how your tenant is identified.
+Now that the base package is installed you will need to determine what your [tenant object will be](tenant-what-is) and [perform setup of the tenant object(s)](tenant-setup).
+
+After that selectively add and/or configure:
+
 - [Database drivers](database-drivers). Where to allocate tenant information.
-- [Affects](affects-general). How your application is modified once a tenant is identified.
 - [Lifecycle hooks](hooks-general). Impact your application whenever tenants are created, updated or deleted.
+- [Identification drivers](identification-general). Allowing you to configure how your tenant is identified.
+- [Affects](affects-general). How your application is modified once a tenant is identified.

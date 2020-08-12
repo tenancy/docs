@@ -23,7 +23,7 @@ In order to allow a tenant to be identified with the Console driver, all
 commands have gained two new options, `--tenant` and `--tenant-type`.
 
 For a tenant to be identified with the Console driver, you
-need to apply a Contract to the [tenant][what-is-a-tenant] class and implement the required
+need to apply a Contract to the [tenant][tenant-what-is] class and implement the required
 methods.
 
 This allows you to set up your own identification requirements, eg:
@@ -102,4 +102,4 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-[what-is-a-tenant]: what-is-a-tenant
+[tenant-what-is]: tenant-what-is
