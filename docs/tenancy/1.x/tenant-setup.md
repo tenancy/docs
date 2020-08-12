@@ -127,19 +127,3 @@ class AppServiceProvider extends ServiceProvider
 ### Lifecycle Hooks
 
 [Lifecycle Hooks](hooks-general) allow you to take specific actions when a Tenant is created, updated, or deleted.
-
-### Identification Drivers
-
-Every driver uses the same principle. In order for a tenant to be used by the driver it has to implement an interface (or in Laravel terminology contract) related to the driver.
-
-Depending on your application, you may need to identify a Tenant using different methods. The following Identification Drivers are available to be used alone, or in combination.
-
-[Console Identification](identification-console)
-
-[Environment Identification](identification-environment)
-
-[HTTP based Identification](identification-http)
-
-[Queue Identification](identification-queue)
-
-> The identification driver will only attempt identification of a tenant model when it implements the contract of the driver.

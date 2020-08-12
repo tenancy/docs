@@ -12,9 +12,8 @@ tags:
 
 - [Overview](#overview)
 - [Handling Nothing Identified](#handling-nothing-identified)
+- [Identification Drivers](#identification-drivers)
 - [Next Steps](#next-steps)
-  - [Lifecycle Hooks](#lifecycle-hooks)
-  - [Identification Drivers](#identification-drivers)
 
 ## Overview
 
@@ -47,9 +46,7 @@ class NoTenantIdentified
 
 > Note: This is only required if your application always expects to have a tenant identified and does not have a default non-tenant side.
 
-## Next Steps
-
-### Identification Drivers
+## Identification Drivers
 
 Every driver uses the same principle. In order for a tenant to be used by the driver it has to implement an interface (or in Laravel terminology contract) related to the driver.
 
@@ -64,3 +61,9 @@ Depending on your application, you may need to identify a Tenant using different
 [Queue Identification](identification-queue)
 
 > The identification driver will only attempt identification of a tenant model when it implements the contract of the driver.
+
+## Next Steps
+
+### Affects
+
+[Affects](affects-general) change the behaviour of your Laravel application by integrating closely with the framework.

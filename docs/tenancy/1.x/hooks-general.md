@@ -13,8 +13,8 @@ tags:
 - [Overview](#overview)
 - [Events](#events)
 - [Priority](#priority)
-- [Custom Hooks](#custom-hooks)
 - [Available Hooks](#available-hooks)
+- [Next Steps](#next-steps)
 
 ## Overview
 
@@ -90,3 +90,9 @@ migrations and seeds are done, use a value higher than -50.
 [Migrations](hooks-migrations)
 
 [Hostname](hooks-hostname)
+
+## Next Steps
+
+### Identification
+
+[Identification Drivers](identification-general) will be how your application determins which tenant should be loaded during a request, command, or job.
