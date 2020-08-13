@@ -24,11 +24,11 @@ tags:
 
 **Purpose**
 
-The purpose of this package is to allow a [Tenant](what-is-a-tenant) to be identified in a queued Job.
+The purpose of this package is to allow a [Tenant](tenant-what-is) to be identified in a queued Job.
 
 **Requirements**
 
-The Tenant [must be registered in the TenantResolver](identification-general)
+The Tenant [must be registered in the TenantResolver](tenant-setup)
 
 **Use Cases**
 

@@ -24,7 +24,7 @@ in your application you wish to build your business logic around.
 
 ## Deciding on your Tenant
 
-The most important decision in building a multi tenant application
+The most important decision in building a multi-tenant application
 is choosing your tenant. In order to help you with this, ask yourself the
 following questions.
 
@@ -35,7 +35,7 @@ company is the tenant, it holds all the information we want to keep separated
 from any other company in the application. This is a very common
 choice visible with applications using a vanity url, eg yourteam.saas.app.
 
-Or perhaps we can keep it simple by marking the user as tenant. This will
+Or perhaps we can keep it simple by marking the user as a tenant. This will
 connect all data to a single account instead. A great example of this is
 GMail. You log in and see only the emails of your account.
 
@@ -50,4 +50,4 @@ a contract and implementing the required methods.
 
 ## Next Step
 
-Once you have identified what object(s) will be your tenant you will need to setup the identification of those tenants. To get started continue to [Tenant Identification](identification-general)
+Once you have identified what object(s) will be your tenant you will need to setup those tenants. To get started continue to [Tenant Setup](tenant-setup)

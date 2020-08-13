@@ -17,8 +17,10 @@ packages:
             - introduction
             - requirements
             - installation
-            - what-is-a-tenant
             - architecture
+            tenants:
+            - tenant-what-is
+            - tenant-setup
             lifecycle:
             - hooks-general
             - hooks-database

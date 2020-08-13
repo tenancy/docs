@@ -13,7 +13,7 @@ using the tenant resolver isn't absolutely necessary,
 doing so offloads a great deal of the tenancy business logic to the package.
 
 The tenant resolver dispatches a few events used by the identification drivers to identify the
-currently requested [tenant][what-is-a-tenant]. By using an event you are not limited to only 
+currently requested [tenant][tenant-what-is]. By using an event you are not limited to only 
 one driver. Each driver will only trigger it's own contract when it is identified. However, if identification is triggered without a specific driver, it will try to identify all drivers. The first driver to respond with a valid tenant object will cause any following
 listeners to be ignored.
 
@@ -60,4 +60,4 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-[what-is-a-tenant]: what-is-a-tenant
+[tenant-what-is]: tenant-what-is

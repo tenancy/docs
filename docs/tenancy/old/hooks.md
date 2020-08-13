@@ -28,7 +28,7 @@ event(new \Tenancy\Tenant\Events\Created($tenant));
 
 Some pointers you need to take into consideration:
 
-- The tenant has to be a [tenant](what-is-a-tenant).
+- The tenant has to be a [tenant](tenant-what-is).
 - Fire the event after your own code is finished.
 - Fire the event outside of any transactions, so that changed attributes
 have persisted and correct values are used by the hooks.

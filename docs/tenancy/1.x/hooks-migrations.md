@@ -30,7 +30,9 @@ The purpose of this package is to handle the running of migrations and seeds.
 
 **Requirements**
 
-This package requires the installation and configuration of the [`affects-connections`](https://tenancy.dev/docs/tenancy/1.x/affects-connections) package. 
+- This package requires the installation and configuration of the [`affects-connections`](https://tenancy.dev/docs/tenancy/1.x/affects-connections) package. 
+
+- A [Tenant](tenant-what-is) that dispatches the `Created`, `Updated`, and/or `Deleted` [lifecycle events](hooks-general#events).
 
 **Use Cases**
 
