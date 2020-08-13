@@ -29,7 +29,7 @@ The purpose of this package is to handle the creation, updating, and deletion of
 **Requirements**
 
 - In order to use this package a [Database Driver](database-drivers) must also be installed.
-- A [Tenant](tenant-what-is) that dispatches the `Created`, `Updated`, and/or `Deleted` [lifecycle events](hooks-general#events).
+- A [Tenant](what-is-a-tenant) that dispatches the `Created`, `Updated`, and/or `Deleted` [lifecycle events](hooks-general#events).
 
 **Recommendations**
 
@@ -58,7 +58,7 @@ The purpose of this package is to handle the creation, updating, and deletion of
 
   Find a driver and corresponding information on the [Database Drivers Page](database-drivers)
 
-- A [Tenant](tenant-what-is) that dispatches the `Created`, `Updated`, and/or `Deleted` [lifecycle events](hooks-general#events).
+- A [Tenant](what-is-a-tenant) that dispatches the `Created`, `Updated`, and/or `Deleted` [lifecycle events](hooks-general#events).
 
 ## Installation
 
@@ -142,10 +142,10 @@ By default Tenancy will try to create the Tenant's database and user using the d
 In cases where Tenant's are stored on different database servers you will need implement the
 `ManagesSystemConnection` interface.
 
-To get started have the [Tenant](tenant-what-is) class implement the `ManagesSystemConnection` interface
+To get started have the [Tenant](what-is-a-tenant) class implement the `ManagesSystemConnection` interface
 and implement the `getManagingSystemConnection` method.
 
-In the following example, we assume that you have a a `premium-mysql` connection specified in your
+In the following example, we assume that you have a `premium-mysql` connection specified in your
 `config/database.php` configuration file.
 
 ```php
