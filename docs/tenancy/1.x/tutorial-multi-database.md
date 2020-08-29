@@ -10,7 +10,7 @@ tags:
 ---
 
 ## Introduction
-Setting up a multi database tenancy setup can be quiet difficult. There's a lot of different (moving) pieces and that's exactly why we made this tutorial. In this tutorial we will talk about:
+Setting up a multi database tenancy setup can be quite difficult. There's a lot of different (moving) pieces and that's exactly why we made this tutorial. In this tutorial we will talk about:
 - Setting up tenancy so it will create a new DB for each tenant
 - Changing the connection whenever a tenant is identified
 
