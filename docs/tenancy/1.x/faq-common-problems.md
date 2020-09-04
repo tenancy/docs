@@ -32,9 +32,11 @@ The code might look something like this:
 
 ## SQL error while deleting a tenant
 **Problem**
+
 When deleting a tenant I receive a SQL error indicating it might have something to do with the deleted tenant
 
 **Solution**
+
 Migrations are run **after** database actions. So, in this case, Tenancy tries to run some migrations on the tenants database, by the tenants user, which at this point both won't exist anymore.
 
 You might want to change your `ConfigureMigrations` listener to take that into account:
@@ -51,3 +53,35 @@ class ConfigureTenantMigrations
     }
 }
 ```
+
+## Form validations are run against the system database instead of the tenants database
+**Problem**
+
+Laravel keeps trying to run validations against my system database, even though my models are using the `OnTenant` trait. What`s going on?
+
+*Example*
+
+Let's take a default Laravel UI scaffold including auth. The *RegisterController* looks something like this:
+```php
+[... snip ...]
+protected function validator(array $data)
+{
+    return Validator::make($data, [
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+    ]);
+}
+[... snip ...]
+```
+You can clearly see the validation rule stating *unique:users*. So, what gives?
+
+**Solution**
+
+It's simple. Form validation in Laravel **does not** use your models! So, to get it to work, you need to tell Laravel that you want to validate against a table in a different database.
+
+Luckily, all you need to do is to prefix the table name with the right connection name.
+```php
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:tenant.users'],
+```
+There, that's all you need!
