@@ -10,8 +10,6 @@ tags:
 
 # FAQ - Frequently Asked Questions
 
-1. [Migrations in a tenant database (multi-db)](#migrations)
-
 ## Migrations
 **Problem**
 
@@ -29,4 +27,27 @@ You can do this via `artisan tinker`, create a custom artisan command (e.g. `mig
 The code might look something like this:
 ```php
 \App\Tenant::all()->map(function($tenant) { event(new Updated($tenant)); });
+```
+
+
+## SQL error while deleting a tenant
+**Problem**
+When deleting a tenant I receive a SQL error indicating it might have something to do with the deleted tenant
+
+**Solution**
+Migrations are run **after** database actions. So, in this case, Tenancy tries to run some migrations on the tenants database, by the tenants user, which at this point both won't exist anymore.
+
+You might want to change your `ConfigureMigrations` listener to take that into account:
+```php
+class ConfigureTenantMigrations
+{
+    public function handle(ConfigureMigrations $event)
+    {
+        $event->path(database_path('tenant/migrations'));
+
+        if($event->event instanceof Deleted) {
+            $event->disable();
+        }
+    }
+}
 ```
