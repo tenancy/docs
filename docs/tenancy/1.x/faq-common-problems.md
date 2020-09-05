@@ -82,6 +82,6 @@ It's simple. Form validation in Laravel **does not** use your models! So, to get
 
 Luckily, all you need to do is to prefix the table name with the right connection name.
 ```php
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:tenant.users'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:' . Tenancy::getTenantConnectionName() . '.users'],
 ```
 There, that's all you need!
