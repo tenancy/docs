@@ -41,6 +41,13 @@ Migrations are run **after** database actions. So, in this case, Tenancy tries t
 
 You might want to change your `ConfigureMigrations` listener to take that into account:
 ```php
+<?php
+
+namespace App\Listeners;
+
+use Tenancy\Hooks\Migration\Events\ConfigureMigrations;
+use Tenancy\Tenant\Events\Deleted;
+
 class ConfigureTenantMigrations
 {
     public function handle(ConfigureMigrations $event)
@@ -52,6 +59,7 @@ class ConfigureTenantMigrations
         }
     }
 }
+
 ```
 
 ## Form validations are run against the system database instead of the tenants database
