@@ -25,6 +25,9 @@ tags:
 
 The purpose of this package is to allow running custom functions when a Tenant is updated.
 
+**Requirements**
+- A [Tenant](tenant-what-is) that dispatches the `Created`, `Updated`, and/or `Deleted` [lifecycle events](hooks-general#events).
+
 **Use Cases**
 
 - Register a new SSL Certificate
@@ -97,7 +100,7 @@ class SimpleHandler implements HostnameHandler
 {
     public function handle(Event $event): void
     {
-        if($this->hasValidDomains($event->tenant)){
+        if(!$this->hasValidDomains($event->tenant)){
         Mail::to($event->tenant->email)->send(new DomainsNotValid($event->tenant->getHostnames()));
         }
     }

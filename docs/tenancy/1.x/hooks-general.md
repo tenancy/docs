@@ -13,8 +13,8 @@ tags:
 - [Overview](#overview)
 - [Events](#events)
 - [Priority](#priority)
-- [Custom Hooks](#custom-hooks)
 - [Available Hooks](#available-hooks)
+- [Next Steps](#next-steps)
 
 ## Overview
 
@@ -72,7 +72,7 @@ have persisted and correct values are used by the hooks.
 
 For hooks to be executed in the right sequence (eg migrations running after the database is created),
 the hooks require a priority. Make sure your hooks use the correct value. Hooks are ran from lowest
-to highest.
+to highest priority.
 
 - Databases created, updated and deleted: `-100`
 - Migrations, if hooks-migrations is enabled: `-50`
@@ -90,3 +90,9 @@ migrations and seeds are done, use a value higher than -50.
 [Migrations](hooks-migrations)
 
 [Hostname](hooks-hostname)
+
+## Next Steps
+
+### Identification
+
+[Identification Drivers](identification-general) will be how your application determins which tenant should be loaded during a request, command, or job.

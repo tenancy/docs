@@ -24,11 +24,11 @@ tags:
 
 **Purpose**
 
-The purpose of this package is to allow a [Tenant](what-is-a-tenant) to be identified though console commands
+The purpose of this package is to allow a [Tenant](tenant-what-is) to be identified though console commands
 
 **Requirements**
 
-The Tenant [must be registered in the TenantResolver](identification-general)
+The Tenant [must be registered in the TenantResolver](tenant-setup)
 
 **Use Cases**
 
@@ -44,7 +44,7 @@ In order to allow a tenant to be identified with the Console driver, all
 commands have gained two new options, `--tenant` and `--tenant-identifier`.
 
 For a tenant to be identified with the Console driver, you
-need to apply a Contract to the [tenant][what-is-a-tenant] class and implement the required
+need to apply a Contract to the [tenant][tenant-what-is] class and implement the required
 methods.
 
 ## Installation
