@@ -26,7 +26,7 @@ You can do this via `artisan tinker`, create a custom artisan command (e.g. `mig
 
 The code might look something like this:
 ```php
-\App\Tenant::all()->map(function($tenant) { event(new Updated($tenant)); });
+\App\Tenant::cursor()->each(function($tenant) { event(new Updated($tenant)); });
 ```
 
 
