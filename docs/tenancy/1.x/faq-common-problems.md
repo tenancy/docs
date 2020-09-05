@@ -57,7 +57,7 @@ class ConfigureTenantMigrations
 ## Form validations are run against the system database instead of the tenants database
 **Problem**
 
-Laravel keeps trying to run validations against my system database, even though my models are using the `OnTenant` trait. What`s going on?
+Laravel keeps trying to run validations against my system database, even though my models are using the `OnTenant` trait. What's going on?
 
 *Example*
 
