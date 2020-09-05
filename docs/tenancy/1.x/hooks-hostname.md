@@ -100,7 +100,7 @@ class SimpleHandler implements HostnameHandler
 {
     public function handle(Event $event): void
     {
-        if($this->hasValidDomains($event->tenant)){
+        if(!$this->hasValidDomains($event->tenant)){
         Mail::to($event->tenant->email)->send(new DomainsNotValid($event->tenant->getHostnames()));
         }
     }
