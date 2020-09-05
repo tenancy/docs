@@ -51,6 +51,7 @@ packages:
             - database-mysql
             - database-sqlite
             meta:
+            - faq-common-problems
             - compared-to-hyn
             tutorials:
             - tutorial-basic-setup
