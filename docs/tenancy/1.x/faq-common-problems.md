@@ -93,3 +93,44 @@ Luckily, all you need to do is to prefix the table name with the right connectio
         'email' => ['required', 'string', 'email', 'max:255', 'unique:' . Tenancy::getTenantConnectionName() . '.users'],
 ```
 There, that's all you need!
+
+## I need to run some code after my affects are finished
+**Problem**
+
+I need to do some stuff directly after my affects are finished, but before the rest of the app is run
+
+*Example*
+
+You might be using [PHP API Wrapper](https://github.com/CristalTeam/php-api-wrapper) in your application, and you need to configure it based on your tenant; AFTER your [affects-config](affects-configs) is finished. 
+
+**Solution**
+
+Instead of listening to some specific event fired by the affect, just add a second listener for `Tenancy\Affects\Configs\Events\ConfigureConfig`
+
+
+Before:
+```php
+class EventServiceProvider extends ServiceProvider
+{
+    protected $listen = [
+        \Tenancy\Affects\Configs\Events\ConfigureConfig::class => [
+            ConfigureTenantConfigs::class,
+        ],
+    ];
+}
+```
+
+After:
+```php
+class EventServiceProvider extends ServiceProvider
+{
+    protected $listen = [
+        \Tenancy\Affects\Configs\Events\ConfigureConfig::class => [
+            ConfigureTenantConfigs::class,
+            ConfigureApiWrapper::class,
+        ],
+    ];
+}
+```
+
+Done.
