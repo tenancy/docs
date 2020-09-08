@@ -101,7 +101,7 @@ I need to do some stuff directly after my affects are finished, but before the r
 
 *Example*
 
-You might be using [PHP API Wrapper](https://github.com/CristalTeam/php-api-wrapper) in your application, and you need to configure it based on your tenant; AFTER your [affects-config](affects-configs) is finished. 
+You might be using a third party package in your application, and you need to configure it based on your tenant; AFTER your [affects-config](affects-configs) is finished. 
 
 **Solution**
 
@@ -127,7 +127,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         \Tenancy\Affects\Configs\Events\ConfigureConfig::class => [
             ConfigureTenantConfigs::class,
-            ConfigureApiWrapper::class,
+            ConfigurePackage::class,
         ],
     ];
 }
