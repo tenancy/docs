@@ -76,6 +76,7 @@ namespace App\Traits;
 
 use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
 use Hyn\Tenancy\Database\Connection;
+use Hyn\Tenancy\Environment;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\Console\Exception\RuntimeException;
 use Symfony\Component\Console\Input\InputOption;
@@ -88,6 +89,11 @@ trait MutatesTinkerCommand
     private $connection;
 
     /**
+     * @var Environment
+     */
+    private $environment;
+
+    /**
      * @var WebsiteRepository
      */
     private $websites;
@@ -95,9 +101,10 @@ trait MutatesTinkerCommand
     public function __construct()
     {
         parent::__construct();
-        $this->setName('tenancy:' . $this->getName());
+        $this->setName('tenancy:'.$this->getName());
         $this->websites = app(WebsiteRepository::class);
         $this->connection = app(Connection::class);
+        $this->environment = app(Environment::class);
     }
 
     /**
@@ -110,13 +117,15 @@ trait MutatesTinkerCommand
     public function handle()
     {
         $website_id = $this->option('website_id');
-        try{
+        try {
             $website = $this->websites->query()->where('id', $website_id)->firstOrFail();
             $this->connection->set($website);
-            $this->info('Running Tinker on website_id: ' . $website_id);
+            $this->environment->tenant($website);
+
+            $this->info('Running Tinker on website_id: '.$website_id);
 
             parent::handle();
-            
+
             $this->connection->purge();
         } catch (ModelNotFoundException $e) {
             throw new RuntimeException(sprintf('The tenancy website_id=%d does not exist.', $website_id));
