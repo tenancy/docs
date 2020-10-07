@@ -13,7 +13,7 @@ Multi-tenancy can be really hard to understand, let alone apply in an applicatio
 
 ## Software
 Tenancy is always looking to support the latest Laravel version for their packages. This version of Tenancy supports
-- Laravel 7.x
+- Laravel 7.x or higher
 - PHP 7.2 or higher
 
 As docs can sometimes be outdated, we highly recommend you to have a look at the most recent [Github Actions](https://github.com/tenancy/tenancy/actions?query=branch%3Amaster).
