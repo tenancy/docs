@@ -18,6 +18,7 @@ packages:
             - requirements
             - installation
             - architecture
+            - architecture-decision-records
             tenants:
             - tenant-what-is
             - tenant-setup
