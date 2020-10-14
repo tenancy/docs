@@ -82,6 +82,7 @@ Now update your `app\Providers\EventServiceProvider.php` to include your new lis
     ]
     
     ...
+  ];
 ```
 
 ## Status
@@ -120,16 +121,41 @@ Route::get('/shared', function() {
 })
 ```
 
+### Accessing `OnTenant` models from a "sub-site"
+Before a model that uses the `OnTenant` trait can be used a tenant needs to be identified. Because of this it is best practice to avoid using tenant models on a non-tenant site.
+
+In events where this access is still needed, a tenant will first need to be identified within your code.
+
+The following example assumes you are trying to create an admin view that lists all products a specific tenant has in their store.
+
+`app\Http\Controllers\TenantProducts.php`
+```php
+public function index(Request $request)
+{
+  // We currently do not have a tenant identified as this is the "admin sub-site"
+
+  // Get our tenant (A Customer)
+  $customer = App\Models\Customer::firstOrFail($request->get('tenant_id'));
+  // Tell tenancy, that we want to access the above tenant
+  Tenancy::setTenant($customer)
+
+  // We are still in the "admin sub-site", but we now also have an active tenant
+  // And we can access the information stored in their database.
+
+  // We will assume that Products uses the `OnTenant` Trait
+  $tenant_products = Products::all();
+
+  // Return the products that belong to the tenant still within our "admin sub-site"
+  return $tenant_products
+
+}
+```
 
 ## Considerations to take into account
 1. **Storing users in tenant databases**
 When the User Model has the `OnTenant` trait applied to it, you will not be able to have those users login to any "non-tenant" routes. Because there is no tenant identified, it will not be possible to authenticate the user.
 To overcome this you will need to either create two different User models (Admin & User), or will need to store all users in the system database. The option you choose will depend on youre goals and objectives.
 
-2. **Models using the `OnTenant` trait**
-Much like the previous consideration, you will not be able to access any models stored within a tenant database without first identifying the tenant.
-(Tutorial at a future date)
-
-3. **Subdomain identification**
+2. **Subdomain identification**
 When using subdomain identification, it is best practice to preform an additional check when registering a new tenant that they do not try to use a subdomain you have configured for a "non-tenant site".
 I.E. Do not allow users to register the subdomains (`www`, `admin`, etc...)
