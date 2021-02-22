@@ -69,7 +69,7 @@ class ConfigureTenantModels
     {
         if($event->event->tenant)
         {
-            ConfigureModels::setConnection(
+            $event->setConnection(
                 $this->model,
                 Tenancy::getTenantConnectionName()
             );
