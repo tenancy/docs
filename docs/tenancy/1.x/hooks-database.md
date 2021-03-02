@@ -139,7 +139,7 @@ class ConfigureTenantDatabase
 
 #### Seperate Database Servers
 By default Tenancy will try to create the Tenant's database and user using the default connection.
-In cases where Tenant's are stored on different database servers you will need implement the
+In cases where Tenant's are stored on different database servers you will need to implement the
 `ManagesSystemConnection` interface.
 
 To get started have the [Tenant](what-is-a-tenant) class implement the `ManagesSystemConnection` interface
