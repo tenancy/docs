@@ -72,7 +72,7 @@ In the following example we will assume that the Tenant has a "hostname" attribu
 ```php
 class Tenant implements \Tenancy\Hooks\Hostname\Contracts\HasHostnames
 {
-    public function getHostnames()
+    public function getHostnames(): array
     {
         return [
             $this->hostname
@@ -100,8 +100,8 @@ class SimpleHandler implements HostnameHandler
 {
     public function handle(Event $event): void
     {
-        if(!$this->hasValidDomains($event->tenant)){
-        Mail::to($event->tenant->email)->send(new DomainsNotValid($event->tenant->getHostnames()));
+        if (!$this->hasValidDomains($event->tenant)) {
+            Mail::to($event->tenant->email)->send(new DomainsNotValid($event->tenant->getHostnames()));
         }
     }
 }
@@ -119,11 +119,14 @@ In the following example we will register the handler created in the previous ex
 ```php
 namespace App\Listeners;
 
+use App\Handlers\SimpleHandler;
+use Tenancy\Hooks\Hostname\Events\ConfigureHostnames;
+
 class ConfigureHostnameHandlers
 {
     public function handle(ConfigureHostnames $event)
     {
-        $event->registerHandler(new MyHandler)
+        $event->registerHandler(new SimpleHandler)
     }
 }
 ```
