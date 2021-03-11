@@ -45,6 +45,7 @@ The purpose of this package is to handle the running of migrations and seeds.
 
 - ​	`Tenancy\Hooks\Migration\Events\ConfigureMigrations`
   - `path()`
+  - `flush()`
   - `disable()`
   - `priority()`
 - `Tenancy\Hooks\Migration\Events\ConfigureSeeds`
