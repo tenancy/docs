@@ -77,7 +77,7 @@ class Customer extends Model implements Tenant, IdentifiesByQueue
             return $event->tenant;
         }
 
-        if ($event->tenant_key && $event->tenant_identifier === $this->getTenantIdentifier()) {
+        if ($event->tenant_key == $this->getTenantKey() && $event->tenant_identifier === $this->getTenantIdentifier()) {
             return $this->newQuery()
                 ->where($this->getTenantKeyName(), $event->tenant_key)
                 ->first();
