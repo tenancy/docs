@@ -67,7 +67,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->resolving(ResolvesTenants::class, function (ResolvesTenants $resolver){
             $resolver->addModel(Customer::class);
             return $resolver;
-        })
+        });
     }
 }
 ```
