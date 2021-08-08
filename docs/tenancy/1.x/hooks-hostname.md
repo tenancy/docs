@@ -126,7 +126,7 @@ class ConfigureHostnameHandlers
 {
     public function handle(ConfigureHostnames $event)
     {
-        $event->registerHandler(new SimpleHandler)
+        $event->registerHandler(new SimpleHandler);
     }
 }
 ```
