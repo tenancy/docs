@@ -8,7 +8,7 @@ tags:
     - tenant
 ---
 
-# Lifecycle Hooks
+# Affects
 
 - [Overview](#overview)
 - [Process](#Process)
