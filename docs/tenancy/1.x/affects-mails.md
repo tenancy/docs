@@ -66,7 +66,8 @@ class ConfigureTenantMails
     {
         if($tenant = $event->event->tenant)
         {
-            $event->setFrom([$tenant->email_from => $tenant->email_name]);
+            $event->alwaysFrom($tenant->mail_from, $tenant->mail_from_name);
+            $event->alwaysReplyTo($tenant->mail_replyto, $tenant->mail_replyto_name);
         }
     }
 }
