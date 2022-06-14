@@ -57,8 +57,7 @@ packages:
               - tutorial-basic-setup
               - tutorial-multi-database
         - name: 1.x
-          status: Stable
-          suggest_using: false
+          status: Deprecated
           branch: 1.x
           tree:
             getting started:
