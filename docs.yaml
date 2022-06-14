@@ -8,9 +8,57 @@ packages:
         tenant applications from the same code base. Scalable, increased
         flexibility and modularity.
       versions:
-        - name: 1.x
+        - name: 2.x
           status: Stable
           suggest_using: true
+          branch: master
+          tree:
+            getting started:
+              - introduction
+              - requirements
+              - installation
+              - architecture
+            tenants:
+              - tenant-what-is
+              - tenant-setup
+            lifecycle:
+              - hooks-general
+              - hooks-database
+              - hooks-migrations
+              - hooks-hostname
+              - hooks-custom
+            identification:
+              - identification-general
+              - identification-http
+              - identification-queue
+              - identification-console
+              - identification-environment
+            affects:
+              - affects-general
+              - affects-broadcasts
+              - affects-cache
+              - affects-configs
+              - affects-connections
+              - affects-filesystems
+              - affects-logs
+              - affects-mails
+              - affects-models
+              - affects-routes
+              - affects-urls
+              - affects-views
+            database:
+              - database-drivers
+              - database-mysql
+              - database-sqlite
+            meta:
+              - faq-common-problems
+              - compared-to-hyn
+            tutorials:
+              - tutorial-basic-setup
+              - tutorial-multi-database
+        - name: 1.x
+          status: Stable
+          suggest_using: false
           branch: master
           tree:
             getting started:
