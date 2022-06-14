@@ -11,7 +11,7 @@ packages:
         - name: 2.x
           status: Stable
           suggest_using: true
-          branch: master
+          branch: 2.x
           tree:
             getting started:
               - introduction
@@ -59,7 +59,7 @@ packages:
         - name: 1.x
           status: Stable
           suggest_using: false
-          branch: master
+          branch: 1.x
           tree:
             getting started:
             - introduction
