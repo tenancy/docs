@@ -8,7 +8,7 @@ packages:
         tenant applications from the same code base. Scalable, increased
         flexibility and modularity.
       versions:
-        - name: 2.x
+        - name: 2.0
           status: Stable
           suggest_using: true
           branch: 2.x
@@ -56,7 +56,7 @@ packages:
             tutorials:
               - tutorial-basic-setup
               - tutorial-multi-database
-        - name: 1.x
+        - name: 1.0
           status: Deprecated
           branch: 1.x
           tree:
