@@ -35,10 +35,6 @@ and `Spatie\Permission\Models\Role::class` respectively.
 
 `App\Permission.php` - extends from `SpatiePermission` and uses the `UsesTenantConnection` trait.
 ```php
-<?php
-
-namespace App;
-
 use Hyn\Tenancy\Traits\UsesTenantConnection;
 use Spatie\Permission\Models\Permission as SpatiePermission;
 
@@ -50,10 +46,6 @@ class Permission extends SpatiePermission
 
 `App\Role.php` - extends from `SpatieRole` and uses the `UsesTenantConnection` trait.
 ```php
-<?php
-
-namespace App;
-
 use Hyn\Tenancy\Traits\UsesTenantConnection;
 use Spatie\Permission\Models\Role as SpatieRole;
 
@@ -65,10 +57,6 @@ class Role extends SpatieRole
 
 `App\User.php` - notice the `HasRoles`, `UsesTenantConnection` traits we added.
 ```php
-<?php
-
-namespace App;
-
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Hyn\Tenancy\Traits\UsesTenantConnection;
@@ -103,8 +91,6 @@ that is being used here to point to your newly created models. e.g. `App\Permiss
 
 `config\permisssion.php`
 ```php
-<?php
-
 return [
 
     'models' => [
@@ -122,8 +108,6 @@ return [
 4. Creating a user in your first hostname.
 
 ```php
-<?php
-
 use App\User;
 use App\Role;
 use App\Permission;

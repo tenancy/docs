@@ -16,7 +16,7 @@ composer require tenancy/identification-driver-environment
 ```
 
 In order to allow a tenant to be identified with the Environment driver, you
-need to apply a Contract to the [tenant](what-is-a-tenant) class and implement the required
+need to apply a Contract to the [tenant](tenant-what-is) class and implement the required
 methods.
 
 This allows you to set up your own identification requirements based on environment variables, eg:
@@ -27,10 +27,6 @@ This allows you to set up your own identification requirements based on environm
 ## Usage
 
 ```php
-<?php
-
-namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 use Tenancy\Identification\Concerns\AllowsTenantIdentification;
 use Tenancy\Identification\Contracts\Tenant;
@@ -64,8 +60,6 @@ class Customer extends Model implements Tenant, IdentifiesByEnvironment
 Make sure to register the model in the identification resolver:
 
 ```php
-<?php
-
 namespace App\Providers;
 
 use App\Customer;

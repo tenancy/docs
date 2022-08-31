@@ -8,6 +8,12 @@ tags:
     - tenant
 ---
 
+# Affects
+
+- [Overview](#overview)
+- [Process](#Process)
+
+## Overview
 Affects change the behaviour of your Laravel application by integrating closely with the
 framework. You can modify routes, views and much more by using an affect or creating
 your own!
@@ -18,6 +24,8 @@ you to hook into. This makes it incredibly easy to implement your own specific m
 without the hard work of hooking into the Laravel ecosystem or knowing the inner workings of 
 the tenancy framework.
 
+## Process
+
 The easiest way to listen to the events and influence the affects to do your bidding, is by
 creating a listener in the EventServiceProvider. Let's take the [Routes Affects](affects-routes)
 as an example.
@@ -25,8 +33,6 @@ as an example.
 First, create a listener.
 
 ```php
-<?php
-
 namespace App\Listeners;
 
 use Tenancy\Affects\Routes\Events\ConfigureRoutes;
@@ -48,8 +54,6 @@ class TenantRoutes
 Now register that listener in your EventServiceProvider for instance.
 
 ```php
-<?php
-
 namespace App\Providers;
 
 use App\Listeners\TenantRoutes;

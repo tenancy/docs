@@ -10,8 +10,6 @@ This article describes how to enable tenant awareness for the native Laravel tin
 First, create a trait named `MutatesTinkerCommand` with the following content:
 
 ```php
-<?php
-
 namespace App\Traits;
 
 use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
@@ -78,8 +76,6 @@ You can only tinker on one database at a time, therefore, the `website_id` needs
 Second, create a new console command `TinkerCommand` that uses the trait above.
 
 ```php
-<?php
-
 namespace App\Console\Tinker;
 
 use Laravel\Tinker\Console\TinkerCommand as BaseCommand;
@@ -94,8 +90,6 @@ class TinkerCommand extends BaseCommand
 Third, add the `TinkerCommand` to your Console Kernel `$commands` array.
 
 ```php
-<?php
-
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;

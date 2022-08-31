@@ -27,9 +27,8 @@ Add a `TenancyCacheServiceProvider` with these contents
 (in this example `app/Providers/TenancyCacheServiceProvider.php`):
 
 ```php
-<?php
-
 namespace App\Providers;
+
 use Illuminate\Cache\CacheServiceProvider;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
