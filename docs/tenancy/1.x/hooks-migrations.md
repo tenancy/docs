@@ -114,8 +114,6 @@ Example:
 php artisan migrate --tenant=1 --database=tenant --path=database/tenant/migrations
 ```
 
-#### Configuring Seeding
-=======
 ## Seeds
 
 ### Seeds Configuration
