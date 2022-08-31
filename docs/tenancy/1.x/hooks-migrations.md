@@ -43,7 +43,7 @@ The purpose of this package is to handle the running of migrations and seeds.
 
 **Events & Methods**
 
-- ​	`Tenancy\Hooks\Migration\Events\ConfigureMigrations`
+- `Tenancy\Hooks\Migration\Events\ConfigureMigrations`
   - `path()`
   - `flush()`
   - `disable()`

@@ -43,7 +43,7 @@ The purpose of this package is to handle the running of migrations and seeds.
 
 **Events & Methods**
 
-- ​	`Tenancy\Hooks\Migration\Events\ConfigureMigrations`
+- `Tenancy\Hooks\Migration\Events\ConfigureMigrations`
   - `path()`
   - `flush()`
   - `disable()`
@@ -95,6 +95,23 @@ class ConfigureTenantMigrations
         $event->path(database_path('tenant/migrations'));
     }
 }
+```
+
+#### Running migrations manually
+
+If you have migration hook set up, you can fire `Tenancy\Tenant\Events\Updated` event, which will trigger hooks and run the migrations:
+```php
+event(new \Tenancy\Tenant\Events\Updated($tenant));
+```
+
+Alternativelly, you can use `php artisan migrate` command by passing addditional parameters:
+* `--tenant` parameter will specify which tenant to run migrations for. This requires [console identification](identification-console).
+* `--database` parameter will tell migrations to run on `tenant` connection, which is set up dinamically using [affects-connections](affects-connections).
+* `--path` parameter will specify migration path.
+
+Example:
+```
+php artisan migrate --tenant=1 --database=tenant --path=database/tenant/migrations
 ```
 
 ## Seeds
