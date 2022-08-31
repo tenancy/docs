@@ -27,6 +27,8 @@ For a quick, simplified installation you can install everything at once:
 composer require tenancy/tenancy
 ```
 
+> IMPORTANT: You will need to manually enable your [database driver of choice](https://tenancy.dev/docs/tenancy/2.x/database-drivers), by adding the related service provider to `app.php`. 
+
 > CAUTION: This will load specific non-intrusive Affects by default. You can check which are loaded by looking in the `composer.json` of the repository.
 
 This is an easy way of giving this toolkit a spin!
