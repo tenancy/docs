@@ -44,7 +44,7 @@ Register the following ServiceProvider:
   - `Tenancy\Affects\Broadcasts\Provider::class`
 
 ## Configuration
-Once you've installed the package, all you have to do is configure the package. You can configure this package by listening to the `Tenancy\Affects\Broadcasts\Events\ConfigureBroadcasts` event. Once you're listening to the event, you can start configuring your `tenant` broadcast driver with the provided `$config` array.
+Once you've installed the package, all you have to do is configure the package. You can configure this package by listening to the `Tenancy\Affects\Broadcasts\Events\ConfigureBroadcast` event. Once you're listening to the event, you can start configuring your `tenant` broadcast driver with the provided `$config` array.
 
 ### Example
 In the below example, we will create a pusher driver for the tenant broadcast driver.
@@ -53,11 +53,11 @@ In the below example, we will create a pusher driver for the tenant broadcast dr
 ```php
 namespace App\Listeners;
 
-use Tenancy\Affects\Broadcasts\Events\ConfigureBroadcasts;
+use Tenancy\Affects\Broadcasts\Events\ConfigureBroadcast;
 
 class ConfigureTenantBroadcast
 {
-    public function handle(ConfigureBroadcasts $event)
+    public function handle(ConfigureBroadcast $event)
     {
         $event->config = [
             'driver' => 'pusher',
