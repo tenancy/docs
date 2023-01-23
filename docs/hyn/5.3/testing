@@ -1,0 +1,182 @@
+---
+title: Testing
+icon: fal fa-vial
+---
+
+If you want to run tests for your tenant-related code, and benefit from the speed-boost
+given by an in-memory SQLite database, you will need to do a few things.
+
+## Add some helper classes to your test environment 
+
+### A driver for SQLite
+
+```php
+<?php
+
+namespace Tests\Infrastructure;
+
+class TestSQLiteDriver implements DatabaseGenerator
+{
+    public function created(Created $event, array $config, Connection $connection): bool
+    {
+        return true;
+    }
+    
+    public function updated(Updated $event, array $config, Connection $connection): bool
+    {
+        return true;
+    }
+    
+    public function deleted(Deleted $event, array $config, Connection $connection): bool
+    {
+        return true;
+    }
+}
+```
+
+### A base test case for all tenant-related tests
+
+```php
+<?php
+
+namespace Tests\Infrastructure;
+
+use Hyn\Tenancy\Contracts\CurrentHostname;
+use Hyn\Tenancy\Contracts\Repositories\HostnameRepository;
+use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
+use Hyn\Tenancy\Models\Hostname;
+use Hyn\Tenancy\Models\Website;
+use Hyn\Tenancy\Providers\Tenants\RouteProvider;
+use Tests\Infrastructure\Database\TestSQLiteDriver;
+
+abstract class TenantAwareTestCase extends TestCase
+{
+    protected $website;
+    protected $hostname;
+
+    protected function setUp()
+    {
+        parent::setUp();
+
+        $this->registerTestDatabaseDriver();
+        $this->bypassTenantConnectionSettings();
+
+        $this->migrateSystemDatabase();
+        [$this->website, $this->hostname] = $this->createTestTenant();
+
+        $this->setTenantDatabaseConnectionConfig();
+        $this->setCurrentHostname($this->hostname);
+        $this->registerTenantRoutes();
+        $this->migrateTenantDatabase();
+    }
+
+    protected function migrateSystemDatabase(): void
+    {
+        $this->artisan('migrate:fresh', [
+            // this is a connection name, not a database name!!!
+            '--database' => 'system',
+            '--force'    => true,
+            '--path'     => \database_path('migrations'),
+            '--realpath' => true,
+        ]);
+    }
+
+    protected function migrateTenantDatabase(): void
+    {
+        $this->artisan('migrate:fresh', [
+            // this is a connection name, not a database name!!!
+            '--database' => 'tenant',
+            '--force'    => true,
+            '--path'     => config('tenancy.db.tenant-migrations-path'),
+            '--realpath' => true,
+        ]);
+    }
+
+    protected function registerTenantRoutes(): void
+    {
+        (new RouteProvider(app()))->boot();
+    }
+
+    protected function setCurrentHostname(Hostname $hostname): void
+    {
+        app()->singleton(CurrentHostname::class, function () use ($hostname) {
+            return $hostname;
+        });
+    }
+
+    protected function setTenantDatabaseConnectionConfig(): void
+    {
+        config([
+            'database.connections.tenant' => [
+                'driver'   => 'sqlite',
+                'database' => ':memory:',
+            ],
+        ]);
+    }
+
+    protected function createTestTenant(): array
+    {
+        $website = new Website();
+        app(WebsiteRepository::class)->create($website);
+
+        $hostname = new Hostname();
+        $hostname->fqdn = 'testing.example.com';
+        $hostname = app(HostnameRepository::class)->create($hostname);
+        app(HostnameRepository::class)->attach($hostname, $website);
+
+        return [$website, $hostname];
+    }
+
+    protected function registerTestDatabaseDriver(): void
+    {
+        app('tenancy.db.drivers')->put('sqlite', TestSQLiteDriver::class);
+    }
+
+    protected function bypassTenantConnectionSettings(): void
+    {
+        config(['tenancy.db.tenant-division-mode' => 'bypass']);
+    }
+}
+
+```
+
+## Check the configuration files
+
+### config/database.php
+
+````php
+'system' => [
+    'driver' => env('TENANCY_DRIVER', 'mysql'),
+    'host' => env('TENANCY_HOST', '127.0.0.1'),
+    'port' => env('TENANCY_PORT', '3306'),
+    'database' => env('TENANCY_DATABASE', 'tenancy'),
+    'username' => env('TENANCY_USERNAME', 'tenancy'),
+    'password' => env('TENANCY_PASSWORD', ''),
+    'unix_socket' => env('DB_SOCKET', ''),
+    'charset' => 'utf8mb4',
+    'collation' => 'utf8mb4_unicode_ci',
+    'prefix' => '',
+    'strict' => true,
+    'engine' => null,
+],
+```
+
+## Update your phpunit configuration
+
+You need to indicate to PHP Unit that you want to use SQLite as your database.
+
+```xml
+<env name="DB_CONNECTION" value="system"/>
+<env name="TENANCY_DRIVER" value="sqlite"/>
+<env name="TENANCY_DATABASE" value=":memory:"/>
+```
+
+## Enjoy
+
+You should now be ready to create your first test. Do not forget to extend the `TenantAwareTestCase` 
+class instead of the default `TestCase` class.
+
+## Troubleshooting
+
+Make sure that PHPUnit is really using your own `PHPUnit.xml` configuration file. Else, the environment 
+variables will not be taken into account.
