@@ -103,6 +103,7 @@ packages:
             tutorials:
             - tutorial-basic-setup
             - tutorial-multi-database
+            - tutorial-non-tenant
     - name: Hyn
       description: >
         Run multiple websites using the same Laravel installation while
