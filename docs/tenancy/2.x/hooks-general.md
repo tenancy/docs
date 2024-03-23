@@ -95,4 +95,4 @@ migrations and seeds are done, use a value higher than -50.
 
 ### Identification
 
-[Identification Drivers](identification-general) will be how your application determins which tenant should be loaded during a request, command, or job.
+[Identification Drivers](identification-general) will be how your application determines which tenant should be loaded during a request, command, or job.
