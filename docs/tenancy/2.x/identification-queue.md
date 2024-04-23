@@ -41,6 +41,8 @@ One of the most powerful features in Laravel are the [queues](https://laravel.co
 
 The package already does a lot of work for you, if an tenant is identified at the moment a job is queued, it will remember which tenant it was. It will also provide you with some powerful override tools in case you want to queue something for a different tenant.
 
+> Note: Using the sync queue driver or calling `dispatchSync()` will emit a `Switched` event, even if you have already identified the tenant via HTTP, CLI, or environment identification driver.
+
 ## Installation
 
 ### Using Tenancy/Framework
@@ -57,6 +59,7 @@ Register the following ServiceProvider:
 In order to enable queue identification for a tenant, it will have to implement the specific contract `Tenancy\Identification\Drivers\Queue\Contracts\IdentifiesByQueue`. You will see that in this function you will get a simple custom `Processing` event which will contain one of these 2 pieces of information:
 - The default provided `tenant_key` and `tenant_identifier` that are registered if a tenant was identified when a job was queued.
 - The [overridden](#overriding) `tenant`, `tenant_key` or `tenant_identifier`, which you can provide yourself.
+
 
 ### Example
 In the example below we will first check if an override tenant has been provided. If that is not the case, we will simply check if we can find the tenant in this model.
